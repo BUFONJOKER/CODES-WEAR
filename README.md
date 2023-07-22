@@ -42,4 +42,3 @@ Copyright © 2023 [ARJ](https://github.com/BUFONJOKER).
 This project is [mani](mani.com) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
