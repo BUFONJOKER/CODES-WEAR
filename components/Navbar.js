@@ -4,14 +4,16 @@ import Image from "next/image";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 export default function Navbar() {
+  
   return (
     <nav
-      className="navbar navbar-expand-md sticky-top py-3 navbar-dark"
+      className="navbar shadow-lg rounded-pill navbar-expand-md sticky-top py-3 navbar-dark"
       style={{ backgroundColor: "#121F3E" }}
+      data-bss-hover-animate="rubberBand"
       id="mainNav"
     >
       <div className="container">
-        <Link className="navbar-brand d-flex align-items-center" href="/">
+        <Link className="navbar-brand  d-flex align-items-center" href="/">
           <span className="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
             <Image src="/logo.jpg" alt="" width={50} height={50}></Image>
           </span>
@@ -79,7 +81,7 @@ export default function Navbar() {
             Sign up
           </Link>
 
-          <Link className="nav-link text-white" href="cart">
+          <Link className="nav-link text-white" href="">
           <AiOutlineShoppingCart className="fs-2"/>
           </Link>
         </div>
