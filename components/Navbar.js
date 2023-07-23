@@ -6,10 +6,10 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 export default function Navbar() {
   
   return (
-    <nav
+    <nav 
       className="navbar shadow-lg rounded-pill navbar-expand-md sticky-top py-3 navbar-dark"
       style={{ backgroundColor: "#121F3E" }}
-      data-bss-hover-animate="rubberBand"
+     
       id="mainNav"
     >
       <div className="container">
