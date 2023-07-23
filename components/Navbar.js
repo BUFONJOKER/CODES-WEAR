@@ -73,12 +73,13 @@ export default function Navbar() {
               </div>
             </li>
           </ul>
+
           <Link className="btn btn-primary shadow m-3" role="button" href="/">
             Sign up
           </Link>
 
           <Link className="nav-link text-white" href="contact">
-            Cart
+          <Image src="/cart.png" alt="" width={50} height={50}></Image>
           </Link>
         </div>
       </div>
