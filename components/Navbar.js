@@ -31,7 +31,7 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-             <li className="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" href="services.html">
                 Services
               </Link>
@@ -73,13 +73,13 @@ export default function Navbar() {
               </div>
             </li>
           </ul>
-          <a
-            className="btn btn-primary shadow"
-            role="button"
-            href="signup.html"
-          >
+          <Link className="btn btn-primary shadow m-3" role="button" href="/">
             Sign up
-          </a>
+          </Link>
+
+          <Link className="nav-link text-white" href="contact">
+            Cart
+          </Link>
         </div>
       </div>
     </nav>
