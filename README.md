@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-npm install
+npx create-next-app codes_wear
 ```
 
 ## Usage
