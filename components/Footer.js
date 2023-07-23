@@ -70,12 +70,20 @@ export default function Footer() {
             </div>
             <div className="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last">
               <div className="fw-bold d-flex align-items-center mb-2">
-              <Link className="navbar-brand d-flex align-items-center" href="/">
-          <span className="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
-            <Image src="/logo.jpg" alt="" width={50} height={50}></Image>
-          </span>
-          <span className="text-white">CodesWear</span>
-        </Link>
+                <Link
+                  className="navbar-brand d-flex align-items-center"
+                  href="/"
+                >
+                  <span className="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
+                    <Image
+                      src="/logo.jpg"
+                      alt=""
+                      width={50}
+                      height={50}
+                    ></Image>
+                  </span>
+                  <span className="text-white">CodesWear</span>
+                </Link>
               </div>
               <p className=" text-white">
                 Sem eleifend donec molestie, integer quisque orci aliquam.
