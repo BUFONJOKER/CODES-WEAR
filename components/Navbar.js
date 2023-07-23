@@ -32,9 +32,9 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="services.html">
+              <a className="nav-link" href="services.html">
                 Services
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="projects.html">
@@ -62,7 +62,7 @@ export default function Navbar() {
               </Link>
               <div className="dropdown-menu">
                 <Link className="dropdown-item" href="tshirts">
-                  T-Shirts
+                  T-shirts
                 </Link>
                 <Link className="dropdown-item" href="hoodies">
                   Hoodies
