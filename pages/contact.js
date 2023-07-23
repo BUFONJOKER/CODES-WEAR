@@ -1,20 +1,36 @@
+import { useState } from "react";
 import React from "react";
 
 export default function Contact() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Your message has been sent!");
+    setEmail("");
+    setMessage("");
+    setName("");
+
+    
+  }
+
   return (
     <div>
       <section className="py-5">
         <div className="container py-5">
           <div className="row mb-5">
             <div className="col-md-8 col-xl-6 text-center mx-auto">
-              <p className="fw-bold text-white mb-2">Contacts</p>
-              <h2 className="fw-bold text-white">How you can reach us</h2>
+              <p className="fw-bold text-white mb-2 fs-1">Contacts</p>
+              <h3 className="fw-bold text-white">How you can reach us?</h3>
             </div>
           </div>
           <div className="row d-flex justify-content-center">
             <div className="col-md-6 col-xl-4">
               <div>
-                <form className="p-3 p-xl-4" method="post">
+                <form className="p-3 p-xl-4" method="post" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <input
                       className="form-control"
@@ -22,6 +38,8 @@ export default function Contact() {
                       id="name"
                       name="name"
                       placeholder="Name"
+                      value={name}
+                      onChange={(event) => setName(event.target.value)}
                     />
                   </div>
                   <div className="mb-3">
@@ -31,6 +49,8 @@ export default function Contact() {
                       id="email"
                       name="email"
                       placeholder="Email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
                     />
                   </div>
                   <div className="mb-3">
@@ -40,12 +60,15 @@ export default function Contact() {
                       name="message"
                       rows="6"
                       placeholder="Message"
+                      value={message}
+                      onChange={(event) => setMessage(event.target.value)}
                     ></textarea>
                   </div>
                   <div>
                     <button
                       className="btn btn-primary shadow d-block w-100"
                       type="submit"
+                      
                     >
                       Send{" "}
                     </button>
