@@ -30,7 +30,7 @@ export default function Navbar() {
               <Link className="nav-link active" href="/">
                 Home
               </Link>
-            </li>mani
+            </li>
              <li className="nav-item">
               <Link className="nav-link" href="services.html">
                 Services
