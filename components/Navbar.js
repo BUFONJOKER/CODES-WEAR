@@ -27,9 +27,9 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navcol-1">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <a className="nav-link active" href="index.html">
+              <Link className="nav-link active" href="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="services.html">
@@ -42,34 +42,34 @@ export default function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="pricing.html">
-                Pricing
-              </a>
+              <Link className="nav-link" href="about">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="contacts.html">
+              <Link className="nav-link" href="contact">
                 Contacts
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="dropdown-toggle nav-link"
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
-                href="#"
+                href="/"
               >
-                Dropdown{" "}
-              </a>
+                Products{" "}
+              </Link>
               <div className="dropdown-menu">
-                <a className="dropdown-item" href="#">
-                  First Item
-                </a>
-                <a className="dropdown-item" href="#">
-                  Second Item
-                </a>
-                <a className="dropdown-item" href="#">
-                  Third Item
-                </a>
+                <Link className="dropdown-item" href="tshirts">
+                  T-shirts
+                </Link>
+                <Link className="dropdown-item" href="hoodies">
+                  Hoodies
+                </Link>
+                <Link className="dropdown-item" href="mugs">
+                  Mugs
+                </Link>
               </div>
             </li>
           </ul>
