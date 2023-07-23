@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar />
+    <Navbar/>
       <Component {...pageProps} />
       <Head>
         <title>CodesWear</title>
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Footer />
+      <Footer/>
       <script
         defer
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
