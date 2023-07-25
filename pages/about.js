@@ -6,7 +6,7 @@ export default function About() {
       <main>
         <section>
           <div class="container text-white">
-            <h1 className="text-center m-3 fs-1">About Us</h1>
+            <h1 className=" fw-bold text-center m-3 fs-1">About Us</h1>
             <p>
               Welcome to CodeSwear, where style meets innovation! We are not
               just another e-commerce store; we are a team of passionate tech

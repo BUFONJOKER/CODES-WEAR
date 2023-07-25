@@ -19,11 +19,11 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="py-5">
-        <div className="container py-5">
-          <div className="row mb-5">
+      <section className="">
+        <div className="container ">
+          <div className="row ">
             <div className="col-md-8 col-xl-6 text-center mx-auto">
-              <p className="fw-bold text-white mb-2 fs-1">Contacts</p>
+              <h1 className="fw-bold text-white m-3 fs-1">Contact Us</h1>
               <h3 className="fw-bold text-white">How you can reach us?</h3>
             </div>
           </div>
