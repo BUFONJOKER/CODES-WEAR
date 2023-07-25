@@ -26,13 +26,13 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navcol-1">
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav m-auto">
             <li className="nav-item">
               <Link className="nav-link active" href="/">
                 Home
               </Link>
             </li>
-            
+
             <li className="nav-item">
               <Link className="nav-link" href="about">
                 About
@@ -66,13 +66,16 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <Link className="btn btn-primary shadow m-3" role="button" href="/">
-            Sign up
-          </Link>
-
-          <Link className="nav-link text-white" href="">
-            <AiOutlineShoppingCart className="fs-2" />
-          </Link>
+          <li className="nav-item m-3">
+            <Link className="btn btn-primary shadow" role="button" href="/">
+              Sign up
+            </Link>
+          </li>
+          <li className="nav-item mb-3">
+            <Link className="nav-link text-white" href="/">
+              <AiOutlineShoppingCart className="fs-1" />
+            </Link>
+          </li>
         </div>
       </div>
     </nav>
