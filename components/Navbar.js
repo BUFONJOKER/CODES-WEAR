@@ -13,9 +13,9 @@ export default function Navbar() {
       <div className="container">
         <Link className="navbar-brand  d-flex align-items-center" href="/">
           <span className="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
-            <Image src="/logo.jpg" alt="" width={50} height={50}></Image>
+            <Image src="/logo.jpg" alt="" width={60} height={60}></Image>
           </span>
-          <span>CodesWear</span>
+          <span className="fs-2">Codes Wear</span>
         </Link>
         <button
           data-bs-toggle="collapse"
@@ -28,24 +28,24 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navcol-1">
           <ul className="navbar-nav m-auto">
             <li className="nav-item">
-              <Link className="nav-link active" href="/">
+              <Link className="nav-link active fs-4" href="/">
                 Home
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" href="about">
+              <Link className="nav-link fs-4" href="about">
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="contact">
+              <Link className="nav-link fs-4" href="contact">
                 Contacts
               </Link>
             </li>
             <li className="nav-item dropdown">
               <Link
-                className="dropdown-toggle nav-link"
+                className="dropdown-toggle nav-link fs-4"
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
                 href="/"
@@ -67,7 +67,7 @@ export default function Navbar() {
           </ul>
 
           <li className="nav-item m-3">
-            <Link className="btn btn-primary shadow" role="button" href="/">
+            <Link className="btn btn-primary shadow fs-4 rounded-pill" role="button" href="/">
               Sign up
             </Link>
           </li>
