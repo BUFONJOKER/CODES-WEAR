@@ -1,15 +1,13 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Navbar() {
-  
   return (
-    <nav 
+    <nav
       className="navbar shadow-lg rounded-pill navbar-expand-md sticky-top py-3 navbar-dark"
       style={{ backgroundColor: "#121F3E" }}
-     
       id="mainNav"
     >
       <div className="container">
@@ -34,16 +32,7 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="services.html">
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="projects.html">
-                Projects
-              </a>
-            </li>
+            
             <li className="nav-item">
               <Link className="nav-link" href="about">
                 About
@@ -82,7 +71,7 @@ export default function Navbar() {
           </Link>
 
           <Link className="nav-link text-white" href="">
-          <AiOutlineShoppingCart className="fs-2"/>
+            <AiOutlineShoppingCart className="fs-2" />
           </Link>
         </div>
       </div>
