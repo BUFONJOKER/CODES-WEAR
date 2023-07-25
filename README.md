@@ -1,4 +1,4 @@
-# Welcome to CodesWear 👋
+# Welcome to Codes Wear 👋
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 [![License: mani](https://img.shields.io/badge/License-mani-yellow.svg)](mani.com)
 [![Twitter: ABAAN](https://img.shields.io/twitter/follow/ABAAN.svg?style=social)](https://twitter.com/ABAAN)
@@ -27,12 +27,6 @@ npm run dev
 * Twitter: [@ABAAN](https://twitter.com/ABAAN)
 * Github: [@BUFONJOKER](https://github.com/BUFONJOKER)
 * LinkedIn: [@ABAAN](https://linkedin.com/in/ABAAN)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-[![support us](https://img.shields.io/badge/become-a patreon%20us-orange.svg?cacheSeconds=2592000)](https://www.patreon.com/mani)
 
 
 ## 📝 License
