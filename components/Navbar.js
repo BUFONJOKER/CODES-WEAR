@@ -45,7 +45,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item dropdown">
               <Link
-                className="dropdown-toggle nav-link fs-4"
+                className="dropdown-toggle nav-link fs-4 "
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
                 href="/"
@@ -64,18 +64,21 @@ export default function Navbar() {
                 </Link>
               </div>
             </li>
-          </ul>
 
-          <li className="nav-item m-3">
-            <Link className="btn btn-primary shadow fs-4 rounded-pill" role="button" href="/">
-              Sign up
-            </Link>
-          </li>
-          <li className="nav-item mb-3">
+            
+          <li className="nav-item">
             <Link className="nav-link text-white" href="/">
               <AiOutlineShoppingCart className="fs-1" />
             </Link>
           </li>
+          <li className="nav-item mx-3">
+            <Link className="btn btn-primary shadow fs-4 rounded-pill" role="button" href="/">
+              Sign up
+            </Link>
+          </li>
+          </ul>
+
+          
         </div>
       </div>
     </nav>
