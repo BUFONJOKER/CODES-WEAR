@@ -1,220 +1,414 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 export default function Tshirts() {
   return (
     <>
-    <h1 className='text-white   fw-bolder fst-italic text-center m-4 fs-1'>T-Shirts for Boys</h1>
+      <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
+        T-Shirts for Boys
+      </h1>
 
-<section className='m-5'>
-<div className="container m-5">
-<div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+      <section className="m-5">
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                
+                
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-</div>
 
-   <div className="container m-5">
-   <div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-   </div>
 
-   <div className="container m-5">
-   <div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-   </div>
 
-   <div className="container m-5">
-   <div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-   </div>
 
-   <div className="container m-5">
-   <div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-   </div>
 
-   <div className="container m-5">
-   <div className="row">
-      <div className="col-sm-6 mb-3 mb-sm-0">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
-        </div>
-      </div>
+        <div className="container m-5">
+          <div className="row">
+            <div className="col-sm-6 mb-3 mb-sm-0">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      <div className="col-sm-6">
-        <div className="card" style={{ width: "18rem" }}>
-          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
-            
+            <div className="col-sm-6">
+              <div className="card" style={{ width: "18rem" }}>
+                <Link href="">
+                  <Image
+                  src="/grey_shirt.jpg"
+                  width={100}
+                  height={200}
+                  className="card-img-top"
+                  alt=""
+                />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Pack of 5 multicolour plain half sleeves T shirt for men in
+                    wholesale price
+                  </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <b>Price:</b>Rs. 1,550
+                  </li>
+                  <li className="list-group-item">
+                    <b>Color:</b>grey
+                  </li>
+                  <li className="list-group-item">
+                    <b>Size:</b>medium
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
-            <li className="list-group-item"><b>Color:</b>grey</li>
-            <li className="list-group-item"><b>Size:</b>medium</li>
-          </ul>
         </div>
-      </div>
-    </div>
-   </div>
-</section>
+      </section>
     </>
-
-
-
-  
 
     // <div>
     //   <section>
@@ -241,13 +435,13 @@ export default function Tshirts() {
     //                     position: "absolute",
     //                   }}
     //                 >
-                    
+
     //                 </div>
     //                 <h5 className="fw-bold card-title">
     //                   Lorem ipsum dolor sit&nbsp;
     //                 </h5>
     //                 <Image alt = "" src="/logo.jpg" width={50} height={50}/>
-                    
+
     //               </div>
     //             </div>
     //           </div>
@@ -262,7 +456,7 @@ export default function Tshirts() {
     //                     position: "absolute",
     //                   }}
     //                 >
-                     
+
     //                 </div>
     //                 <h5 className="fw-bold card-title">
     //                   Lorem ipsum dolor sit&nbsp;
@@ -288,7 +482,7 @@ export default function Tshirts() {
     //                     position: "absolute",
     //                   }}
     //                 >
-                    
+
     //                 </div>
     //                 <h5 className="fw-bold card-title">
     //                   Lorem ipsum dolor sit&nbsp;
@@ -314,7 +508,7 @@ export default function Tshirts() {
     //                     position: "absolute",
     //                   }}
     //                 >
-                      
+
     //                 </div>
     //                 <h5 className="fw-bold card-title">
     //                   Lorem ipsum dolor sit&nbsp;
@@ -334,5 +528,5 @@ export default function Tshirts() {
     //     </div>
     //   </section>
     // </div>
-  )
+  );
 }
