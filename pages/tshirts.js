@@ -3,36 +3,37 @@ import Image from 'next/image'
 export default function Tshirts() {
   return (
     <>
+    <h1 className='text-white   fw-bolder fst-italic text-center m-4 fs-1'>T-Shirts for Boys</h1>
 
 <section className='m-5'>
 <div className="container m-5">
 <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
@@ -43,30 +44,30 @@ export default function Tshirts() {
    <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
@@ -77,30 +78,30 @@ export default function Tshirts() {
    <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
@@ -111,30 +112,30 @@ export default function Tshirts() {
    <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
@@ -145,30 +146,30 @@ export default function Tshirts() {
    <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
@@ -179,30 +180,30 @@ export default function Tshirts() {
    <div className="row">
       <div className="col-sm-6 mb-3 mb-sm-0">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
 
       <div className="col-sm-6">
         <div className="card" style={{ width: "18rem" }}>
-          <Image src="/logo.jpg" width={100} height={100} className="card-img-top" alt=""/>
+          <Image src="/grey_shirt.jpg" width={100} height={200} className="card-img-top" alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">Pack of 5 multicolour plain half sleeves T shirt for men in wholesale price</h5>
             
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
+            <li className="list-group-item"><b>Price:</b>Rs. 1,550</li>
+            <li className="list-group-item"><b>Color:</b>grey</li>
+            <li className="list-group-item"><b>Size:</b>medium</li>
           </ul>
         </div>
       </div>
