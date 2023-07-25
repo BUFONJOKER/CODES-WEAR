@@ -10,6 +10,8 @@ export default function Slug() {
 
 
   return (
-    <div>[slug]</div>
+    <div>
+      <h1 className='text-white'>Product Slug: {slug}</h1>
+    </div>
   )
 }
