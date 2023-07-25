@@ -62,6 +62,9 @@ export default function Navbar() {
                 <Link className="dropdown-item" href="mugs">
                   Mugs
                 </Link>
+                <Link className="dropdown-item" href="stickers">
+                  Stickers
+                </Link>
               </div>
             </li>
 
