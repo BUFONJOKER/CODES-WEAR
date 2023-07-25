@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Heading from "@/components/Heading";
 
 export default function Mugs() {
   const [shirtTitle, setShirtTitle] = useState(" White Coffe Mug");
 
   return (
     <>
+    <Heading heading="-Mugs"/>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
         Mugs
       </h1>

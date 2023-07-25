@@ -1,8 +1,12 @@
+import Heading from "@/components/Heading";
 import React from "react";
 
 export default function About() {
   return (
+    <>
+    <Heading heading="-About Us" />
     <div>
+
       <main>
         <section>
           <div class="container text-white">
@@ -89,5 +93,5 @@ export default function About() {
         </section>
       </main>
     </div>
-  );
+</>  );
 }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Heading from "@/components/Heading";
 
 export default function Hoodies() {
   const [shirtTitle, setShirtTitle] = useState("Black Hoodies");
   return (
     <>
+    <Heading heading="-Hoodies"/>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
         Hoodies
       </h1>

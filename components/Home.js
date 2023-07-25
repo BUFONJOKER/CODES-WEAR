@@ -1,8 +1,12 @@
 import React from "react";
+import Heading from "./Heading";
 
 export default function Home() {
   return (
-    <div>
+    
+    <>
+    <Heading heading="-Home" />
+      <div>
       <header className="bg-dark text-white">
         <div className="container pt-4 pt-xl-5">
           <div className="row pt-5">
@@ -480,5 +484,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

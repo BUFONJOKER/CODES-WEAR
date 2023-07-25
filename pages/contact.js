@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading";
 import { useState } from "react";
 import React from "react";
 
@@ -18,7 +19,10 @@ export default function Contact() {
   }
 
   return (
+    <>
+    <Heading heading="-Contact Us" />
     <div>
+      
       <section className="">
         <div className="container ">
           <div className="row ">
@@ -137,6 +141,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </div></>
   );
 }

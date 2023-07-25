@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Heading from "@/components/Heading";
 
 
 export default function Tshirts() {
@@ -8,6 +9,7 @@ export default function Tshirts() {
   const [shirtTitle, setShirtTitle] = useState("Grey half sleeve T-shirt");
   return (
     <>
+    <Heading heading="-T-Shirts"/>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
         T-Shirts for Boys
       </h1>
