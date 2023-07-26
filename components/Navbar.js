@@ -1,9 +1,13 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
+
+//icons
 import { AiOutlineShoppingCart, AiOutlinePlusCircle,
    AiOutlineMinusCircle, AiFillCloseCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
+
+//navbar component
 export default function Navbar() {
 
   //ref for cart
