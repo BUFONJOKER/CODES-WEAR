@@ -1,6 +1,7 @@
-import Heading from "@/components/Heading";
+import Head from "next/head";
 import { useState } from "react";
 import React from "react";
+
 
 export default function Contact() {
 
@@ -20,7 +21,9 @@ export default function Contact() {
 
   return (
     <>
-    <Heading heading="-Contact Us" />
+    <Head>
+        <title>Codes Wear-Contact Us</title>
+      </Head>
     <div>
       
       <section className="">

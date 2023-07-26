@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Heading from "@/components/Heading";
+import Head from "next/head";
 
 export default function Sticker() {
   const [stickerTitle, setStickerTitle] = useState("The Joker Stickers");
 
   return (
     <>
-    <Heading heading="-Stickers"/>
+    <Head>
+        <title>Codes Wear-Stickers</title>
+      </Head>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
         Stickers
       </h1>

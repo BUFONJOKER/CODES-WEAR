@@ -1,11 +1,13 @@
 import React from "react";
-import Heading from "./Heading";
+import Head from "next/head";
 
 export default function Home() {
   return (
     
     <>
-    <Heading heading="-Home" />
+    <Head>
+        <title>Codes Wear-Home</title>
+      </Head>
       <div>
       <header className="bg-dark text-white">
         <div className="container pt-4 pt-xl-5">
