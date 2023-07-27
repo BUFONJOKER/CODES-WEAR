@@ -47,7 +47,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -77,7 +77,7 @@ export default function Sticker() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -103,7 +103,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -133,7 +133,7 @@ export default function Sticker() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -159,7 +159,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -189,7 +189,7 @@ export default function Sticker() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -215,7 +215,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -245,7 +245,7 @@ export default function Sticker() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -271,7 +271,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -301,7 +301,7 @@ export default function Sticker() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
@@ -327,7 +327,7 @@ export default function Sticker() {
 
             <div className="col-sm-6">
               <div className="card" style={{ width: "18rem" }}>
-                <Link href={`/product/${stickerTitle}`}>
+                <Link href={`/${stickerTitle}`}>
                   <Image
                     src="/joker_sticker.jpg"
                     width={100}
