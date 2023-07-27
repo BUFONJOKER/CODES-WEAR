@@ -25,9 +25,20 @@ export default function Slug() {
           <p><AiFillStar/><AiFillStar/><AiFillStar/>
           <AiFillStar/><BsStarHalf/></p>
           <h3>Size</h3>
-          <p>S,M,L </p>
+          <p>
+          <button className='btn btn-primary m-1'>S</button>
+          <button className='btn btn-primary m-1'>M</button>
+          <button className='btn btn-primary m-1'>L</button>
+          <button className='btn btn-primary m-1'>XL</button>
+          </p>
           <h3>Color</h3>
-          <p>Red,BLUE,GReen</p>
+          <p>
+          <button className='btn btn-primary m-1'>Red</button>
+          <button className='btn btn-primary m-1'>Black</button>
+          <button className='btn btn-primary m-1'>Green</button>
+          <button className='btn btn-primary m-1'>Blue</button>
+          </p>
+          
           <button className='btn btn-primary m-1'>Buy Now</button>
           <button className='btn btn-primary'><BsCartPlus className='fs-2'/></button>
 
