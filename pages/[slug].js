@@ -62,7 +62,7 @@ export default function Slug() {
   return (
     <div className="d-flex justify-content-center m-5 text-white">
       <div className="card bg-black text-white shadow-lg"
-        style={{ width: '80%', height: '1000px' }}>
+        style={{ width: '100%', height: '1000px' }}>
         <div className="card-body">
           <Image src="/hoodies.jpg" width={100} height={200} className="card-img-top" alt="image" />
           <h1>HOODIES</h1>
@@ -79,10 +79,10 @@ export default function Slug() {
           </p>
           <h3>Color</h3>
           <p>
-            <button className='btn btn-primary m-1'>Red</button>
-            <button className='btn btn-primary m-1'>Black</button>
-            <button className='btn btn-primary m-1'>Green</button>
-            <button className='btn btn-primary m-1'>Blue</button>
+            <button className='btn btn-danger rounded-circle m-1  fs-4 text-danger'>R</button>
+            <button className='btn btn-dark rounded-circle m-1 fs-4 text-dark'>B</button>
+            <button className='btn btn-success rounded-circle m-1  fs-4 text-success'>G</button>
+            <button className='btn btn-warning rounded-circle m-1  fs-4 text-warning'>Y</button>
           </p>
 
           <button className='btn btn-primary m-1'>Buy Now</button>
