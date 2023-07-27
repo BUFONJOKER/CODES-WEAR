@@ -16,7 +16,7 @@ export default function Sticker() {
       </h1>
 
       <section className="m-5">
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
@@ -73,7 +73,7 @@ export default function Sticker() {
           </div>
         </div>
 
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
@@ -129,7 +129,7 @@ export default function Sticker() {
           </div>
         </div>
 
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
@@ -185,7 +185,7 @@ export default function Sticker() {
           </div>
         </div>
 
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
@@ -241,7 +241,7 @@ export default function Sticker() {
           </div>
         </div>
 
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>
@@ -297,7 +297,7 @@ export default function Sticker() {
           </div>
         </div>
 
-        <div className="container m-5">
+        <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "18rem" }}>

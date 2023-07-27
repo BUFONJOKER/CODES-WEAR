@@ -61,7 +61,7 @@ export default function Slug() {
 
   return (
     <div className="d-flex justify-content-center m-5 text-white">
-      <div className="card bg-black text-white"
+      <div className="card bg-black text-white shadow-lg"
         style={{ width: '80%', height: '1000px' }}>
         <div className="card-body">
           <Image src="/hoodies.jpg" width={100} height={200} className="card-img-top" alt="image" />
@@ -90,12 +90,12 @@ export default function Slug() {
             <BsCartPlus className='fs-2' /></button>
 
           <h3 className='mt-2'>Zip Code</h3>
-          <input onChange={handleZipCodeInput}
+          <input onChange={handleZipCodeInput} style={{ width: '100px' }}
             type="number"
             name="zipcode" id="zipcode" />
 
           <button onClick={handleZipCodeCheck} disabled={notClickable}
-            className='btn btn-primary m-2 fw-bold rounded-pill fs-4'>
+            className='btn btn-primary text-black m-2 fw-bold rounded-pill'>
             Check</button>
           {
             available === true ? <p className='fw-bold fs-3 text-success'>Delivery service Available</p> : null
