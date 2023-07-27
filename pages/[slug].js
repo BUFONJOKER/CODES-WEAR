@@ -42,6 +42,9 @@ export default function Slug() {
           <button className='btn btn-primary m-1'>Buy Now</button>
           <button className='btn btn-primary'><BsCartPlus className='fs-2'/></button>
 
+          <h3 className='mt-2'>Zip Code</h3>
+          <input onChange={handleZipCodeInput} className='rounded-pill' type="text" name="zipcode" id="zipcode" />
+          <button className='btn btn-primary m-2 fw-bold rounded-pill fs-4'>Check</button>
         </div>
       </div>
     </div>
