@@ -8,7 +8,7 @@ export default function Sticker() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Codes Wear-Stickers</title>
       </Head>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
@@ -37,7 +37,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -63,7 +63,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -93,7 +93,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -119,7 +119,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -149,7 +149,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -175,7 +175,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -205,7 +205,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -231,7 +231,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -261,7 +261,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -287,7 +287,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -317,7 +317,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>
@@ -343,7 +343,7 @@ export default function Sticker() {
                   <li className="list-group-item">
                     <b>Price:</b> Rs. 1,550
                   </li>
-                  
+
                   <li className="list-group-item">
                     <b>Size:</b> Medium
                   </li>

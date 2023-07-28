@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -9,7 +9,7 @@ export default function Tshirts() {
   const [shirtTitle, setShirtTitle] = useState("Grey half sleeve T-shirt");
   return (
     <>
-    <Head>
+      <Head>
         <title>Codes Wear-T-Shirts</title>
       </Head>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
@@ -21,18 +21,18 @@ export default function Tshirts() {
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
               <div className="card" style={{ width: "80%" }}>
-                
+
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
-                
-                
+
+
                 <div className="card-body">
                   <h5 className="card-title">
                     {shirtTitle}
@@ -56,12 +56,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -90,12 +90,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -120,12 +120,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -154,12 +154,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -184,12 +184,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -218,12 +218,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -248,12 +248,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -282,12 +282,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -312,12 +312,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -346,12 +346,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -376,12 +376,12 @@ export default function Tshirts() {
               <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
-                  src="/grey_shirt.jpg"
-                  width={100}
-                  height={300}
-                  className="card-img-top"
-                  alt=""
-                />
+                    src="/grey_shirt.jpg"
+                    width={100}
+                    height={300}
+                    className="card-img-top"
+                    alt=""
+                  />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
@@ -406,5 +406,5 @@ export default function Tshirts() {
       </section>
     </>
 
-      );
+  );
 }

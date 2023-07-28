@@ -7,11 +7,11 @@ import Heading from "@/components/Heading";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Component {...pageProps} />
-      <Heading/>
+      <Heading />
       <Footer />
-      
+
     </>
   );
 }

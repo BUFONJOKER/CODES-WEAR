@@ -7,7 +7,7 @@ export default function Hoodies() {
   const [shirtTitle, setShirtTitle] = useState("Black Hoodies");
   return (
     <>
-    <Head>
+      <Head>
         <title>Codes Wear-Hoodies</title>
       </Head>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">

@@ -8,7 +8,7 @@ export default function Mugs() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Codes Wear-Mugs</title>
       </Head>
       <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
