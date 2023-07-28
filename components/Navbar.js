@@ -6,7 +6,7 @@ import Image from "next/image";
 //icons
 import { AiOutlineShoppingCart, AiOutlinePlusCircle,
    AiOutlineMinusCircle, AiFillCloseCircle } from "react-icons/ai";
-import { BsFillBagCheckFill } from "react-icons/bs";
+import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
 export default function Navbar() {
@@ -149,14 +149,19 @@ export default function Navbar() {
                         <AiOutlinePlusCircle></AiOutlinePlusCircle>
                       </li>
                     </ul>
-                    <button type="button"
-                     className="btn btn-primary m-3 rounded-pill fs-2">
-                      <BsFillBagCheckFill className="mb-3 mx-2">
-                        </BsFillBagCheckFill>Checkout</button>
+                    <p className="mt-2"><button type="button" className="btn btn-primary" style={{ width: '100px' }}>
+                      <BsFillBagCheckFill className="fs-1 " />
+                      Checkout
+                    </button>
+                    <button type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
+                     <BsCartXFill className="fs-1"/>
+                      Clear Cart
+                    </button></p>
                     <AiFillCloseCircle className="btn btn-hover" 
                     onClick={closeClick} 
                     style={{ position: "absolute", right: 0, width: '70px',
                      height: '70px' }} />
+                   
 
 
                   </div>
