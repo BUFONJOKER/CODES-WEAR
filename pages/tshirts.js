@@ -20,7 +20,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 
                 <Link href={`/${shirtTitle}`}>
                   <Image
@@ -53,7 +53,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -87,7 +87,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -117,7 +117,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -151,7 +151,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -181,7 +181,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -215,7 +215,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -245,7 +245,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -279,7 +279,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -309,7 +309,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -343,7 +343,7 @@ export default function Tshirts() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"
@@ -373,7 +373,7 @@ export default function Tshirts() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }} >
+              <div className="card" style={{ width: "80%" }} >
                 <Link href={`/${shirtTitle}`}>
                   <Image
                   src="/grey_shirt.jpg"

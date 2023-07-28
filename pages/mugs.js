@@ -19,7 +19,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -48,7 +48,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -80,7 +80,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -108,7 +108,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -140,7 +140,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -168,7 +168,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -200,7 +200,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -228,7 +228,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -260,7 +260,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -288,7 +288,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -320,7 +320,7 @@ export default function Mugs() {
         <div className="container mb-2">
           <div className="row">
             <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
@@ -348,7 +348,7 @@ export default function Mugs() {
             </div>
 
             <div className="col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card" style={{ width: "80%" }}>
                 <Link href={`/${shirtTitle}`}>
                   <Image
                     src="/mug.jpg"
