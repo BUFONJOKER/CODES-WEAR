@@ -12,7 +12,7 @@ export default function About() {
 
       <main>
         <section>
-          <div class="container text-white">
+          <div className="container text-white">
             <h1 className=" fw-bold text-center m-3 fs-1">About Us</h1>
             <p>
               Welcome to CodeSwear, where style meets innovation! We are not
