@@ -41,7 +41,7 @@ export default function Navbar() {
              d-flex justify-content-center align-items-center me-2 bs-icon">
               <Image src="/logo.jpg" alt="" width={60} height={60}></Image>
             </span>
-            <span className="fs-2">Codes Wear</span>
+            <span className="fs-1 m-2">Codes Wear</span>
           </Link>
           <button
             data-bs-toggle="collapse"
@@ -54,24 +54,24 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav mt-4">
               <li className="nav-item">
-                <Link className="nav-link active fs-4" href="/">
+                <Link className="nav-link active fs-2 m-2" href="/">
                   Home
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link fs-4" href="about">
+                <Link className="nav-link fs-2 m-2" href="about">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-4" href="contact">
+                <Link className="nav-link fs-2 m-2" href="contact">
                   Contacts
                 </Link>
               </li>
               <li className="nav-item dropdown">
                 <Link
-                  className="dropdown-toggle nav-link fs-4 "
+                  className="dropdown-toggle nav-link fs-2 m-2"
                   aria-expanded="false"
                   data-bs-toggle="dropdown"
                   href="/"
@@ -99,12 +99,12 @@ export default function Navbar() {
 
 
                 <Link onClick={cartClick} 
-                className="m-2 nav-link text-white" 
+                className="m-2 nav-link text-white m-2" 
                 data-bs-toggle="collapse" 
                 href="#collapseExample" 
                 aria-expanded="false" 
                 aria-controls="collapseExample">
-                  <AiOutlineShoppingCart className="fs-1" />
+                  <AiOutlineShoppingCart className="fs-1 " />
                 </Link>
 
 
