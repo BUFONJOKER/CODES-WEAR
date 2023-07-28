@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
 
+
 //icons
 import { AiOutlineShoppingCart, AiOutlinePlusCircle,
    AiOutlineMinusCircle, AiFillCloseCircle } from "react-icons/ai";
@@ -28,21 +29,25 @@ export default function Navbar() {
 
   return (
     <>
+
+    <div className="sticky-top" style={{ backgroundColor: "black" }}>
+    
+    <header className="" style={{ backgroundColor: "black" }}>
+    <Link className="nav-link active fs-1 text-white text-center" href="/">
+          
+          <Image className="mx-3" src="/logo.jpg" alt="" width={60} height={60}></Image>
+     
+        Codes Wear
+      </Link>
+    </header>
+    
       <nav
-        className="navbar shadow-lg navbar-expand-md sticky-top py-3 navbar-dark"
-        style={{ backgroundColor: "black" }}
+        className="navbar shadow-lg navbar-expand-md navbar-dark"
+        
         id="mainNav"
       >
-        <div className="container">
-          <Link className="navbar-brand  d-flex align-items-center" href="/">
-            <span 
-            className="bs-icon-sm 
-            bs-icon-circle bs-icon-primary shadow
-             d-flex justify-content-center align-items-center me-2 bs-icon">
-              <Image src="/logo.jpg" alt="" width={60} height={60}></Image>
-            </span>
-            <span className="fs-1 m-2">Codes Wear</span>
-          </Link>
+        <div className="container text-center">
+          
           <button
             data-bs-toggle="collapse"
             className="navbar-toggler"
@@ -52,26 +57,26 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navcol-1">
-            <ul className="navbar-nav mt-4">
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active fs-2 m-2" href="/">
+                <Link className="nav-link active fs-1 m-3" href="/">
                   Home
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link fs-2 m-2" href="about">
+                <Link className="nav-link fs-1 m-3" href="about">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-2 m-2" href="contact">
+                <Link className="nav-link fs-1 m-3" href="contact">
                   Contacts
                 </Link>
               </li>
               <li className="nav-item dropdown">
                 <Link
-                  className="dropdown-toggle nav-link fs-2 m-2"
+                  className="dropdown-toggle nav-link fs-1 m-3"
                   aria-expanded="false"
                   data-bs-toggle="dropdown"
                   href="/"
@@ -99,12 +104,12 @@ export default function Navbar() {
 
 
                 <Link onClick={cartClick} 
-                className="m-2 nav-link text-white m-2" 
+                className="nav-link text-white m-4" 
                 data-bs-toggle="collapse" 
                 href="#collapseExample" 
                 aria-expanded="false" 
                 aria-controls="collapseExample">
-                  <AiOutlineShoppingCart className="fs-1 " />
+                  <AiOutlineShoppingCart className="fs-1"/>
                 </Link>
 
 
@@ -113,7 +118,7 @@ export default function Navbar() {
 
                 <div ref={ref} className="collapse" id="collapseExample">
 
-                  <div className="card card-body " style={{ width: "300px", 
+                  <div className="card card-body" style={{ width: "350px", 
                   height: "300px", position: "absolute", 
                   right: 6, backgroundColor: "gray" }}>
                     <h2 className="text-white">Shopping Cart</h2>
@@ -172,6 +177,7 @@ export default function Navbar() {
 
         </div>
       </nav>
+    </div>
 
 
 
