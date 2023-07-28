@@ -62,7 +62,7 @@ export default function Slug() {
   return (
     <div className="d-flex justify-content-center m-5 text-white">
       <div className="card bg-black text-white shadow-lg"
-        style={{ width: '100%', height: '1000px' }}>
+        style={{ width: '500px', height: '1000px' }}>
         <div className="card-body text-center">
           <Image src="/hoodies.jpg" width={100} height={200} className="card-img-top" alt="image" />
           <h1>HOODIES</h1>
