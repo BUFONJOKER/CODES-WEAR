@@ -6,7 +6,7 @@ import { BsStarHalf } from 'react-icons/bs';
 import { BsCartPlus } from 'react-icons/bs';
 
 
-//slug is dynamic route
+// slug is dynamic route
 export default function Slug() {
 
   //router declare to get the slug
