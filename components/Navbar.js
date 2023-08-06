@@ -129,27 +129,27 @@ export default function Navbar() {
                       <ul>
 
                         <li className="fs-4 text-white">T-Shirts
-                          &nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>1
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
                           <AiOutlinePlusCircle></AiOutlinePlusCircle>
 
                         </li>
 
                         <li className="fs-4 text-white">Hoodies
                           &nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>1
+                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
                           <AiOutlinePlusCircle></AiOutlinePlusCircle>
                         </li>
 
                         <li className="fs-4 text-white">Mugs
-                          &nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>1
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
                           <AiOutlinePlusCircle></AiOutlinePlusCircle>
                         </li>
 
                         <li className="fs-4 text-white">Stickers
-                          &nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>1
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
                           <AiOutlinePlusCircle></AiOutlinePlusCircle>
                         </li>
                       </ul>
