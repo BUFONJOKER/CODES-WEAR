@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
 
+  const [quantity, setQuantity] = useState(0);
+
   // cart state
   const [cart, setCart] = useState({});
 
@@ -13,32 +15,33 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
 
   // use effect to check if cart is in local storage
-  useEffect(() => {
-    console.log('useEffect in _app.js');
+  // useEffect(() => {
+  //   console.log('useEffect in _app.js');
 
-    try {
+  //   try {
 
-      if (localStorage.getItem('cart')) {
-        setCart(JSON.parse(localStorage.getItem('cart')));
-      }
+  //     if (localStorage.getItem('cart')) {
+  //       setCart(JSON.parse(localStorage.getItem('cart')));
+  //     }
 
-    }
+  //   }
 
-    catch (error) {
-      console.log(error);
-    }
-  }, []) 
+  //   catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
 
 
   // add to cart function
   const addToCart = (itemCode, quantity, price, name, variant, size) => {
-
+   
     // create a copy of the cart state
     let newCart = cart;
+  
 
     // check if item is already in cart
-    if (itemCode in cart) {
+    if (cart[itemCode]) {
       // if item is in cart, increase quantity
       newCart[itemCode].quantity = cart[itemCode].quantity + quantity;
     }
@@ -59,13 +62,20 @@ export default function App({ Component, pageProps }) {
     setCart(newCart);
 
     // update cart in local storage
-    sveCart(JSON.stringify(newCart));
+    saveCart(JSON.stringify(newCart));
+
+    setQuantity(cart[itemCode].quantity)
   }
 
   // update cart in local storage
   const saveCart = (newCart) => {
+  
+      // // localStorage is available
+      // localStorage.setItem('cart', JSON.stringify(newCart));
+  
+  
 
-    localStorage.setItem('cart', newCart);
+    
 
     let subTotal = 0;
     let keys = Object.keys(newCart);
@@ -83,8 +93,7 @@ export default function App({ Component, pageProps }) {
 
     // clear cart state
     setCart({});
-    //show message
-    alert("Cart Cleared");    
+     
     
 
     // clear cart in local storage
@@ -92,20 +101,23 @@ export default function App({ Component, pageProps }) {
   }
 
   // remove item from cart function
-  const removeFromCart = (itemCode) => {
+  const removeFromCart = (itemCode, quantity, price, name, variant, size) => {
 
     // create a copy of the cart state
     let newCart = cart;
-
+    
+    
     // check if item is in cart then decrease quantity 
-    if (itemCode in cart) {
+    if (newCart[itemCode]) {
       newCart[itemCode].quantity = cart[itemCode].quantity - 1;
     }
 
     // if item quantity is 0, remove it from cart
     if (newCart[itemCode].quantity <= 0) {
-      delete newCart[itemCode];
+      newCart[itemCode].quantity = 0;
     }
+
+    setQuantity(cart[itemCode].quantity)
 
   }
 
@@ -113,7 +125,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Heading />
 
-      <Navbar cart={cart} addToCart={addToCart} 
+      <Navbar cart={cart} addToCart={addToCart} quantity = {quantity} 
       removeFromCart={removeFromCart} clearCart={clearCart}
        subTotal={subTotal}
        />
@@ -126,4 +138,4 @@ export default function App({ Component, pageProps }) {
 
     </>
   );
-}
+  }

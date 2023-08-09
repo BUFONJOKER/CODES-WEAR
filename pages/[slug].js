@@ -7,7 +7,7 @@ import { BsCartPlus } from 'react-icons/bs';
 
 
 // slug is dynamic route
-export default function Slug() {
+export default function Slug({addToCart}) {
 
   //router declare to get the slug
   const router = useRouter();
@@ -86,7 +86,7 @@ export default function Slug() {
           </p>
 
           <button className='btn btn-primary m-1'>Buy Now</button>
-          <button className='btn btn-primary'>
+          <button onClick={()=>{addToCart(slug,1,243,"MANI","red","XL")}} className='btn btn-primary'>
             <BsCartPlus className='fs-2' /></button>
 
           <h3 className='mt-2'>Zip Code</h3>

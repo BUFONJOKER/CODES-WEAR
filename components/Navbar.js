@@ -12,9 +12,8 @@ import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
 export default function Navbar({ cart, addToCart, subTotal,
-                               removeFromCart,clearCart}) {
-  console.log( cart, addToCart, subTotal,
-    removeFromCart,clearCart);
+  removeFromCart, clearCart, quantity }) {
+
   //ref for cart
   const ref = useRef(null);
 
@@ -29,6 +28,10 @@ export default function Navbar({ cart, addToCart, subTotal,
     ref.current.classList.remove("show");
 
   }
+
+
+
+
 
 
   return (
@@ -132,16 +135,27 @@ export default function Navbar({ cart, addToCart, subTotal,
 
                         {Object.keys(cart).length === 0 && <div className="fs-4 text-white">Cart is empty</div>}
 
-                        {Object.keys(cart).map((item) =>{
-                          return( 
+                        {Object.keys(cart).map((item) => {
+                          return (
                             <li key={item} className="fs-4 text-white">{cart[item].name}
-                          &nbsp;&nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;{cart[item].quantity}&nbsp;
-                          <AiOutlinePlusCircle></AiOutlinePlusCircle>
+                              &nbsp;&nbsp;&nbsp;&nbsp;
 
-                        </li>
+                              <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {
+                                removeFromCart(item, 1, cart[item].price,
+                                  cart[item].name, cart[item].variant, cart[item].size)
+                              }}>
+                              </AiOutlineMinusCircle>
+                              &nbsp;{quantity}&nbsp;
+                              <AiOutlinePlusCircle style={{ cursor: 'pointer' }} onClick={() => {
+                                addToCart(item, 1, cart[item].price,
+                                  cart[item].name, cart[item].variant, cart[item].size)
+                              }}></AiOutlinePlusCircle>
+
+
+
+                            </li>
                           )
-                        } )
+                        })
                         }
                       </ul>
                       <p className="mt-2"><button type="button" className="btn btn-primary" style={{ width: '100px' }}>
