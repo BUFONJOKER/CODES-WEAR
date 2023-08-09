@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
     catch (error) {
       console.log(error);
     }
-  }, [])
+  }, []) 
 
 
 
@@ -66,6 +66,15 @@ export default function App({ Component, pageProps }) {
   const saveCart = (newCart) => {
 
     localStorage.setItem('cart', newCart);
+
+    let subTotal = 0;
+    let keys = Object.keys(newCart);
+
+    for (let i = 0; i < keys.length; i++) {
+      subTotal += newCart[keys[i]].quantity * newCart[keys[i]].price;
+    }
+
+    setSubTotal(subTotal);
   }
 
   // clear cart function
@@ -99,8 +108,16 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Heading />
-      <Navbar />
-      <Component {...pageProps} />
+
+      <Navbar cart={cart} addToCart={addToCart} 
+      removeFromCart={removeFromCart} clearCart={clearCart}
+       subTotal={subTotal}
+       />
+
+      <Component {...pageProps} cart={cart} addToCart={addToCart} 
+      removeFromCart={removeFromCart} clearCart={clearCart}
+      subTotal={subTotal}
+       />
       <Footer />
 
     </>
