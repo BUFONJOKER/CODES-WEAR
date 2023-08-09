@@ -11,8 +11,10 @@ import {
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
-export default function Navbar() {
-
+export default function Navbar({ cart, addToCart, subTotal,
+                               removeFromCart,clearCart}) {
+  console.log( cart, addToCart, subTotal,
+    removeFromCart,clearCart);
   //ref for cart
   const ref = useRef(null);
 
@@ -128,36 +130,25 @@ export default function Navbar() {
                       <h2 className="text-white">Shopping Cart</h2>
                       <ul>
 
-                        <li className="fs-4 text-white">T-Shirts
+                        {Object.keys(cart).length === 0 && <div className="fs-4 text-white">Cart is empty</div>}
+
+                        {Object.keys(cart).map((item) =>{
+                          return( 
+                            <li key={item} className="fs-4 text-white">{cart[item].name}
                           &nbsp;&nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
+                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;{cart[item].quantity}&nbsp;
                           <AiOutlinePlusCircle></AiOutlinePlusCircle>
 
                         </li>
-
-                        <li className="fs-4 text-white">Hoodies
-                          &nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
-                          <AiOutlinePlusCircle></AiOutlinePlusCircle>
-                        </li>
-
-                        <li className="fs-4 text-white">Mugs
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
-                          <AiOutlinePlusCircle></AiOutlinePlusCircle>
-                        </li>
-
-                        <li className="fs-4 text-white">Stickers
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>&nbsp;1&nbsp;
-                          <AiOutlinePlusCircle></AiOutlinePlusCircle>
-                        </li>
+                          )
+                        } )
+                        }
                       </ul>
                       <p className="mt-2"><button type="button" className="btn btn-primary" style={{ width: '100px' }}>
                         <BsFillBagCheckFill className="fs-1 " />
                         Checkout
                       </button>
-                        <button type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
+                        <button onClick={clearCart} type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
                           <BsCartXFill className="fs-1" />
                           Clear Cart
                         </button></p>

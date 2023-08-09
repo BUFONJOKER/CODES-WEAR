@@ -80,8 +80,12 @@ export default function App({ Component, pageProps }) {
   // clear cart function
   const clearCart = () => {
 
+
     // clear cart state
     setCart({});
+    //show message
+    alert("Cart Cleared");    
+    
 
     // clear cart in local storage
     saveCart({});
