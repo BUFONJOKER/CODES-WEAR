@@ -62,9 +62,10 @@ export default function App({ Component, pageProps }) {
     setCart(newCart);
 
     // update cart in local storage
-    saveCart(JSON.stringify(newCart));
+    saveCart(newCart);
 
     setQuantity(cart[itemCode].quantity)
+  
   }
 
   // update cart in local storage
@@ -79,12 +80,16 @@ export default function App({ Component, pageProps }) {
 
     let subTotal = 0;
     let keys = Object.keys(newCart);
+   
+    
 
     for (let i = 0; i < keys.length; i++) {
       subTotal += newCart[keys[i]].quantity * newCart[keys[i]].price;
+      
     }
 
     setSubTotal(subTotal);
+   
   }
 
   // clear cart function

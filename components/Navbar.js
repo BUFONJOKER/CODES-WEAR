@@ -137,7 +137,8 @@ export default function Navbar({ cart, addToCart, subTotal,
 
                         {Object.keys(cart).map((item) => {
                           return (
-                            <li key={item} className="fs-4 text-white">{cart[item].name}
+                            <>
+                              <li key={item} className="fs-4 text-white">{cart[item].name}
                               &nbsp;&nbsp;&nbsp;&nbsp;
 
                               <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {
@@ -154,6 +155,9 @@ export default function Navbar({ cart, addToCart, subTotal,
 
 
                             </li>
+
+                            <li className="fs-4 text-white">Subtotal:{subTotal}</li>
+                            </>
                           )
                         })
                         }
