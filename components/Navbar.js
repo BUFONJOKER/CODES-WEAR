@@ -158,10 +158,13 @@ export default function Navbar({ cart, addToCart, subTotal,
                         })
                         }
                       </ul>
-                      <p className="mt-2"><button type="button" className="btn btn-primary" style={{ width: '100px' }}>
+                      <p className="mt-2">
+                        <Link  href="checkout" >
+                        <button type="button" className="btn btn-primary" style={{ width: '100px' }}>
                         <BsFillBagCheckFill className="fs-1 " />
                         Checkout
                       </button>
+                        </Link>
                         <button onClick={clearCart} type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
                           <BsCartXFill className="fs-1" />
                           Clear Cart
