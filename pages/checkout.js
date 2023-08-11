@@ -37,8 +37,8 @@ export default function Checkout() {
         </div>
         <div className="col-md-4">
           <label htmlFor="inputState" className="form-label">State</label>
-          <select id="inputState" className="form-select" defaultValue="default" >
-            <option value="Choose" disabled hidden>Chose State</option>
+          <select id="inputState" className="form-select" defaultValue="Select State" >
+            <option value="Select State" disabled hidden>Select State</option>
             <option value="Punjab">Punjab</option>
             <option value="Sindh">Sindh</option>
             <option value="Baluchistan">Baluchistan</option>
