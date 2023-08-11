@@ -4,7 +4,7 @@ export default function Checkout() {
   return (
     <div className="container text-white mt-5 mb-5">
       <h1 className="text-center">Checkout</h1>
-      <label htmlhtmlFor="name">Name</label>
+      <label htmlFor="name">Name</label>
       <div className="row">
         <div className="col">
           <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
@@ -37,13 +37,14 @@ export default function Checkout() {
         </div>
         <div className="col-md-4">
           <label htmlFor="inputState" className="form-label">State</label>
-          <select id="inputState" className="form-select">
-            <option selected>Choose...</option>
-            <option>Punjab</option>
-            <option>Sindh</option>
-            <option>Baluchistan</option>
-            <option>KPK</option>
+          <select id="inputState" className="form-select" defaultValue="default" >
+            <option value="Choose" disabled hidden>Chose State</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Sindh">Sindh</option>
+            <option value="Baluchistan">Baluchistan</option>
+            <option value="KPK">KPK</option>
           </select>
+
         </div>
         <div className="col-md-2">
           <label htmlFor="inputZip" className="form-label">Zip</label>
