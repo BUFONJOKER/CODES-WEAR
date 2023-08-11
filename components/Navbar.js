@@ -29,6 +29,12 @@ export default function Navbar({ cart, addToCart, subTotal,
 
   }
 
+  function getRandomAlphabet() {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const randomIndex = Math.floor(Math.random() * alphabet.length);
+    return alphabet[randomIndex];
+  }
+
 
 
 
@@ -131,43 +137,41 @@ export default function Navbar({ cart, addToCart, subTotal,
                       right: 6, backgroundColor: "gray"
                     }}>
                       <h2 className="text-white">Shopping Cart</h2>
-                      <ul>
 
+
+                      <ul>
                         {Object.keys(cart).length === 0 && <div className="fs-4 text-white">Cart is empty</div>}
 
                         {Object.keys(cart).map((item) => {
                           return (
-                            <>
-                              <li key={item} className="fs-4 text-white">{cart[item].name}
-                              &nbsp;&nbsp;&nbsp;&nbsp;
+                            <React.Fragment key={item}>
+                              <li className="fs-4 text-white">{cart[item].name}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
 
-                              <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {
-                                removeFromCart(item, 1, cart[item].price,
-                                  cart[item].name, cart[item].variant, cart[item].size)
-                              }}>
-                              </AiOutlineMinusCircle>
-                              &nbsp;{quantity}&nbsp;
-                              <AiOutlinePlusCircle style={{ cursor: 'pointer' }} onClick={() => {
-                                addToCart(item, 1, cart[item].price,
-                                  cart[item].name, cart[item].variant, cart[item].size)
-                              }}></AiOutlinePlusCircle>
+                                <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {
+                                  removeFromCart(item, 1, cart[item].price,
+                                    cart[item].name, cart[item].variant, cart[item].size)
+                                }}>
+                                </AiOutlineMinusCircle>
+                                &nbsp;{quantity}&nbsp;
+                                <AiOutlinePlusCircle style={{ cursor: 'pointer' }} onClick={() => {
+                                  addToCart(item, 1, cart[item].price,
+                                    cart[item].name, cart[item].variant, cart[item].size)
+                                }}></AiOutlinePlusCircle>
 
 
-
-                            </li>
-
-                            <li className="fs-4 text-white">Subtotal:{subTotal}</li>
-                            </>
+                                <div className="fs-4 text-white">Subtotal:{subTotal}</div>
+                              </li>
+                            </React.Fragment>
                           )
-                        })
-                        }
+                        })}
                       </ul>
                       <p className="mt-2">
-                        <Link  href="checkout" >
-                        <button type="button" className="btn btn-primary" style={{ width: '100px' }}>
-                        <BsFillBagCheckFill className="fs-1 " />
-                        Checkout
-                      </button>
+                        <Link href="checkout" >
+                          <button type="button" className="btn btn-primary" style={{ width: '100px' }}>
+                            <BsFillBagCheckFill className="fs-1 " />
+                            Checkout
+                          </button>
                         </Link>
                         <button onClick={clearCart} type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
                           <BsCartXFill className="fs-1" />
