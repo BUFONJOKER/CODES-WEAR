@@ -8,6 +8,7 @@ import {
   AiOutlineShoppingCart, AiOutlinePlusCircle,
   AiOutlineMinusCircle, AiFillCloseCircle
 } from "react-icons/ai";
+import{MdAccountCircle} from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
@@ -29,7 +30,7 @@ export default function Navbar({ cart, addToCart, subTotal,
 
   }
 
-  
+
 
 
 
@@ -109,8 +110,13 @@ export default function Navbar({ cart, addToCart, subTotal,
 
 
                 <li className="nav-item">
+                <Link className="nav-link text-white m-4" href="login"><MdAccountCircle className="fs-1"/></Link>
+                </li>
 
 
+                <li className="nav-item">
+
+                  
                   <Link onClick={cartClick}
                     className="nav-link text-white m-4"
                     data-bs-toggle="collapse"
