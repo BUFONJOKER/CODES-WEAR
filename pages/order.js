@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Order() {
   return (
     <div>
-      <section class="text-gray-600 body-font overflow-hidden text-white m-5">
+      <section class="text-gray-600 body-font overflow-hidden text-white mt-5 mb-5">
         <div class="container px-5 py-24 mx-auto text-white">
           <div class="row justify-content-center align-items-center ">
             <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
@@ -17,7 +17,7 @@ export default function Order() {
               </div>
               <div className="row">
                 <ul className="col mx-4">
-                  <li>T-Shirt</li>
+                  <li>Shirt</li>
                 
                 </ul>
                 <ul className="col mx-5">
@@ -38,7 +38,7 @@ export default function Order() {
               </div>
             </div>
             <div class="col-lg-6 col-md-12">
-              <Image src="/joker_sticker.jpg" alt="Picture of the author" width={500} height={500} />
+              <Image src="/joker_sticker.jpg" alt="Picture of the author" width={300} height={500} />
             </div>
           </div>
         </div>
