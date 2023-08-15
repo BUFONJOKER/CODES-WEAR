@@ -25,12 +25,12 @@ export default function Login() {
                   <div className="form-outline mb-4">
                     <input type="email" id="form2Example11" className="form-control"
                       placeholder="Phone number or email address" />
-                    <label className="form-label" for="form2Example11">Username</label>
+                    <label className="form-label" htmlFor="form2Example11">Username</label>
                   </div>
 
                   <div className="form-outline mb-4">
                     <input type="password" id="form2Example22" className="form-control" />
-                    <label className="form-label" for="form2Example22">Password</label>
+                    <label className="form-label" htmlFor="form2Example22">Password</label>
                   </div>
 
                   <div className="text-center pt-1 mb-5 pb-1">
