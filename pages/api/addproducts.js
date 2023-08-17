@@ -3,7 +3,7 @@ import connectDB from "@/middleware/mongoose";
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
-        for (let index = 0; index < req.body.length; index++) {
+        for (let i = 0; i < req.body.length; i++) {
             let p = new Product({
                 title: req.body[i].title,
     
@@ -20,11 +20,21 @@ const handler = async (req, res) => {
                 description: req.body[i].description,
     
                 price: req.body[i].price,
+
+                availableQuantity: req.body[i].availableQuantity,
             })
+
+            await p.save();
             
         }
 
-        await p.save();
+        
+
+        res.status(200).json({ message: "Product added successfully" });
+    }
+
+    else{
+        res.status(400).json({ message: "Product not added" });
     }
 }
 
