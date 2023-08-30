@@ -8,4 +8,4 @@ const handler = async (req, res) => {
 
 };
 
-export default connectDb(handler);
+export default connectDb(handler)
