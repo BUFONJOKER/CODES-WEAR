@@ -19,7 +19,7 @@ export default function Tshirts({ products }) {
             <div className="container d-flex justify-content-center align-items-center">
               <div className="card w-50 m-3 text-center">
                 <Link legacyBehavior href={`/${item.title}`} passHref>
-                  <a rel="preload" as="image" href={`${item.image}`}>
+                  <a rel="preload" as="image" href={item.image}>
                     <Image
                       src={`${item.image}`}
                       width={100}
