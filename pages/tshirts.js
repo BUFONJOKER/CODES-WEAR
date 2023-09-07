@@ -13,46 +13,58 @@ export default function Tshirts({ products }) {
         T-Shirts for Boys
       </h1>
 
-      {products.map((item) => {
-        return (
-          <React.Fragment key={item._id}>
-            <div className="container d-flex justify-content-center align-items-center">
-              <div className="card w-50 m-3 text-center">
-                <Link legacyBehavior href={`/${item.title}`} passHref>
-                  <a rel="preload" as="image" href={item.image}>
-                    <Image
-                      src={`${item.image}`}
-                      width={100}
-                      height={300}
-                      className="card-img-top"
-                      alt=""
-                      style={{
-                        width: "auto",
-                        height: "auto",
-                      }} // Maintain aspect ratio
-                    />
-                  </a>
-                </Link>
+      <div className="container">
+        <div className="row">
+          {Object.keys(products).map((item) => {
+            return (
+              <React.Fragment key={products[item]._id}>
+                <div className="col-md-6">
+                  <div className="card m-3 text-center">
+                    <Link
+                      legacyBehavior
+                      href={`/${products[item].title}`}
+                      passHref
+                    >
+                      <a
+                        rel="preload"
+                        as="image"
+                        href={products[item].image}
+                      >
+                        <Image
+                          src={`${products[item].image}`}
+                          width={100}
+                          height={300}
+                          className="card-img-top"
+                          alt=""
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                          }} // Maintain aspect ratio
+                        />
+                      </a>
+                    </Link>
 
-                <div className="card-body">
-                  <h5 className="card-title">{item.title}</h5>
+                    <div className="card-body">
+                      <h5 className="card-title">{products[item].title}</h5>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        <b>Price:</b> {products[item].price}
+                      </li>
+                      <li className="list-group-item">
+                        <b>Color:</b> {products[item].color}
+                      </li>
+                      <li className="list-group-item">
+                        <b>Size:</b> {products[item].size}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item" key={`${item._id}-price`}>
-                    <b>Price:</b> {item.price}
-                  </li>
-                  <li className="list-group-item" key={`${item._id}-color`}>
-                    <b>Color:</b> {item.color}
-                  </li>
-                  <li className="list-group-item" key={`${item._id}-size`}>
-                    <b>Size:</b> {item.size}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </React.Fragment>
-        );
-      })}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
@@ -62,7 +74,7 @@ export async function getServerSideProps(context) {
   const data = await res.json();
   return {
     props: {
-      products: data.products,
+      products: data.tshirts,
     },
   };
 }
