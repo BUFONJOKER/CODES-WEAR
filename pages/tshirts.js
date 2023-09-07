@@ -74,7 +74,7 @@ export async function getServerSideProps(context) {
   const data = await res.json();
   return {
     props: {
-      products: data.tshirts,
+      products: data.products,
     },
   };
 }
