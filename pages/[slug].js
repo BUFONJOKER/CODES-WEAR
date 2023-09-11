@@ -158,22 +158,24 @@ export default function Slug({ addToCart, products }) {
                       </select>
                     </div>
                   )}
-                  <div className="d-flex align-items-center">
-                    <p>
-                      {color.includes("Blue") && (
+
+                  {color.includes("Blue") && (
+                    <div className="d-flex align-items-center">
+                      <p>
+
                         <button className="btn btn-primary rounded-circle m-1 fs-4 text-primary">
                           B
                         </button>
-                      )}
-                    </p>
-                    <select className="form-select w-25" aria-label="Select an option">
-                      {colorSize[1].size.includes("Small") && <option selected>Small</option>}
-                      {colorSize[1].size.includes("Medium") && <option value="1">Medium</option>}
-                      {colorSize[1].size.includes("Large") && <option value="2">Large</option>}
-                      {colorSize[1].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                    </select>
-                  </div>
 
+                      </p>
+                      <select className="form-select w-25" aria-label="Select an option">
+                        {colorSize[1].size.includes("Small") && <option selected>Small</option>}
+                        {colorSize[1].size.includes("Medium") && <option value="1">Medium</option>}
+                        {colorSize[1].size.includes("Large") && <option value="2">Large</option>}
+                        {colorSize[1].size.includes("Extra Large") && <option value="3">Extra Large</option>}
+                      </select>
+                    </div>
+                  )}
 
 
                   {color.includes("Green") && (
