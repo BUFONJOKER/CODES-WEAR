@@ -4,8 +4,10 @@ import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 import { BsStarHalf } from 'react-icons/bs';
 import { BsCartPlus } from 'react-icons/bs';
-import mongoose from 'mongoose';
-import Product from '@/models/Product';
+// import mongoose from 'mongoose';
+// import Product from '@/models/Product';
+
+//            PRODUCT PAGE
 
 // slug is dynamic route
 export default function Slug({ addToCart, products }) {
