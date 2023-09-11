@@ -108,30 +108,27 @@ export default function Slug({ addToCart, products }) {
 
 
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-3">
+      <div className="container m-3">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card mb-3 mt-3 h-100">
               <Image
                 src={image}
                 width={522}
                 height={998}
                 className="card-img-top"
                 alt="image"
-              />          <div class="card-body">
-                <h5 class="card-title">Card 1</h5>
-                <p class="card-text">This is the content of Card 1.</p>
-              </div>
+              />
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-3">
-              <h1>{slug}</h1>
-              <p className="card-text">
+          <div className="col-md-6">
+            <div className="card mb-3 mt-3 h-100">
+              <h1 className='m-3'>{slug}</h1>
+              <p className="card-text m-3">
                 {description}
               </p>
-              <div class="card-body">
-                <h5 class="card-title">Rs.{price}</h5>
+              <div className="card-body">
+                <h5 className="card-title">Rs.{price}</h5>
                 <p>
                   <AiFillStar />
                   <AiFillStar />
@@ -139,7 +136,7 @@ export default function Slug({ addToCart, products }) {
                   <AiFillStar />
                   <BsStarHalf />
                 </p>
-                <p class="card-text"><h3>Color</h3>
+                <p className="card-text"><h3>Color</h3>
 
 
                   {color.includes("Red") && (
