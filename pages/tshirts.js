@@ -3,10 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Product from "@/models/Product";
+import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
-
-
 
   return (
     <>
@@ -73,8 +72,8 @@ export default function Tshirts({ products }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  let products = await Product.find();
+export async function getServerSideProps() {
+  const products = await Product.find();
   let tshirts = {};
   for(let item of products){
     if(item.title in tshirts){
@@ -94,11 +93,10 @@ export async function getServerSideProps(context) {
                     tshirts[item.title].color = [item.color];
                     tshirts[item.title].size = [item.size];
             }
-    }
-}
-  return {
-    props: {
+    }}
+  return{
+    props:{
       products:JSON.parse(JSON.stringify(tshirts)),
-    },
-  };
-}
+  }
+  
+}}

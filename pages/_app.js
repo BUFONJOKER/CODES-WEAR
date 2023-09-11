@@ -122,7 +122,14 @@ export default function App({ Component, pageProps }) {
       newCart[itemCode].quantity = 0;
     }
 
+    setCart(newCart);
+
+    // update cart in local storage
+    saveCart(newCart);
+
     setQuantity(cart[itemCode].quantity)
+
+   
 
   }
 

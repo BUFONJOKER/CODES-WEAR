@@ -7,6 +7,7 @@ import { BsCartPlus } from 'react-icons/bs';
 import Head from 'next/head';
 // import mongoose from 'mongoose';
 import Product from '@/models/Product';
+import Link from 'next/link';
 
 //            PRODUCT PAGE
 
@@ -118,7 +119,7 @@ export default function Slug({ addToCart, products }) {
   return (
     <>
       <Head>
-        <title>Codes Wear - T-Shirts ({slug})</title>
+        <title>Codes Wear - T-Shirts ({slug}) </title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         {slug}
@@ -365,7 +366,13 @@ export default function Slug({ addToCart, products }) {
 
                 </div>
 
-                <button className="btn btn-primary m-1">Buy Now</button>
+                <Link href="checkout"><button disabled={cartButtoncanBeClicked}
+                  onClick={() => {
+                    addToCart(slug, 1, price, slug, cartColor, cartSize);
+                  }} className="btn btn-primary m-1">Buy Now</button></Link>
+
+                
+                  
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
                     addToCart(slug, 1, price, slug, cartColor, cartSize);
