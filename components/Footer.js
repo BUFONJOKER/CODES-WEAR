@@ -9,21 +9,28 @@ export default function Footer() {
         <div className="container py-4 py-lg-5">
           <div className="row justify-content-center">
             <div className="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-              <h3 className="fs-6 fw-bold text-white">Services</h3>
+              <h3 className="fs-6 fw-bold text-white">Products</h3>
               <ul className="list-unstyled text-decoration-none">
+
+
                 <li>
-                  <Link className="text-decoration-none" href="/">
-                    Web design
+                  <Link className="text-decoration-none" href="tshirts">
+                    T-Shirts
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
-                    Development
+                  <Link className="text-decoration-none" href="hoodies">
+                    Hoodies
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
-                    Hosting
+                  <Link className="text-decoration-none" href="mugs">
+                    Mugs
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-decoration-none" href="stickers">
+                    Stickers
                   </Link>
                 </li>
               </ul>
@@ -86,7 +93,8 @@ export default function Footer() {
                 </Link>
               </div>
               <p className=" text-white">
-                Sem eleifend donec molestie, integer quisque orci aliquam.
+                Welcome to CodeSwear, where style meets innovation! We are not just another e-commerce store; we are a team of passionate tech enthusiasts and fashion lovers.
+                Our mission is to bridge the gap between fashion and technology, bringing you innovative, trendy, and comfortable clothing that empowers you to stand out in a world of conformity.
               </p>
             </div>
           </div>

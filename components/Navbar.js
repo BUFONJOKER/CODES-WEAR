@@ -14,7 +14,7 @@ import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 //navbar component
 export default function Navbar({ cart, addToCart, subTotal,
   removeFromCart, clearCart, quantity }) {
-
+ 
   //ref for cart
   const ref = useRef(null);
 
@@ -133,11 +133,11 @@ export default function Navbar({ cart, addToCart, subTotal,
                   <div ref={ref} className="collapse" id="collapseExample">
 
                     <div className="card card-body" style={{
-                      width: "350px",
+                      width: "500px",
                       height: "300px", position: "absolute",
                       right: 6, backgroundColor: "gray"
                     }}>
-                      <h2 className="text-white">Shopping Cart</h2>
+                      <h2 className="text-white mb-5">Shopping Cart</h2>
 
 
                       <ul>
@@ -146,7 +146,7 @@ export default function Navbar({ cart, addToCart, subTotal,
                         {Object.keys(cart).map((item) => {
                           return (
                             <React.Fragment key={item}>
-                              <li className="fs-4 text-white">{cart[item].name}
+                              <li className="fs-4 text-white">{cart[item].name} {cart[item].variant}{cart[item].size}
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {

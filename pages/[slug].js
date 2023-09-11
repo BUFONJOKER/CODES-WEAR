@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 import { BsStarHalf } from 'react-icons/bs';
 import { BsCartPlus } from 'react-icons/bs';
+import Head from 'next/head';
 // import mongoose from 'mongoose';
-// import Product from '@/models/Product';
+import Product from '@/models/Product';
 
 //            PRODUCT PAGE
 
@@ -60,6 +61,14 @@ export default function Slug({ addToCart, products }) {
     }
   });
 
+  // color and size to show on cart 
+  const [cartColor, setCartColor] = useState("");
+  const [cartSize, setCartSize] = useState("");
+
+  const handleCartClick = (size, color) => {
+    setCartColor(color);
+    setCartSize(size);
+  }
 
 
 
@@ -103,26 +112,33 @@ export default function Slug({ addToCart, products }) {
     }
   };
 
+
+
   return (
     <>
+      <Head>
+        <title>Codes Wear - T-Shirts {slug}</title>
+      </Head>
+      <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
+        {slug}
+      </h1>
 
 
-
-      <div className="container m-3">
+      <div className="container d-flex justify-content-center align-items-center mt-5" >
         <div className="row">
           <div className="col-md-6">
-            <div className="card mb-3 mt-3 h-100">
+            <div className="card text-center m-3" >
               <Image
                 src={image}
-                width={522}
-                height={998}
+                width={200}
+                height={500}
                 className="card-img-top"
                 alt="image"
               />
             </div>
           </div>
           <div className="col-md-6">
-            <div className="card mb-3 mt-3 h-100">
+            <div className="card">
               <h1 className='m-3'>{slug}</h1>
               <p className="card-text m-3">
                 {description}
@@ -136,7 +152,7 @@ export default function Slug({ addToCart, products }) {
                   <AiFillStar />
                   <BsStarHalf />
                 </p>
-                <p className="card-text"><h3>Color</h3>
+                <div className="card-text"><h3>Color</h3>
 
 
                   {color.includes("Red") && (
@@ -149,12 +165,28 @@ export default function Slug({ addToCart, products }) {
 
                       </h1>
 
-                      <select className="form-select w-25" aria-label="Select an option">
-                        {colorSize[0].size.includes("Small") && <option selected>Small</option>}
-                        {colorSize[0].size.includes("Medium") && <option value="1">Medium</option>}
-                        {colorSize[0].size.includes("Large") && <option value="2">Large</option>}
-                        {colorSize[0].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                      </select>
+                      {colorSize[0].size.includes("Small") && <button onClick={() => {
+                        setCartColor("Red")
+                        setCartSize("Small")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Small</button>}
+                      {colorSize[0].size.includes("Medium") && <button onClick={() => {
+                        setCartColor("Red")
+                        setCartSize("Medium")
+                        alert("Added to cart")
+
+                      }} type="button" className="btn btn-primary">Medium</button>
+                      }
+                      {colorSize[0].size.includes("Large") && <button onClick={() => {
+                        setCartColor("Red")
+                        setCartSize("Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Large</button>}
+                      {colorSize[0].size.includes("Extra Large") && <button onClick={() => {
+                        setCartColor("Red")
+                        setCartSize("Extra Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
 
@@ -167,12 +199,26 @@ export default function Slug({ addToCart, products }) {
                         </button>
 
                       </p>
-                      <select className="form-select w-25" aria-label="Select an option">
-                        {colorSize[1].size.includes("Small") && <option selected>Small</option>}
-                        {colorSize[1].size.includes("Medium") && <option value="1">Medium</option>}
-                        {colorSize[1].size.includes("Large") && <option value="2">Large</option>}
-                        {colorSize[1].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                      </select>
+                      {colorSize[1].size.includes("Small") && <button onClick={() => {
+                        setCartColor("Blue")
+                        setCartSize("Small")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Small</button>}
+                      {colorSize[1].size.includes("Medium") && <button onClick={() => {
+                        setCartColor("Blue")
+                        setCartSize("Medium")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Medium</button>}
+                      {colorSize[1].size.includes("Large") && <button onClick={() => {
+                        setCartColor("Blue")
+                        setCartSize("Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Large</button>}
+                      {colorSize[1].size.includes("Extra Large") && <button onClick={() => {
+                        setCartColor("Blue")
+                        setCartSize("Extra Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
 
@@ -186,12 +232,26 @@ export default function Slug({ addToCart, products }) {
                         </button>
 
                       </p>
-                      <select className="form-select w-25" aria-label="Select an option">
-                        {colorSize[2].size.includes("Small") && <option selected>Small</option>}
-                        {colorSize[2].size.includes("Medium") && <option value="1">Medium</option>}
-                        {colorSize[2].size.includes("Large") && <option value="2">Large</option>}
-                        {colorSize[2].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                      </select>
+                      {colorSize[2].size.includes("Small") && <button onClick={() => {
+                        setCartColor("Green")
+                        setCartSize("Small")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Small</button>}
+                      {colorSize[2].size.includes("Medium") && <button onClick={() => {
+                        setCartColor("Green")
+                        setCartSize("Medium")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Medium</button>}
+                      {colorSize[2].size.includes("Large") && <button onClick={() => {
+                        setCartColor("Green")
+                        setCartSize("Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Large</button>}
+                      {colorSize[2].size.includes("Extra Large") && <button onClick={() => {
+                        setCartColor("Green")
+                        setCartSize("Extra Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
 
@@ -204,12 +264,26 @@ export default function Slug({ addToCart, products }) {
                         </button>
 
                       </p>
-                      <select className="form-select w-25" aria-label="Select an option">
-                        {colorSize[2].size.includes("Small") && <option selected>Small</option>}
-                        {colorSize[2].size.includes("Medium") && <option value="1">Medium</option>}
-                        {colorSize[2].size.includes("Large") && <option value="2">Large</option>}
-                        {colorSize[2].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                      </select>
+                      {colorSize[3].size.includes("Small") && <button onClick={() => {
+                        setCartColor("Yellow")
+                        setCartSize("Small")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Small</button>}
+                      {colorSize[3].size.includes("Medium") && <button onClick={() => {
+                        setCartColor("Yellow")
+                        setCartSize("Medium")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Medium</button>}
+                      {colorSize[3].size.includes("Large") && <button onClick={() => {
+                        setCartColor("Yellow")
+                        setCartSize("Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Large</button>}
+                      {colorSize[3].size.includes("Extra Large") && <button onClick={() => {
+                        setCartColor("Yellow")
+                        setCartSize("Extra Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
 
@@ -223,21 +297,37 @@ export default function Slug({ addToCart, products }) {
                         </button>
 
                       </p>
-                      <select className="form-select w-25" aria-label="Select an option">
-                        {colorSize[4].size.includes("Small") && <option selected>Small</option>}
-                        {colorSize[4].size.includes("Medium") && <option value="1">Medium</option>}
-                        {colorSize[4].size.includes("Large") && <option value="2">Large</option>}
-                        {colorSize[4].size.includes("Extra Large") && <option value="3">Extra Large</option>}
-                      </select>
+                      {/* <select className="form-select w-25" aria-label="Select an option"> */}
+                      {colorSize[4].size.includes("Small") && <button onClick={() => {
+                        setCartColor("Black")
+                        setCartSize("Small")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Small</button>}
+                      {colorSize[4].size.includes("Medium") && <button onClick={() => {
+                        setCartColor("Black")
+                        setCartSize("Medium")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Medium</button>}
+                      {colorSize[4].size.includes("Large") && <button onClick={() => {
+                        setCartColor("Black")
+                        setCartSize("Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Large</button>}
+                      {colorSize[4].size.includes("Extra Large") && <button onClick={() => {
+                        setCartColor("Black")
+                        setCartSize("Extra Large")
+                        alert("Added to cart")
+                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      {/* </select> */}
                     </div>
                   )}
 
-                </p>
+                </div>
 
                 <button className="btn btn-primary m-1">Buy Now</button>
                 <button
                   onClick={() => {
-                    addToCart(slug, 1, 243, 'MANI', 'Red', 'XL');
+                    addToCart(slug, 1, price, slug, cartColor, cartSize);
                   }}
                   className="btn btn-primary"
                 >
@@ -285,13 +375,12 @@ export default function Slug({ addToCart, products }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch('http://localhost:3000/api/getproducts');
-  const data = await res.json();
+  const res = await Product.find()
+  const data = JSON.parse(JSON.stringify(res))
   return {
     props: {
-      products: data.products,
+      products: data,
     },
   };
 }
-
 

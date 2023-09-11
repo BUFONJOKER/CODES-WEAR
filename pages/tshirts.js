@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import Product from "@/models/Product";
+import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
+  console.log(products);
+
+
   return (
     <>
       <Head>
@@ -70,11 +75,31 @@ export default function Tshirts({ products }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:3000/api/getproducts");
-  const data = await res.json();
+  let products = await Product.find();
+  let tshirts = {};
+  for(let item of products){
+    if(item.title in tshirts){
+            if(!tshirts[item.title].color.includes(item.color) &&
+                    item.availableQuantity > 0){
+                            tshirts[item.title].color.push(item.color);
+            }
+            if(!tshirts[item.title].size.includes(item.color) &&
+                    item.availableQuantity > 0){
+                            tshirts[item.title].size.push(item.size);
+            } 
+    }
+
+    else{
+            tshirts[item.title] = JSON.parse(JSON.stringify(item));
+            if(item.availableQuantity > 0){
+                    tshirts[item.title].color = [item.color];
+                    tshirts[item.title].size = [item.size];
+            }
+    }
+}
   return {
     props: {
-      products: data.products,
+      products:JSON.parse(JSON.stringify(tshirts)),
     },
   };
 }
