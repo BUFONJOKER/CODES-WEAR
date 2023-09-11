@@ -113,11 +113,12 @@ export default function Slug({ addToCart, products }) {
   };
 
 
+  const [cartButtoncanBeClicked, setCartButtonCanBeClicked] = useState(true);
 
   return (
     <>
       <Head>
-        <title>Codes Wear - T-Shirts {slug}</title>
+        <title>Codes Wear - T-Shirts ({slug})</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         {slug}
@@ -166,26 +167,34 @@ export default function Slug({ addToCart, products }) {
                       </h1>
 
                       {colorSize[0].size.includes("Small") && <button onClick={() => {
+
                         setCartColor("Red")
                         setCartSize("Small")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[0].size.includes("Medium") && <button onClick={() => {
+
                         setCartColor("Red")
                         setCartSize("Medium")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
 
                       }} type="button" className="btn btn-primary">Medium</button>
                       }
                       {colorSize[0].size.includes("Large") && <button onClick={() => {
+
                         setCartColor("Red")
                         setCartSize("Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[0].size.includes("Extra Large") && <button onClick={() => {
+
                         setCartColor("Red")
                         setCartSize("Extra Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
@@ -200,24 +209,32 @@ export default function Slug({ addToCart, products }) {
 
                       </p>
                       {colorSize[1].size.includes("Small") && <button onClick={() => {
+
                         setCartColor("Blue")
                         setCartSize("Small")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[1].size.includes("Medium") && <button onClick={() => {
+
                         setCartColor("Blue")
                         setCartSize("Medium")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[1].size.includes("Large") && <button onClick={() => {
+
                         setCartColor("Blue")
                         setCartSize("Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[1].size.includes("Extra Large") && <button onClick={() => {
+
                         setCartColor("Blue")
                         setCartSize("Extra Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
@@ -233,24 +250,32 @@ export default function Slug({ addToCart, products }) {
 
                       </p>
                       {colorSize[2].size.includes("Small") && <button onClick={() => {
+
                         setCartColor("Green")
                         setCartSize("Small")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[2].size.includes("Medium") && <button onClick={() => {
+
                         setCartColor("Green")
                         setCartSize("Medium")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[2].size.includes("Large") && <button onClick={() => {
+
                         setCartColor("Green")
                         setCartSize("Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[2].size.includes("Extra Large") && <button onClick={() => {
+
                         setCartColor("Green")
                         setCartSize("Extra Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
@@ -265,24 +290,32 @@ export default function Slug({ addToCart, products }) {
 
                       </p>
                       {colorSize[3].size.includes("Small") && <button onClick={() => {
+
                         setCartColor("Yellow")
                         setCartSize("Small")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[3].size.includes("Medium") && <button onClick={() => {
+
                         setCartColor("Yellow")
                         setCartSize("Medium")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[3].size.includes("Large") && <button onClick={() => {
+
                         setCartColor("Yellow")
                         setCartSize("Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[3].size.includes("Extra Large") && <button onClick={() => {
+
                         setCartColor("Yellow")
                         setCartSize("Extra Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
                   )}
@@ -299,24 +332,32 @@ export default function Slug({ addToCart, products }) {
                       </p>
                       {/* <select className="form-select w-25" aria-label="Select an option"> */}
                       {colorSize[4].size.includes("Small") && <button onClick={() => {
+
                         setCartColor("Black")
                         setCartSize("Small")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[4].size.includes("Medium") && <button onClick={() => {
+
                         setCartColor("Black")
                         setCartSize("Medium")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[4].size.includes("Large") && <button onClick={() => {
+
                         setCartColor("Black")
                         setCartSize("Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[4].size.includes("Extra Large") && <button onClick={() => {
+
                         setCartColor("Black")
                         setCartSize("Extra Large")
                         alert("Added to cart")
+                        setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                       {/* </select> */}
                     </div>
@@ -325,7 +366,7 @@ export default function Slug({ addToCart, products }) {
                 </div>
 
                 <button className="btn btn-primary m-1">Buy Now</button>
-                <button
+                <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
                     addToCart(slug, 1, price, slug, cartColor, cartSize);
                   }}
