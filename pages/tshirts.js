@@ -7,6 +7,8 @@ import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
 
+  console.log(products);
+
   return (
     <>
       <Head>
@@ -52,13 +54,43 @@ export default function Tshirts({ products }) {
                     </div>
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
-                        <b>Price:</b> {products[item].price}
+                        <b className="fs-3">Price:</b> {products[item].price}
+                      </li>
+                      
+                      
+                      <li className="list-group-item">
+                        <b className="fs-3">Color:</b> {
+                        products[item].color.includes("Black") && <button className="btn btn-dark rounded-circle m-1  text-dark">
+                        B
+                      </button>
+                      }
+                       {
+                        products[item].color.includes("Red") && <button className="btn btn-danger rounded-circle m-1  text-danger">
+                        R
+                      </button>
+                      }
+                       {
+                        products[item].color.includes("Blue") && <button className="btn btn-primary rounded-circle m-1  text-primary">
+                        B
+                      </button>
+                      }
                       </li>
                       <li className="list-group-item">
-                        <b>Color:</b> {products[item].color}
-                      </li>
-                      <li className="list-group-item">
-                        <b>Size:</b> {products[item].size}
+                        <b className="fs-3">Size:</b> {
+                        products[item].size.includes("Small") && <button className="btn btn-primary  m-1 ">
+                        Small
+                      </button>
+                      }
+                      {
+                        products[item].size.includes("Medium") && <button className="btn btn-primary  m-1 ">
+                        Medium
+                      </button>
+                      }
+                      {
+                        products[item].size.includes("Large") && <button className="btn btn-primary  m-1 ">
+                        Large
+                      </button>
+                      }
                       </li>
                     </ul>
                   </div>
