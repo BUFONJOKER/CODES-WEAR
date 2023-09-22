@@ -8,6 +8,8 @@ import Head from 'next/head';
 // import mongoose from 'mongoose';
 import Product from '@/models/Product';
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //            PRODUCT PAGE
 
@@ -73,14 +75,9 @@ export default function Slug({ addToCart, products }) {
 
 
 
-
-
-
   //state for zipcode
   const [zipCode, setZipCode] = useState();
 
-  //state for delivery service available or not
-  const [available, setAvailable] = useState(null);
 
   //state for check button clickable or not
   const [notClickable, setNotClickable] = useState(true);
@@ -105,11 +102,29 @@ export default function Slug({ addToCart, products }) {
     //check the zipcode is available or not
     //from the data in api
     if (data.includes(parseInt(zipCode))) {
-      //set the available state
-      setAvailable(true);
+   
+      toast.success('🦄 Delivery Service Available', {
+        position: "top-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } else {
-      //set the available state
-      setAvailable(false);
+   
+      toast.error('🦄 Delivery Service Not Available', {
+        position: "top-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
     }
   };
 
@@ -118,6 +133,18 @@ export default function Slug({ addToCart, products }) {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Head>
         <title>Codes Wear - T-Shirts ({slug}) </title>
       </Head>
@@ -171,14 +198,32 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Small")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[0].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Red")
                         setCartSize("Medium")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
 
                       }} type="button" className="btn btn-primary">Medium</button>
@@ -187,14 +232,32 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[0].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Red")
                         setCartSize("Extra Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
@@ -213,28 +276,64 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Blue")
                         setCartSize("Small")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[1].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Blue")
                         setCartSize("Medium")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[1].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Blue")
                         setCartSize("Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[1].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Blue")
                         setCartSize("Extra Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
@@ -254,28 +353,64 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Green")
                         setCartSize("Small")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[2].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Green")
                         setCartSize("Medium")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[2].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Green")
                         setCartSize("Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[2].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Green")
                         setCartSize("Extra Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
@@ -294,28 +429,64 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Yellow")
                         setCartSize("Small")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[3].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Yellow")
                         setCartSize("Medium")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[3].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Yellow")
                         setCartSize("Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[3].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Yellow")
                         setCartSize("Extra Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                     </div>
@@ -336,28 +507,64 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Black")
                         setCartSize("Small")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Small</button>}
                       {colorSize[4].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Black")
                         setCartSize("Medium")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Medium</button>}
                       {colorSize[4].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Black")
                         setCartSize("Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Large</button>}
                       {colorSize[4].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Black")
                         setCartSize("Extra Large")
-                        alert("Added to cart")
+                        toast.success('🦄 Adding to Cart', {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "colored",
+                        });
                         setCartButtonCanBeClicked(false)
                       }} type="button" className="btn btn-primary">Extra Large</button>}
                       {/* </select> */}
@@ -371,11 +578,21 @@ export default function Slug({ addToCart, products }) {
                     addToCart(slug, 1, price, slug, cartColor, cartSize);
                   }} className="btn btn-primary m-1">Buy Now</button></Link>
 
-                
-                  
+
+
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
                     addToCart(slug, 1, price, slug, cartColor, cartSize);
+                    toast.success('🦄 Adding to Cart', {
+                      position: "top-center",
+                      autoClose: 1000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "colored",
+                    });
                   }}
                   className="btn btn-primary"
                 >
@@ -398,17 +615,7 @@ export default function Slug({ addToCart, products }) {
                 >
                   Check
                 </button>
-                {available === true ? (
-                  <p className="fw-bold fs-3 text-success">
-                    Delivery service Available
-                  </p>
-                ) : null}
-
-                {available === false ? (
-                  <p className="fw-bold fs-3 text-danger">
-                    Delivery service Not Available
-                  </p>
-                ) : null}
+                
               </div>
             </div>
           </div>
