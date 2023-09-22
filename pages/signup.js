@@ -28,14 +28,14 @@ export default function Signup() {
     e.preventDefault()
 
     const data = { name, email, password }
-    let res = await fetch('http://localhost:3000/api/signup', {
+    await fetch('http://localhost:3000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-    let response = await res.json()
+   
 
     toast.success('🦄 Sign Up Successful', {
       position: "top-center",
