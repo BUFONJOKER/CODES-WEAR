@@ -53,7 +53,7 @@ export default function Stickers({ products }) {
                     </div>
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
-                        <b className="fs-3">Price:</b> {products[item].price}
+                      <p className="fs-3"><b >Price:</b>Rs.{products[item].price}</p>
                       </li>
                       
                       
