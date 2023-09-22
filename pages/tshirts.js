@@ -7,7 +7,7 @@ import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
 
-
+  console.log(products);
   return (
     <>
       <Head>
@@ -104,7 +104,7 @@ export default function Tshirts({ products }) {
 }
 
 export async function getServerSideProps() {
-  const products = await Product.find();
+  const products = await Product.find({category:"T-shirts"});
   let tshirts = {};
   for(let item of products){
     if(item.title in tshirts){

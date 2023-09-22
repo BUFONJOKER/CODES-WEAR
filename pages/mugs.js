@@ -1,382 +1,133 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import Product from "@/models/Product";
+import connectDb from "@/middleware/mongoose";
 
-export default function Mugs() {
-  const [shirtTitle, setShirtTitle] = useState(" White Coffe Mug");
+export default function Mugs({ products }) {
 
+  console.log(products);
   return (
     <>
       <Head>
         <title>Codes Wear-Mugs</title>
       </Head>
-      <h1 className="text-white   fw-bolder fst-italic text-center m-4 fs-1">
-        Mugs
+      <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
+        Mugs for Boys
       </h1>
 
-      <section className="m-5">
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
+      <div className="container">
+        <div className="row">
+          {Object.keys(products).map((item) => {
+            return (
+              <React.Fragment key={products[item]._id}>
+                <div className="col-md-6">
+                  <div className="card m-3 text-center">
+                    <Link
+                      legacyBehavior
+                      href={`/${products[item].title}`}
+                      passHref
+                    >
+                      <a
+                        rel="preload"
+                        as="image"
+                        href={products[item].image}
+                      >
+                        <Image
+                          src={`${products[item].image}`}
+                          width={100}
+                          height={300}
+                          className="card-img-top"
+                          alt=""
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                          }} // Maintain aspect ratio
+                        />
+                      </a>
+                    </Link>
 
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
+                    <div className="card-body">
+                      <h5 className="card-title">{products[item].title}</h5>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        <b className="fs-3">Price:</b> {products[item].price}
+                      </li>
+                      
+                      
+                      <li className="list-group-item">
+                        <b className="fs-3">Color:</b> {
+                        products[item].color.includes("Black") && <button className="btn btn-dark rounded-circle m-1  text-dark">
+                        B
+                      </button>
+                      }
+                       {
+                        products[item].color.includes("Red") && <button className="btn btn-danger rounded-circle m-1  text-danger">
+                        R
+                      </button>
+                      }
+                       {
+                        products[item].color.includes("Blue") && <button className="btn btn-primary rounded-circle m-1  text-primary">
+                        B
+                      </button>
+                      }
+                      </li>
+                      <li className="list-group-item">
+                        <b className="fs-3">Size:</b> {
+                        products[item].size.includes("Small") && <button className="btn btn-primary  m-1 ">
+                        Small
+                      </button>
+                      }
+                      {
+                        products[item].size.includes("Medium") && <button className="btn btn-primary  m-1 ">
+                        Medium
+                      </button>
+                      }
+                      {
+                        products[item].size.includes("Large") && <button className="btn btn-primary  m-1 ">
+                        Large
+                      </button>
+                      }
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+              </React.Fragment>
+            );
+          })}
         </div>
-
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="container mb-2">
-          <div className="row">
-            <div className="col-sm-6 mb-3 mb-sm-0">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <div className="card" style={{ width: "80%" }}>
-                <Link href={`/${shirtTitle}`}>
-                  <Image
-                    src="/mug.jpg"
-                    width={100}
-                    height={300}
-                    className="card-img-top"
-                    alt=""
-                  />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">{shirtTitle}</h5>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <b>Price:</b> Rs. 1,550
-                  </li>
-                  <li className="list-group-item">
-                    <b>Color:</b> White
-                  </li>
-                  <li className="list-group-item">
-                    <b>Size:</b> Medium
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </>
   );
 }
+
+export async function getServerSideProps() {
+  const products = await Product.find({category:"Mugs"});
+  let mugs = {};
+  for(let item of products){
+    if(item.title in mugs){
+            if(!mugs[item.title].color.includes(item.color) &&
+                    item.availableQuantity > 0){
+                            mugs[item.title].color.push(item.color);
+            }
+            if(!mugs[item.title].size.includes(item.color) &&
+                    item.availableQuantity > 0){
+                            mugs[item.title].size.push(item.size);
+            } 
+    }
+
+    else{
+            mugs[item.title] = JSON.parse(JSON.stringify(item));
+            if(item.availableQuantity > 0){
+                    mugs[item.title].color = [item.color];
+                    mugs[item.title].size = [item.size];
+            }
+    }}
+  return{
+    props:{
+      products:JSON.parse(JSON.stringify(mugs)),
+  }
+  
+}}
