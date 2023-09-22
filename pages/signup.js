@@ -35,9 +35,9 @@ export default function Signup() {
       },
       body: JSON.stringify(data),
     })
-   
 
-    toast.success('🦄 Sign Up Successful', {
+
+    toast.success('🦄 Your Account has been Created', {
       position: "top-center",
       autoClose: 500,
       hideProgressBar: false,
@@ -91,24 +91,27 @@ export default function Signup() {
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
+                              <label className="form-label" htmlFor="name">Name</label>
                               <input onChange={handleFormChange} value={name} type="text" id="name" name='name' className="form-control" />
-                              <label className="form-label" htmlFor="name">Your Name</label>
+
                             </div>
                           </div>
 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
+                              <label className="form-label" htmlFor="email">Email</label>
                               <input onChange={handleFormChange} value={email} type="email" id="email" name='email' className="form-control" />
-                              <label className="form-label" htmlFor="email">Your Email</label>
+
                             </div>
                           </div>
 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
-                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control" />
                               <label className="form-label" htmlFor="password">Password</label>
+                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control" />
+
                             </div>
                           </div>
 
