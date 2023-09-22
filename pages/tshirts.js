@@ -7,7 +7,6 @@ import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
 
-  console.log(products);
 
   return (
     <>
