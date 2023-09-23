@@ -32,12 +32,14 @@ export default function Slug({ addToCart, products }) {
   var description = "";
   var price = 0;
   var color = [];
+  var category = "";
 
   Object.keys(products).map((item) => {
     if (products[item].title === slug) {
       image = products[item].image
       description = products[item].description;
       price = products[item].price;
+      category = products[item].category;
       if (products[item].availableQuantity > 0) {
         if (products[item].color === 'Red') {
           color.push("Red");
@@ -146,7 +148,7 @@ export default function Slug({ addToCart, products }) {
         theme="dark"
       />
       <Head>
-        <title>Codes Wear - T-Shirts ({slug}) </title>
+        <title>Codes Wear - {category} ({slug}) </title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         {slug}

@@ -126,8 +126,8 @@ export default function Signup() {
                       </div>
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                        <Image width={600} height={600} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                          className="img-fluid" alt="Sample image" />
+                        <Image width={400} height={400} src="/logo.jpg"
+                          className="img-fluid m-5" alt="Sample image" />
 
                       </div>
                     </div>
