@@ -198,9 +198,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Small")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -214,9 +214,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Medium")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -232,9 +232,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -248,9 +248,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Red")
                         setCartSize("Extra Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -276,9 +276,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Blue")
                         setCartSize("Small")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -292,9 +292,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Blue")
                         setCartSize("Medium")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -308,9 +308,9 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Blue")
                         setCartSize("Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
-                          autoClose: 1000,
+                          autoClose: 2000,
                           hideProgressBar: false,
                           closeOnClick: true,
                           pauseOnHover: true,
@@ -324,7 +324,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Blue")
                         setCartSize("Extra Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -353,7 +353,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Green")
                         setCartSize("Small")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -369,7 +369,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Green")
                         setCartSize("Medium")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -385,7 +385,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Green")
                         setCartSize("Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -401,7 +401,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Green")
                         setCartSize("Extra Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -429,7 +429,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Yellow")
                         setCartSize("Small")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -445,7 +445,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Yellow")
                         setCartSize("Medium")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -461,7 +461,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Yellow")
                         setCartSize("Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -477,7 +477,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Yellow")
                         setCartSize("Extra Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -507,7 +507,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Black")
                         setCartSize("Small")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -523,7 +523,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Black")
                         setCartSize("Medium")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -539,7 +539,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Black")
                         setCartSize("Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
@@ -555,7 +555,7 @@ export default function Slug({ addToCart, products }) {
 
                         setCartColor("Black")
                         setCartSize("Extra Large")
-                        toast.success('🦄 Adding to Cart', {
+                        toast.success('🦄 Color Selected Click Cart Button', {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,
