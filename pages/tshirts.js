@@ -56,7 +56,6 @@ export default function Tshirts({ products }) {
                       <p className="fs-3"><b >Price:</b>Rs.{products[item].price}</p>
                       </li>
                       
-                      
                       <li className="list-group-item">
                         <b className="fs-3">Color:</b> {
                         products[item].color.includes("Black") && <button className="btn btn-dark rounded-circle m-1  text-dark">
