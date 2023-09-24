@@ -27,9 +27,10 @@ export default function Login() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
-    console.log("mano")
+    
 
     const data = { email, password }
+    
     let res = await fetch('http://localhost:3000/api/login', {
       method: 'POST',
       headers: {
@@ -42,8 +43,10 @@ export default function Login() {
 
     let response = await res.json()
 
-    console.log(response)
+    
     if (response.success) {
+      //add token to local storage
+      localStorage.setItem('token', response.token)
       toast.success('🦄 Logged In Successfully', {
         position: "top-center",
         autoClose: 1000,
