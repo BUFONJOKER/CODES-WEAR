@@ -130,8 +130,8 @@ export default function Navbar({ user, cart, addToCart, subTotal,
 
                 <li className="nav-item">
                 <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
-                  {user.value && <button type="button" class="btn btn-primary fs-3">Log Out</button>}
-                  {!user.value && <button type="button" class="btn btn-primary fs-3">Log In</button>}
+                  {user.value && <button type="button" className="btn btn-primary fs-3">Log Out</button>}
+                  {!user.value && <button type="button" className="btn btn-primary fs-3">Log In</button>}
                   </Link>
                 </li>
 
