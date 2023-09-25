@@ -59,6 +59,17 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
   const [hover, setHover] = useState(false)
 
 
+  const handleMenuItemClick = (e) => {
+    e.preventDefault()
+    // Prevent the click event from reaching the parent (menu)
+    e.stopPropagation();
+    
+    // Handle the click action for the menu item here
+    // For example, you can navigate to a different page
+  };
+
+
+
 
   return (
     <>
@@ -142,11 +153,12 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
                 <li className="nav-item">
                 {user.value && 
-                  <Link className="nav-link text-white m-4" href="/" onClick={closeMobileMenu}>
+                  
+                    <Link className="nav-link text-white fs-1 mt-2" href="/"  >
                     
-                      <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
+                      <div className="dropdown" onClick={handleMenuItemClick} onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
 
-                        <MdAccountCircle className="fs-1" id="dropdownMenuButton"
+                        <MdAccountCircle className="fs-1 " id="dropdownMenuButton"
                           aria-haspopup="true"
                           aria-expanded={isDropdownOpen} />
 
@@ -159,7 +171,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                           <Link
                             className="dropdown-item text-black fw-bold "
 
-                            href="/orders">Orders</Link>
+                            href="orders">Orders</Link>
 
                           <Link
                             onClick={logout}
@@ -168,6 +180,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                             href="login">Log Out</Link>
                         </div>
                       </div> </Link>
+              
                       // <button type="button" className="btn btn-black fs-3">Log Out</button>
                     }
                     {!user.value && 

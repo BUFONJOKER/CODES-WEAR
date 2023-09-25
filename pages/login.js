@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
 import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 
 export default function Login() {
 
@@ -13,6 +14,12 @@ export default function Login() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      router.push('http://localhost:3000')
+    }
+  }, [router])
 
   const handleFormChange = (e) => {
 
@@ -160,7 +167,7 @@ export default function Login() {
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                         <Image width={400} height={400} src="/logo.jpg"
-                          className="img-fluid m-5" alt="Sample image" />
+                          className="img-fluid m-5" alt="Sample image" priority={false}  />
 
                       </div>
                     </div>
