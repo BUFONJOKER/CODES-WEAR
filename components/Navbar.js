@@ -141,8 +141,9 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
 
                 <li className="nav-item">
+                {user.value && 
                   <Link className="nav-link text-white m-4" href="/" onClick={closeMobileMenu}>
-                    {user.value &&
+                    
                       <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
 
                         <MdAccountCircle className="fs-1" id="dropdownMenuButton"
@@ -166,11 +167,15 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
                             href="login">Log Out</Link>
                         </div>
-                      </div>
+                      </div> </Link>
                       // <button type="button" className="btn btn-black fs-3">Log Out</button>
                     }
-                    {!user.value && <button type="button" className="btn btn-primary fs-3">Log In</button>}
-                  </Link>
+                    {!user.value && 
+                    <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
+                    <button type="button" className="btn btn-primary fs-3">Log In</button>
+                    </Link>
+                    }
+                  
                 </li>
 
 

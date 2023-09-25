@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { set } from "mongoose";
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar'
+
 
 
 export default function App({ Component, pageProps }) {
@@ -21,7 +23,11 @@ export default function App({ Component, pageProps }) {
   // cart total state
   const [subTotal, setSubTotal] = useState(0);
 
+  // progress for loading bar
+  const [progress, setProgress] = useState(0)
+
   const router = useRouter()
+  
 
   const logout = () => {
     localStorage.removeItem('token')
@@ -41,6 +47,15 @@ export default function App({ Component, pageProps }) {
 
   // use effect to check if cart is in local storage
   useEffect(() => {
+
+    router.events.on('routeChangeStart', () => {
+      setProgress(50)
+    });
+
+    router.events.on('routeChangeComplete', () => {
+      setProgress(100)
+    });
+
     console.log('useEffect in _app.js');
 
     const token = localStorage.getItem('token')
@@ -62,7 +77,10 @@ export default function App({ Component, pageProps }) {
     // catch (error) {
     //   console.log(error);
     // }
-  }, [router.query]);
+
+
+  }, [router.events, router.query]);
+
 
 
 
@@ -169,6 +187,12 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+    <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+        waitingTime={500}
+      />
     <ToastContainer
         position="top-center"
         autoClose={1000}
