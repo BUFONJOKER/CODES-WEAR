@@ -185,31 +185,14 @@ export default function Navbar({ cart, addToCart, subTotal,
                           height: '70px'
                         }} />
 
-
-
                     </div>
-
                   </div>
-
-
                 </li>
-
-
-
               </ul>
-
-
             </div>
-
-
-
           </div>
         </nav>
       </div>
-
-
-
-
     </>
   );
 }
