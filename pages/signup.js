@@ -4,12 +4,21 @@ import Image from 'next/image'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
+import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 
 
 export default function Signup() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const router = useRouter()
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      router.push('http://localhost:3000')
+    }
+  }, [router])
 
   const handleFormChange = (e) => {
 
