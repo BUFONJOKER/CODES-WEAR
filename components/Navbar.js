@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useState } from "react";
 
 
 //icons
@@ -29,6 +31,20 @@ export default function Navbar({ user, cart, addToCart, subTotal,
     ref.current.classList.remove("show");
 
   }
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  
+  
+
 
 
 
@@ -59,27 +75,29 @@ export default function Navbar({ user, cart, addToCart, subTotal,
 
             <button
               data-bs-toggle="collapse"
-              className="navbar-toggler"
+              className={`navbar-toggler ${mobileMenuOpen ? 'collapsed' : ''}`}
               data-bs-target="#navcol-1"
+              onClick={toggleMobileMenu}
+             
             >
               <span className="visually-hidden">Toggle navigation</span>
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navcol-1">
+            <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`} id="navcol-1">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link active fs-1 m-3" href="/">
+                  <Link passHref className="nav-link active fs-1 m-3" href="/" onClick={closeMobileMenu}>
                     Home
                   </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="about">
+                  <Link className="nav-link fs-1 m-3" href="about" onClick={closeMobileMenu}>
                     About
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="contact">
+                  <Link className="nav-link fs-1 m-3" href="contact" onClick={closeMobileMenu}>
                     Contacts
                   </Link>
                 </li>
@@ -89,20 +107,21 @@ export default function Navbar({ user, cart, addToCart, subTotal,
                     aria-expanded="false"
                     data-bs-toggle="dropdown"
                     href="/"
+                 
                   >
                     Products{" "}
                   </Link>
                   <div className="dropdown-menu">
-                    <Link className="dropdown-item" href="tshirts">
+                    <Link className="dropdown-item" href="tshirts" onClick={closeMobileMenu}>
                       T-Shirts
                     </Link>
-                    <Link className="dropdown-item" href="hoodies">
+                    <Link className="dropdown-item" href="hoodies" onClick={closeMobileMenu}>
                       Hoodies
                     </Link>
-                    <Link className="dropdown-item" href="mugs">
+                    <Link className="dropdown-item" href="mugs" onClick={closeMobileMenu}>
                       Mugs
                     </Link>
-                    <Link className="dropdown-item" href="stickers">
+                    <Link className="dropdown-item" href="stickers" onClick={closeMobileMenu}>
                       Stickers
                     </Link>
                   </div>
@@ -110,7 +129,7 @@ export default function Navbar({ user, cart, addToCart, subTotal,
 
 
                 <li className="nav-item">
-                <Link className="nav-link text-white m-4" href="login">
+                <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
                   {user.value && <button type="button" class="btn btn-primary fs-3">Log Out</button>}
                   {!user.value && <button type="button" class="btn btn-primary fs-3">Log In</button>}
                   </Link>
