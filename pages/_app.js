@@ -2,11 +2,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 import { useState, useEffect } from "react";
+import { set } from "mongoose";
 
 
 export default function App({ Component, pageProps }) {
 
   const [quantity, setQuantity] = useState(0);
+
+  const [user, setUser] = useState({value: null})
+
+  const [key, setKey] = useState(0)
 
   // cart state
   const [cart, setCart] = useState({});
@@ -15,21 +20,29 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
 
   // use effect to check if cart is in local storage
-  // useEffect(() => {
-  //   console.log('useEffect in _app.js');
+  useEffect(() => {
+    console.log('useEffect in _app.js');
 
-  //   try {
+    const token = localStorage.getItem('token')
 
-  //     if (localStorage.getItem('cart')) {
-  //       setCart(JSON.parse(localStorage.getItem('cart')));
-  //     }
+    if(token){
+      setUser({value: token})
+      setKey(Math.random())
+    }
 
-  //   }
 
-  //   catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+    // try {
+
+    //   if (localStorage.getItem('cart')) {
+    //     setCart(JSON.parse(localStorage.getItem('cart')));
+    //   }
+
+    // }
+
+    // catch (error) {
+    //   console.log(error);
+    // }
+  }, []);
 
 
 
@@ -138,7 +151,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Heading />
 
-      <Navbar cart={cart} addToCart={addToCart} quantity = {quantity} 
+      <Navbar key={key} user={user} cart={cart} addToCart={addToCart} quantity = {quantity} 
       removeFromCart={removeFromCart} clearCart={clearCart}
        subTotal={subTotal}
        />

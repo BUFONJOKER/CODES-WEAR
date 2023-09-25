@@ -12,7 +12,7 @@ import{MdAccountCircle} from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
-export default function Navbar({ cart, addToCart, subTotal,
+export default function Navbar({ user, cart, addToCart, subTotal,
   removeFromCart, clearCart, quantity }) {
  
   //ref for cart
@@ -110,7 +110,10 @@ export default function Navbar({ cart, addToCart, subTotal,
 
 
                 <li className="nav-item">
-                <Link className="nav-link text-white m-4" href="login"><MdAccountCircle className="fs-1"/></Link>
+                <Link className="nav-link text-white m-4" href="login">
+                  {user.value && <button type="button" class="btn btn-primary fs-3">Log Out</button>}
+                  {!user.value && <button type="button" class="btn btn-primary fs-3">Log In</button>}
+                  </Link>
                 </li>
 
 
