@@ -49,7 +49,7 @@ export default function Login() {
       localStorage.setItem('token', response.token)
       toast.success('🦄 Logged In Successfully', {
         position: "top-center",
-        autoClose: 1000,
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

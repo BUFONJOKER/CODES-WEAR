@@ -4,6 +4,7 @@ import Heading from "@/components/Heading";
 import { useState, useEffect } from "react";
 import { set } from "mongoose";
 import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default function App({ Component, pageProps }) {
@@ -21,6 +22,22 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
 
   const router = useRouter()
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    setUser({value: null})
+    setKey(Math.random())
+    toast.warning('🦄 Logged Out Successfully', {
+      position: "top-center",
+      autoClose: 100,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
+  }
 
   // use effect to check if cart is in local storage
   useEffect(() => {
@@ -152,9 +169,21 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+    <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Heading />
 
-      <Navbar key={key} user={user} cart={cart} addToCart={addToCart} quantity = {quantity} 
+      <Navbar logout={logout} key={key} user={user} cart={cart} addToCart={addToCart} quantity = {quantity} 
       removeFromCart={removeFromCart} clearCart={clearCart}
        subTotal={subTotal}
        />

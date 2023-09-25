@@ -10,13 +10,13 @@ import {
   AiOutlineShoppingCart, AiOutlinePlusCircle,
   AiOutlineMinusCircle, AiFillCloseCircle
 } from "react-icons/ai";
-import{MdAccountCircle} from "react-icons/md";
+import { MdAccountCircle } from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 //navbar component
-export default function Navbar({ user, cart, addToCart, subTotal,
+export default function Navbar({ logout, user, cart, addToCart, subTotal,
   removeFromCart, clearCart, quantity }) {
- 
+
   //ref for cart
   const ref = useRef(null);
 
@@ -33,7 +33,7 @@ export default function Navbar({ user, cart, addToCart, subTotal,
   }
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -42,13 +42,21 @@ export default function Navbar({ user, cart, addToCart, subTotal,
     setMobileMenuOpen(false);
   };
 
-  
-  
+
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
 
 
 
-
-
+  const [hover, setHover] = useState(false)
 
 
 
@@ -78,7 +86,7 @@ export default function Navbar({ user, cart, addToCart, subTotal,
               className={`navbar-toggler ${mobileMenuOpen ? 'collapsed' : ''}`}
               data-bs-target="#navcol-1"
               onClick={toggleMobileMenu}
-             
+
             >
               <span className="visually-hidden">Toggle navigation</span>
               <span className="navbar-toggler-icon"></span>
@@ -107,38 +115,68 @@ export default function Navbar({ user, cart, addToCart, subTotal,
                     aria-expanded="false"
                     data-bs-toggle="dropdown"
                     href="/"
-                 
+
                   >
                     Products{" "}
                   </Link>
-                  <div className="dropdown-menu">
-                    <Link className="dropdown-item" href="tshirts" onClick={closeMobileMenu}>
+                  <div className="dropdown-menu bg-secondary">
+                    <Link className="dropdown-item text-black fw-bold" href="tshirts" onClick={closeMobileMenu}>
                       T-Shirts
                     </Link>
-                    <Link className="dropdown-item" href="hoodies" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="hoodies" onClick={closeMobileMenu}>
                       Hoodies
                     </Link>
-                    <Link className="dropdown-item" href="mugs" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="mugs" onClick={closeMobileMenu}>
                       Mugs
                     </Link>
-                    <Link className="dropdown-item" href="stickers" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="stickers" onClick={closeMobileMenu}>
                       Stickers
                     </Link>
                   </div>
                 </li>
 
 
+
+
+
+
                 <li className="nav-item">
-                <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
-                  {user.value && <button type="button" className="btn btn-primary fs-3">Log Out</button>}
-                  {!user.value && <button type="button" className="btn btn-primary fs-3">Log In</button>}
+                  <Link className="nav-link text-white m-4" href="/" onClick={closeMobileMenu}>
+                    {user.value &&
+                      <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
+
+                        <MdAccountCircle className="fs-1" id="dropdownMenuButton"
+                          aria-haspopup="true"
+                          aria-expanded={isDropdownOpen} />
+
+
+                        <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''} bg-secondary `} aria-labelledby="dropdownMenuButton">
+                          <Link
+                            className="dropdown-item text-black fw-bold"
+
+                            href="myaccount">My Account</Link>
+                          <Link
+                            className="dropdown-item text-black fw-bold "
+
+                            href="/orders">Orders</Link>
+
+                          <Link
+                            onClick={logout}
+                            className="dropdown-item text-black fw-bold "
+
+                            href="login">Log Out</Link>
+                        </div>
+                      </div>
+                      // <button type="button" className="btn btn-black fs-3">Log Out</button>
+                    }
+                    {!user.value && <button type="button" className="btn btn-primary fs-3">Log In</button>}
                   </Link>
                 </li>
 
 
                 <li className="nav-item">
 
-                  
+
                   <Link onClick={cartClick}
                     className="nav-link text-white m-4"
                     data-bs-toggle="collapse"
@@ -191,12 +229,12 @@ export default function Navbar({ user, cart, addToCart, subTotal,
                       </ul>
                       <p className="mt-2">
                         <Link href="checkout" >
-                          <button type="button" className="btn btn-primary" style={{ width: '100px' }}>
+                          <button type="button" className="btn btn-black" style={{ width: '100px' }}>
                             <BsFillBagCheckFill className="fs-1 " />
                             Checkout
                           </button>
                         </Link>
-                        <button onClick={clearCart} type="button" className="btn btn-primary m-3" style={{ width: '150px' }}>
+                        <button onClick={clearCart} type="button" className="btn btn-black m-3" style={{ width: '150px' }}>
                           <BsCartXFill className="fs-1" />
                           Clear Cart
                         </button></p>
