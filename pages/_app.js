@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 import { useState, useEffect } from "react";
 import { set } from "mongoose";
+import { useRouter } from 'next/router'
 
 
 export default function App({ Component, pageProps }) {
@@ -18,6 +19,8 @@ export default function App({ Component, pageProps }) {
 
   // cart total state
   const [subTotal, setSubTotal] = useState(0);
+
+  const router = useRouter()
 
   // use effect to check if cart is in local storage
   useEffect(() => {
@@ -42,7 +45,7 @@ export default function App({ Component, pageProps }) {
     // catch (error) {
     //   console.log(error);
     // }
-  }, []);
+  }, [router.query]);
 
 
 
