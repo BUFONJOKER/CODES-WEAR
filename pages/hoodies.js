@@ -6,7 +6,7 @@ import Product from "@/models/Product";
 import connectDb from "@/middleware/mongoose";
 
 export default function Hoodies({ products }) {
-  console.log(products);
+  // console.log(products);
 
   return (
     <>

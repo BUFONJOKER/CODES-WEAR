@@ -7,7 +7,7 @@ import connectDb from "@/middleware/mongoose";
 
 export default function Mugs({ products }) {
 
-  console.log(products);
+  // console.log(products);
   return (
     <>
       <Head>

@@ -111,7 +111,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="about" onClick={closeMobileMenu}>
+                  <Link className="nav-link fs-1 m-3" href="  about" onClick={closeMobileMenu}>
                     About
                   </Link>
                 </li>
