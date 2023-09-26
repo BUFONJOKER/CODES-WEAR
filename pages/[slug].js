@@ -156,14 +156,16 @@ export default function Slug({ addToCart, products }) {
 
 
       <div className="container d-flex justify-content-center align-items-center mt-5" >
-        <div className="row">
+        <div className="row ">
           <div className="col-md-6">
-            <div className="card text-center m-3" >
+            <div className="card text-center m-3 " >
               <Image
+              
                 src={image}
+                
                 width={200}
                 height={500}
-                className="card-img-top"
+                className="card-img-top "
                 alt="image"
               />
             </div>

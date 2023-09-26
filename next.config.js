@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['mdbcdn.b-cdn.net','static.nike.com',"outfitters.com.pk", 'm.media-amazon.com'], // Add your domains here
+    domains: ['th.bing.com','mdbcdn.b-cdn.net','static.nike.com',"outfitters.com.pk", 'm.media-amazon.com'], // Add your domains here
   },
 };
