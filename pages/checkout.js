@@ -12,7 +12,7 @@ import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 
 export default function Checkout({ cart }) {
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <>

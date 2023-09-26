@@ -63,7 +63,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
     e.preventDefault()
     // Prevent the click event from reaching the parent (menu)
     e.stopPropagation();
-    
+
     // Handle the click action for the menu item here
     // For example, you can navigate to a different page
   };
@@ -152,10 +152,10 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
 
                 <li className="nav-item">
-                {user.value && 
-                  
+                  {user.value &&
+
                     <Link className="nav-link text-white fs-1 mt-2" href="/"  >
-                    
+
                       <div className="dropdown" onClick={handleMenuItemClick} onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
 
                         <MdAccountCircle className="fs-1 " id="dropdownMenuButton"
@@ -180,15 +180,15 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                             href="login">Log Out</Link>
                         </div>
                       </div> </Link>
-              
-                      // <button type="button" className="btn btn-black fs-3">Log Out</button>
-                    }
-                    {!user.value && 
+
+                    // <button type="button" className="btn btn-black fs-3">Log Out</button>
+                  }
+                  {!user.value &&
                     <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
-                    <button type="button" className="btn btn-primary fs-3">Log In</button>
+                      <button type="button" className="btn btn-primary fs-3">Log In</button>
                     </Link>
-                    }
-                  
+                  }
+
                 </li>
 
 
@@ -212,7 +212,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
                     <div className="card card-body" style={{
                       width: "500px",
-                      height: "300px", position: "absolute",
+                      height: "auto", position: "absolute",
                       right: 6, backgroundColor: "gray"
                     }}>
                       <h2 className="text-white mb-5">Shopping Cart</h2>
@@ -232,14 +232,14 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}>
                                 </AiOutlineMinusCircle>
-                                &nbsp;{quantity}&nbsp;
+                                &nbsp;{cart[item].quantity}&nbsp;
                                 <AiOutlinePlusCircle style={{ cursor: 'pointer' }} onClick={() => {
                                   addToCart(item, 1, cart[item].price,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}></AiOutlinePlusCircle>
 
 
-                                <div className="fs-4 text-white">Subtotal:{subTotal}</div>
+                                <div className="fs-4 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
                               </li>
                             </React.Fragment>
                           )
