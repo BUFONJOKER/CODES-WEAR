@@ -9,7 +9,7 @@ export default function Document() {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
-      <body style={{ backgroundColor: '#121F3E' }}>
+      <body style={{ backgroundColor: '#1b1b1b' }}>
         <Main />
         <NextScript />
       </body>
