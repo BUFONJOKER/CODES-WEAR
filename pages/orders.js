@@ -4,7 +4,7 @@ function orders() {
   return (
     <div>
       <h1 className='text-white text-center mt-5'>Orders</h1>
-      <div className="container">
+      <div className="container mt-5">
       <table className="table table-hover table-dark">
         <thead>
           <tr>
