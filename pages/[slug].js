@@ -33,9 +33,11 @@ export default function Slug({ addToCart, products }) {
   var price = 0;
   var color = [];
   var category = "";
+  var product_id = ""
 
   Object.keys(products).map((item) => {
     if (products[item].title === slug) {
+      product_id = products[item]._id
       image = products[item].image
       description = products[item].description;
       price = products[item].price;
@@ -579,14 +581,14 @@ export default function Slug({ addToCart, products }) {
 
                 <Link href="checkout"><button disabled={cartButtoncanBeClicked}
                   onClick={() => {
-                    addToCart(slug, 1, price, slug, cartColor, cartSize);
+                    addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
                   }} className="btn btn-primary m-1">Buy Now</button></Link>
 
 
 
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
-                    addToCart(slug, 1, price, slug, cartColor, cartSize);
+                    addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
                     toast.success('🦄 Adding to Cart', {
                       position: "top-center",
                       autoClose: 1000,
