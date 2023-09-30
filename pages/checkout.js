@@ -1,53 +1,77 @@
+
+import React from "react";
+import { useState } from "react";
 import Link from "next/link";
-import React, { useRef } from "react";
-import Image from "next/image";
 
 
-import {
-  AiOutlineShoppingCart, AiOutlinePlusCircle,
-  AiOutlineMinusCircle, AiFillCloseCircle
-} from "react-icons/ai";
-import { MdAccountCircle } from "react-icons/md";
-import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
+
 
 export default function Checkout({ cart }) {
 
-  console.log(cart);
+  const [disabled, setDisabled] = useState(true)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
+  const [phone, setPhone] = useState("")
+  const [city, setCity] = useState("")
+  const [state, setState] = useState("")
+  const [zip, setZip] = useState("")
+
+  const handleChange = (e) => {
+    if (e.target.name == "name") {
+      setName(e.target.value)
+    }
+    else if (e.target.name == "email") {
+      setEmail(e.target.value)
+    }
+    else if (e.target.name == "address") {
+      setAddress(e.target.value)
+    }
+    // else if (e.target.name == "phone") {
+    //   setPhone(e.target.value)
+    // }
+    else if (e.target.name == "zip") {
+      setZip(e.target.value)
+    }
+setTimeout(() => {
+  if (name != "" && email != "" && address != "" && zip != "") {
+    setDisabled(false)
+
+  }
+  else {
+    setDisabled(true)
+
+}}
+, 100);
+  
+    }
+
 
   return (
     <>
-
-
-
       <div className="container text-white mt-5 mb-5">
         <h1 className="text-center">Checkout</h1>
-        <label htmlFor="name">Name</label>
-        <div className="row">
-          <div className="col">
-            <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
-          </div>
-          <div className="col">
-            <input type="text" className="form-control" placeholder="Last name" aria-label="Last name" />
-          </div>
-        </div>
+
 
         <form className="row g-3">
+
+
+
+          <div className="col-md-6">
+            <label htmlFor="inputEmail4" className="form-label">Name</label>
+            <input type="text" className="form-control" id="inputEmail4" name="name" value={name} onChange={handleChange} required />
+          </div>
+
           <div className="col-md-6">
             <label htmlFor="inputEmail4" className="form-label">Email</label>
-            <input type="email" className="form-control" id="inputEmail4" />
+            <input type="email" className="form-control" id="inputEmail4" name="email" value={email} onChange={handleChange} required />
           </div>
-          <div className="col-md-6">
-            <label htmlFor="inputPassword4" className="form-label">Password</label>
-            <input type="password" className="form-control" id="inputPassword4" />
-          </div>
+
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">Address</label>
-            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" value={address} onChange={handleChange} />
           </div>
-          <div className="col-12">
-            <label htmlFor="inputAddress2" className="form-label">Address 2</label>
-            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-          </div>
+
           <div className="col-md-6">
             <label htmlFor="inputCity" className="form-label">City</label>
             <input type="text" className="form-control" id="inputCity" />
@@ -65,7 +89,7 @@ export default function Checkout({ cart }) {
           </div>
           <div className="col-md-2">
             <label htmlFor="inputZip" className="form-label">Zip</label>
-            <input type="text" className="form-control" id="inputZip" />
+            <input type="text" className="form-control" id="inputZip" name="zip" value={zip} onChange={handleChange} />
           </div>
           <div className="col-12">
             <div className="form-check">
@@ -76,42 +100,52 @@ export default function Checkout({ cart }) {
             </div>
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-primary">Continue to Shipping</button>
+          <Link href="payment">
+          <button  type="submit" className="btn btn-primary btn-circle btn-lg mt-3" >Checkout</button>
+          </Link>
           </div>
         </form>
-
-
         <div >
-
-
         </div>
       </div>
 
-      <div className="container text-white">
-        {Object.keys(cart).map((item) => (
-          <React.Fragment key={item}>
-            <h1>CART</h1>
-            <h2 className="text-white" key={item}>
-              Item Name: {cart[item].name}
-            </h2>
-            <h2>
-              Color: {cart[item].variant}
-            </h2>
-            <h2>
-              Size: {cart[item].size}
-            </h2>
-            <h2>
-              Quantity: {cart[item].quantity}
-            </h2>
-            <h2>
-              SubTotal: {cart[item].quantity * cart[item].price}
-            </h2>
-            <h2>
-              Product_id: {cart[item].product_id}
-            </h2>
 
-          </React.Fragment>
-        ))}
+      <div className="container text-white bg-dark p-5">
+
+      <h1 className="text-center">CART</h1>
+        {Object.keys(cart).length == 0 && <h1 className="text-center">Cart is Empty</h1>}
+
+        
+        {Object.keys(cart).length > 0 &&
+          Object.keys(cart).map((item) => (
+            <React.Fragment key={item}>
+              
+              <h3 className="text-white" key={item}>
+                Item Name: {cart[item].name}
+              </h3>
+              <h3>
+                Color: {cart[item].variant}
+              </h3>
+              <h3>
+                Size: {cart[item].size}
+              </h3>
+              <h3>
+                Quantity: {cart[item].quantity}
+              </h3>
+              <h3>
+                SubTotal: {cart[item].quantity * cart[item].price}
+              </h3>
+              <h3>
+                Product_id: {cart[item].product_id}
+              </h3>
+
+
+            </React.Fragment>
+          ))
+        }
+
+        
+
       </div>
 
 
@@ -119,3 +153,5 @@ export default function Checkout({ cart }) {
     </>
   )
 }
+
+

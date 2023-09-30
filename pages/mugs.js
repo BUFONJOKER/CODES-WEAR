@@ -46,7 +46,7 @@ export default function Mugs({ products }) {
                           }} // Maintain aspect ratio
                         />
                       </a>
-                    </Link>
+                    </Link> 
 
                     <div className="card-body">
                       <h5 className="card-title">{products[item].title}</h5>

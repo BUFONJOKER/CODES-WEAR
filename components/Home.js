@@ -64,7 +64,7 @@ export default function Home() {
               </span>
               &nbsp;of the best companies in the world.
             </p>
-            <a href="#"> </a>
+           
           </div>
         </section>
         <section>

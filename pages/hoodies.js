@@ -29,7 +29,7 @@ export default function Hoodies({ products }) {
                       href={`/${products[item].title}`}
                       passHref
                     >
-                      <Link
+                      <a
                         rel="preload"
                         as="image"
                         href={products[item].image}
@@ -45,7 +45,7 @@ export default function Hoodies({ products }) {
                             height: "auto",
                           }} // Maintain aspect ratio
                         />
-                      </Link>
+                      </a>
                     </Link>
 
                     <div className="card-body">

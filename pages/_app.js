@@ -66,17 +66,17 @@ export default function App({ Component, pageProps }) {
     }
 
 
-    // try {
+    try {
 
-    //   if (localStorage.getItem('cart')) {
-    //     setCart(JSON.parse(localStorage.getItem('cart')));
-    //   }
+      if (localStorage.getItem('cart')) {
+        setCart(JSON.parse(localStorage.getItem('cart')));
+      }
 
-    // }
+    }
 
-    // catch (error) {
-    //   console.log(error);
-    // }
+    catch (error) {
+      console.log(error);
+    }
 
 
   }, [router.events, router.query]);
@@ -123,8 +123,8 @@ export default function App({ Component, pageProps }) {
   // update cart in local storage
   const saveCart = (newCart) => {
   
-      // // localStorage is available
-      // localStorage.setItem('cart', JSON.stringify(newCart));
+      // localStorage is available
+      localStorage.setItem('cart', JSON.stringify(newCart));
   
   
 

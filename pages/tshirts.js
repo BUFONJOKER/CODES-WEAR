@@ -24,6 +24,7 @@ export default function Tshirts({ products }) {
               <React.Fragment key={products[item]._id}>
                 <div className="col-md-6">
                   <div className="card m-3 text-center">
+                 
                     <Link
                       legacyBehavior
                       href={`/${products[item].title}`}
@@ -35,6 +36,7 @@ export default function Tshirts({ products }) {
                         href={products[item].image}
                       >
                         <Image
+                        rel="pre"
                           src={`${products[item].image}`}
                           width={100}
                           height={300}

@@ -246,16 +246,24 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                         })}
                       </ul>
                       <p className="mt-2">
-                        <Link href="checkout" >
-                          <button type="button" className="btn btn-black" style={{ width: '100px' }}>
+                        <Link  href="checkout" >
+                          <button type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>
                             <BsFillBagCheckFill className="fs-1 " />
                             Checkout
                           </button>
                         </Link>
-                        <button onClick={clearCart} type="button" className="btn btn-black m-3" style={{ width: '150px' }}>
+                      
+                        <button 
+                          onClick={clearCart} 
+                          type="button" 
+                          className="btn  btn-outline-dark  m-3" 
+                          style={{ width: '150px' }}
+                          >
                           <BsCartXFill className="fs-1" />
                           Clear Cart
-                        </button></p>
+                        </button>
+                
+                        </p>
                       <AiFillCloseCircle className="btn btn-hover"
                         onClick={closeClick}
                         style={{

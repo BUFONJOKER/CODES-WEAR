@@ -26,7 +26,7 @@ export default function Payment() {
                 <label htmlFor="country">Country</label>
                 <input type="text" className="form-control" id="country" name="country" placeholder="Pakistan" />
               </div>
-              <button type="submit" className="btn btn-primary">Pay Now</button>
+              <button type="submit" className="btn btn-primary" onClick={(e)=>{e.preventDefault()}}>Pay Now</button>
             </form>
           </div>
         </div>
