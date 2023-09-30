@@ -218,25 +218,30 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                       <h2 className="text-white mb-5">Shopping Cart</h2>
 
 
-                      <ul>
+                      <ol>
                         {Object.keys(cart).length === 0 && <div className="fs-4 text-white">Cart is empty</div>}
 
                         {Object.keys(cart).map((item) => {
                           return (
                             <React.Fragment key={item}>
-                              <li className="fs-4 text-white">{cart[item].name} {cart[item].variant}{cart[item].size}
+                              <li className="fs-4 text-white">{cart[item].name} <b>Color(Size):</b> {cart[item].variant}
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
-                                <AiOutlineMinusCircle style={{ cursor: 'pointer' }} onClick={() => {
+                                <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
+                                <AiOutlineMinusCircle  onClick={() => {
                                   removeFromCart(item, 1, cart[item].price,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}>
                                 </AiOutlineMinusCircle>
+                                </button>
                                 &nbsp;{cart[item].quantity}&nbsp;
-                                <AiOutlinePlusCircle style={{ cursor: 'pointer' }} onClick={() => {
+
+                                <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
+                                <AiOutlinePlusCircle  onClick={() => {
                                   addToCart(item, 1, cart[item].price,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}></AiOutlinePlusCircle>
+                                </button>
 
 
                                 <div className="fs-4 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
@@ -244,7 +249,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                             </React.Fragment>
                           )
                         })}
-                      </ul>
+                      </ol>
                       <p className="mt-2">
                         <Link  href="checkout" >
                           <button type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>

@@ -3,10 +3,17 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 
+//icons
+import {
+  AiOutlineShoppingCart, AiOutlinePlusCircle,
+  AiOutlineMinusCircle, AiFillCloseCircle
+} from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md";
+import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
+import Head from "next/head";
 
 
-
-export default function Checkout({ cart }) {
+export default function Checkout({ cart,removeFromCart,addToCart }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -49,6 +56,12 @@ setTimeout(() => {
 
   return (
     <>
+    <Head>
+        <title>Codes Wear-Checkout</title>
+      </Head>
+      <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
+        Log In for Codes Wear Account
+      </h1>
       <div className="container text-white mt-5 mb-5">
         <h1 className="text-center">Checkout</h1>
 
@@ -101,7 +114,7 @@ setTimeout(() => {
           </div>
           <div className="col-12">
           <Link href="payment">
-          <button  type="submit" className="btn btn-primary btn-circle btn-lg mt-3" >Checkout</button>
+          <button  type="submit" className="btn btn-primary btn-circle btn-lg mt-3" disabled={disabled}>Checkout</button>
           </Link>
           </div>
         </form>
@@ -116,33 +129,59 @@ setTimeout(() => {
         {Object.keys(cart).length == 0 && <h1 className="text-center">Cart is Empty</h1>}
 
         
+        <ol>
         {Object.keys(cart).length > 0 &&
           Object.keys(cart).map((item) => (
             <React.Fragment key={item}>
               
-              <h3 className="text-white" key={item}>
+              {/* <li className="text-white" key={item}>
                 Item Name: {cart[item].name}
-              </h3>
-              <h3>
+              </li>
+              <li>
                 Color: {cart[item].variant}
-              </h3>
-              <h3>
+              </li>
+              <li>
                 Size: {cart[item].size}
-              </h3>
-              <h3>
+              </li>
+              <li>
                 Quantity: {cart[item].quantity}
-              </h3>
-              <h3>
+              </li>
+              <li>
                 SubTotal: {cart[item].quantity * cart[item].price}
-              </h3>
-              <h3>
+              </li>
+              <li>
                 Product_id: {cart[item].product_id}
-              </h3>
+              </li>
+       
+ */}
 
 
+<li className="fs-1 text-white">{cart[item].name} <b>Color:</b> {cart[item].variant} <b>Size: </b>{cart[item].size}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                <button className="btn fs-1 text-white bg-dark">
+                                <AiOutlineMinusCircle  onClick={() => {
+                                  removeFromCart(item, 1, cart[item].price,
+                                    cart[item].name, cart[item].variant, cart[item].size)
+                                }}>
+                                </AiOutlineMinusCircle>
+                                </button>
+                                &nbsp;{cart[item].quantity}&nbsp;
+
+                                <button className="btn fs-1 text-white bg-dark">
+                                <AiOutlinePlusCircle  onClick={() => {
+                                  addToCart(item, 1, cart[item].price,
+                                    cart[item].name, cart[item].variant, cart[item].size)
+                                }}></AiOutlinePlusCircle>
+                                </button>
+
+
+                                <div className="fs-1 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
+                              </li>
             </React.Fragment>
           ))
         }
+         </ol>
 
         
 

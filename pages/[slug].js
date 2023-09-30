@@ -215,7 +215,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Small</button>}
+                      }} type="button" className="btn btn-primary m-1">Small</button>}
                       {colorSize[0].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Red")
@@ -232,7 +232,7 @@ export default function Slug({ addToCart, products }) {
                         });
                         setCartButtonCanBeClicked(false)
 
-                      }} type="button" className="btn btn-primary">Medium</button>
+                      }} type="button" className="btn btn-primary m-1">Medium</button>
                       }
                       {colorSize[0].size.includes("Large") && <button onClick={() => {
 
@@ -249,7 +249,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Large</button>}
                       {colorSize[0].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Red")
@@ -265,7 +265,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Extra Large</button>}
                     </div>
                   )}
 
@@ -293,7 +293,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Small</button>}
+                      }} type="button" className="btn btn-primary m-1">Small</button>}
                       {colorSize[1].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Blue")
@@ -309,7 +309,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Medium</button>}
+                      }} type="button" className="btn btn-primary m-1">Medium</button>}
                       {colorSize[1].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Blue")
@@ -325,7 +325,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Large</button>}
                       {colorSize[1].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Blue")
@@ -341,7 +341,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Extra Large</button>}
                     </div>
                   )}
 
@@ -370,7 +370,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Small</button>}
+                      }} type="button" className="btn btn-primary m-1">Small</button>}
                       {colorSize[2].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Green")
@@ -386,7 +386,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Medium</button>}
+                      }} type="button" className="btn btn-primary m-1">Medium</button>}
                       {colorSize[2].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Green")
@@ -402,7 +402,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Large</button>}
                       {colorSize[2].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Green")
@@ -418,7 +418,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Extra Large</button>}
                     </div>
                   )}
 
@@ -446,7 +446,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Small</button>}
+                      }} type="button" className="btn btn-primary m-1">Small</button>}
                       {colorSize[3].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Yellow")
@@ -462,7 +462,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Medium</button>}
+                      }} type="button" className="btn btn-primary m-1">Medium</button>}
                       {colorSize[3].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Yellow")
@@ -478,7 +478,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Large</button>}
                       {colorSize[3].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Yellow")
@@ -494,7 +494,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Extra Large</button>}
                     </div>
                   )}
 
@@ -524,7 +524,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Small</button>}
+                      }} type="button" className="btn btn-primary m-1">Small</button>}
                       {colorSize[4].size.includes("Medium") && <button onClick={() => {
 
                         setCartColor("Black")
@@ -540,7 +540,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Medium</button>}
+                      }} type="button" className="btn btn-primary m-1">Medium</button>}
                       {colorSize[4].size.includes("Large") && <button onClick={() => {
 
                         setCartColor("Black")
@@ -556,7 +556,7 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Large</button>}
                       {colorSize[4].size.includes("Extra Large") && <button onClick={() => {
 
                         setCartColor("Black")
@@ -572,22 +572,24 @@ export default function Slug({ addToCart, products }) {
                           theme: "colored",
                         });
                         setCartButtonCanBeClicked(false)
-                      }} type="button" className="btn btn-primary">Extra Large</button>}
+                      }} type="button" className="btn btn-primary m-1">Extra Large</button>}
                       {/* </select> */}
                     </div>
                   )}
 
                 </div>
 
-                <Link href="checkout"><button disabled={cartButtoncanBeClicked}
+                <button  disabled={cartButtoncanBeClicked}
                   onClick={() => {
                     addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
-                  }} className="btn btn-primary m-1">Buy Now</button></Link>
+                    router.push('/checkout')
+                  }} className="btn btn-primary m-1">Buy Now</button>
 
 
 
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
+                    console.log(cartColor, cartSize)
                     addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
                     toast.success('🦄 Adding to Cart', {
                       position: "top-center",
@@ -600,7 +602,7 @@ export default function Slug({ addToCart, products }) {
                       theme: "colored",
                     });
                   }}
-                  className="btn btn-primary"
+                  className="btn btn-primary m-1"
                 >
                   <BsCartPlus className="fs-2" />
                 </button>
