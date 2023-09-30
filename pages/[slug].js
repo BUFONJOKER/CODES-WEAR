@@ -164,7 +164,7 @@ export default function Slug({ addToCart, products }) {
               <Image
               
                 src={image}
-                
+                quality={100}
                 width={200}
                 height={500}
                 className="card-img-top "

@@ -26,28 +26,23 @@ export default function Tshirts({ products }) {
                   <div className="card m-3 text-center">
                  
                     <Link
-                      legacyBehavior
-                      href={`/${products[item].title}`}
-                      passHref
+                     href = {products[item].title}
+                    key={products[item]._id}
+                
                     >
-                      <a
-                        rel="preload"
-                        as="image"
-                        href={products[item].image}
-                      >
-                        <Image
-                        rel="pre"
-                          src={`${products[item].image}`}
-                          width={100}
-                          height={300}
-                          className="card-img-top"
-                          alt=""
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                          }} // Maintain aspect ratio
-                        />
-                      </a>
+                      <Image
+                        quality={100}
+                        priority
+                        src={`${products[item].image}`}
+                        width={100}
+                        height={300}
+                        className="card-img-top"
+                        alt=""
+                        style={{
+                          width: "auto",
+                          height: "auto",
+                        }} // Maintain aspect ratio
+                      />
                     </Link>
 
                     <div className="card-body">

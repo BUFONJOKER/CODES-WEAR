@@ -24,30 +24,25 @@ export default function Mugs({ products }) {
               <React.Fragment key={products[item]._id}>
                 <div className="col-md-6">
                   <div className="card m-3 text-center">
-                    <Link
-                      legacyBehavior
-                      href={`/${products[item].title}`}
-                      passHref
+                  <Link
+                     href = {products[item].title}
+                     key={products[item]._id}
+                
                     >
-                      <a
-                        rel="preload"
-                        as="image"
-                        href={products[item].image}
-                      >
-                        <Image
-                          src={`${products[item].image}`}
-                          width={100}
-                          height={300}
-                          className="card-img-top"
-                          alt=""
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                          }} // Maintain aspect ratio
-                        />
-                      </a>
-                    </Link> 
-
+                      <Image
+                        quality={100}
+                        priority
+                        src={`${products[item].image}`}
+                        width={100}
+                        height={300}
+                        className="card-img-top"
+                        alt=""
+                        style={{
+                          width: "auto",
+                          height: "auto",
+                        }} // Maintain aspect ratio
+                      />
+                    </Link>
                     <div className="card-body">
                       <h5 className="card-title">{products[item].title}</h5>
                     </div>
