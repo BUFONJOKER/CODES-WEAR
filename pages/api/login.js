@@ -10,13 +10,13 @@ const handler = async (req, res) => {
 
         if (user) {
             // Decrypt the password
-            let bytes = CryptoJS.AES.decrypt(user.password, 'helloworld');
+            let bytes = CryptoJS.AES.decrypt(user.password, process.env.AES_SECRET_KEY);
             let originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
             if (user.email == req.body.email && originalPassword == req.body.password) {
                 // Create token using jwt of the user
                 let token = jwt.sign({ name: user.name,
-                     email: user.email, password: originalPassword }, 'helloworld' , { expiresIn: '1h' });
+                     email: user.email, password: originalPassword }, process.env.JWT_SECRET_KEY , { expiresIn: '1h' });
                 
                 res.status(200).json({success: true, token: token});
             }
