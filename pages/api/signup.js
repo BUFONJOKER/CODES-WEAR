@@ -9,7 +9,7 @@ const handler = async (req, res) => {
                         email:req.body.email,
                         password:CryptoJS.AES.encrypt(req.body.password, process.env.AES_SECRET_KEY).toString()});
         await u.save();
-        console.log(u);
+        
         res.status(200).json({ message: "User Created successfully" });
     }
 
