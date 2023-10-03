@@ -112,34 +112,20 @@ export default function App({ Component, pageProps }) {
       // if item is in cart, increase quantity
       //check if only quantity changed
       if (cart[itemCode].variant == variant && cart[itemCode].size == size && cart[itemCode].product_id == id) {
-        console.log(typeof (variant))
+        // console.log(typeof (variant))
 
-
-        let inputString = variant;
+        // let inputString = variant;
 
         // Use a regular expression to find and replace repeated color and size combinations
-        let resultString = inputString.replace(/(\w+\(\w+\))(?=.*\s\1)/g, "");
 
-
-
-
-
+        // let resultString = inputString.replace(/(\w+\(\w+\))(?=.*\s\1)/g, "");
 
         // Use a regular expression to remove double occurrences of "(Medium)", "(Small)", and "(Large)"
 
+        // console.log(resultString);
 
+        // let inputString = variant
 
-
-
-
-
-        console.log(resultString);
-
-
-
-
-
-        // let inputString = variant;
         // let indexOfSpace = inputString.indexOf(" ");
 
         // let result = inputString;
@@ -151,7 +137,7 @@ export default function App({ Component, pageProps }) {
           quantity: cart[itemCode].quantity + 1,
           price: price,
           name: name,
-          variant: resultString,
+          variant: variant,
           size: size,
           product_id: id,
         }
@@ -161,7 +147,8 @@ export default function App({ Component, pageProps }) {
           quantity: cart[itemCode].quantity + 1,
           price: price,
           name: name,
-          variant: cart[itemCode].variant + " " + variant + "(" + size + ")",
+          variant: variant,
+          // variant: cart[itemCode].variant + " " + variant + "(" + size + ")",
           size: size,
           product_id: id,
         }
@@ -175,7 +162,8 @@ export default function App({ Component, pageProps }) {
         quantity: 1,
         price: price,
         name: name,
-        variant: variant + "(" + size + ")",
+        variant:variant,
+        // variant: variant + "(" + size + ")",
         size: size,
         product_id: id,
       }

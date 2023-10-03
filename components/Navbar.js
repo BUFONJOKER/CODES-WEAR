@@ -224,7 +224,11 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                         {Object.keys(cart).map((item) => {
                           return (
                             <React.Fragment key={item}>
-                              <li className="fs-4 text-white">{cart[item].name} <b>Color(Size):</b> {cart[item].variant}
+                              <li className="fs-4 text-white">{cart[item].name} 
+                              <p className="fs-4 text-white"><b>Color: </b> {cart[item].variant}
+                              &nbsp;&nbsp;
+
+                              <b>Size: </b>{cart[item].size}
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
@@ -242,7 +246,8 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}></AiOutlinePlusCircle>
                                 </button>
-
+                                
+                                </p>
 
                                 <div className="fs-4 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
                               </li>
