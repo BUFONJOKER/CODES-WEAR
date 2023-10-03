@@ -11,11 +11,12 @@ import {
 import { MdAccountCircle } from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 
-export default function Checkout({ cart, removeFromCart, addToCart }) {
+export default function Checkout({ cart, removeFromCart, addToCart, subTotal,orderId }) {
 
-  const [disabled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(false)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
@@ -23,6 +24,11 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
   const [city, setCity] = useState("")
   const [state, setState] = useState("")
   const [zip, setZip] = useState("")
+  const router = useRouter()
+  const [done, setDone] = useState()
+
+
+  console.log("cart" +Object.keys(cart).length)
 
   const handleChange = (e) => {
     if (e.target.name == "name") {
@@ -52,7 +58,45 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
     }
       , 100);
 
+
+
+
+
+
   }
+  const handleCheckoutClick = async (e) => {
+    e.preventDefault();
+    
+    let products_id = []
+    Object.keys(cart).map((item) => {
+      products_id.push(cart[item].product_id)
+    })
+    console.log(products_id)
+    const data = { name, email, address, cart,products_id, subTotal }
+
+    await fetch('http://localhost:3000/api/pretransaction', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    
+
+    console.log("data sent to pretransaction api")
+    
+    router.push("/payment")
+    
+
+
+    
+
+
+  }
+
+
+
 
 
   return (
@@ -114,9 +158,15 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
             </div>
           </div>
           <div className="col-12">
-            <Link href="payment">
-              <button type="submit" className="btn btn-primary btn-circle btn-lg mt-3" disabled={disabled}>Checkout</button>
+            {
+             <Link href="/payment" onClick={handleCheckoutClick}>
+              <button  type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>
+                <BsFillBagCheckFill className="fs-1 " />
+                Checkout
+              </button>
             </Link>
+
+            }
           </div>
         </form>
         <div >
@@ -157,15 +207,15 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
  */}
 
 
-                <li className="fs-1 text-white">{cart[item].name}
-                
-                  <p className="fs-1 text-white"><b>Color: </b> {cart[item].variant}
+                <li className="fs-2 text-white">{cart[item].name}
+
+                  <p className="fs-2 text-white"><b>Color: </b> {cart[item].variant}
                     &nbsp;&nbsp;
                     <b>Size: </b>{cart[item].size}
                     &nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                    <button className="btn fs-1 text-white bg-dark">
+                    <button className="btn fs-2 text-white bg-dark">
                       <AiOutlineMinusCircle onClick={() => {
                         removeFromCart(item, 1, cart[item].price,
                           cart[item].name, cart[item].variant, cart[item].size)
@@ -174,7 +224,7 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
                     </button>
                     &nbsp;{cart[item].quantity}&nbsp;
 
-                    <button className="btn fs-1 text-white bg-dark">
+                    <button className="btn fs-2 text-white bg-dark">
                       <AiOutlinePlusCircle onClick={() => {
                         addToCart(item, 1, cart[item].price,
                           cart[item].name, cart[item].variant, cart[item].size)
@@ -189,6 +239,9 @@ export default function Checkout({ cart, removeFromCart, addToCart }) {
             ))
           }
         </ol>
+
+
+        <p className="fs-1 text-white">Total: Rs.{subTotal}</p>
 
 
 

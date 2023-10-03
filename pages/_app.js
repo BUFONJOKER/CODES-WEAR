@@ -28,6 +28,8 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter()
 
+  const [orderId, setOrderId] = useState("")
+
 
   const logout = () => {
     localStorage.removeItem('token')
@@ -272,7 +274,7 @@ export default function App({ Component, pageProps }) {
         subTotal={subTotal}
       />
 
-      <Component {...pageProps} cart={cart} addToCart={addToCart}
+      <Component {...pageProps} orderId={orderId} cart={cart} addToCart={addToCart}
         removeFromCart={removeFromCart} clearCart={clearCart}
         subTotal={subTotal}
       />

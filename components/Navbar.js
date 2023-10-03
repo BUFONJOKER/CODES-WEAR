@@ -249,14 +249,21 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                                 
                                 </p>
 
+                               
                                 <div className="fs-4 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
+                                
                               </li>
+
+                              
                             </React.Fragment>
+
+                       
                           )
                         })}
                       </ol>
+                      <p className="fs-1 text-white">Total: Rs.{subTotal}</p>
                       <p className="mt-2">
-                        <Link  href="checkout" >
+                        <Link  href="/checkout" >
                           <button type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>
                             <BsFillBagCheckFill className="fs-1 " />
                             Checkout
