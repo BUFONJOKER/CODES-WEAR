@@ -589,7 +589,7 @@ export default function Slug({ addToCart, products }) {
 
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
-                    console.log(cartColor, cartSize)
+                    // console.log(cartColor, cartSize)
                     addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
                     toast.success('🦄 Adding to Cart', {
                       position: "top-center",

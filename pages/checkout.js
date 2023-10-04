@@ -12,11 +12,12 @@ import { MdAccountCircle } from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 
-export default function Checkout({ cart, removeFromCart, addToCart, subTotal,orderId }) {
+export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId }) {
 
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
@@ -28,7 +29,21 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
   const [done, setDone] = useState()
 
 
-  console.log("cart" +Object.keys(cart).length)
+  // console.log("cart" + Object.keys(cart).length)
+
+
+  
+  // useEffect to update the disabled state when form inputs change
+  useEffect(() => {
+    setDisabled(areFieldsEmpty());
+
+    // eslint-disable-next-line
+  }, [name, email, address, phone, zip]);
+
+  const areFieldsEmpty = () => {
+    return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === ""  || zip.trim() === "";
+  };
+
 
   const handleChange = (e) => {
     if (e.target.name == "name") {
@@ -40,23 +55,22 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
     else if (e.target.name == "address") {
       setAddress(e.target.value)
     }
-    // else if (e.target.name == "phone") {
-    //   setPhone(e.target.value)
-    // }
+    else if (e.target.name == "phone") {
+      setPhone(e.target.value)
+    }
     else if (e.target.name == "zip") {
       setZip(e.target.value)
     }
-    setTimeout(() => {
-      if (name != "" && email != "" && address != "" && zip != "") {
+  
+      if (name != "" && phone!="" &&  email != "" && address != "" && zip != "") {
         setDisabled(false)
 
       }
       else {
         setDisabled(true)
-
       }
-    }
-      , 100);
+
+    
 
 
 
@@ -66,13 +80,13 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
   }
   const handleCheckoutClick = async (e) => {
     e.preventDefault();
-    
+
     let products_id = []
     Object.keys(cart).map((item) => {
       products_id.push(cart[item].product_id)
     })
-    console.log(products_id)
-    const data = { name, email, address, cart,products_id, subTotal }
+    // console.log(products_id)
+    const data = { name, email, address, cart, products_id, subTotal }
 
     await fetch('http://localhost:3000/api/pretransaction', {
       method: 'POST',
@@ -82,15 +96,11 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
       body: JSON.stringify(data),
     });
 
-    
 
-    console.log("data sent to pretransaction api")
-    
+
+    // console.log("data sent to pretransaction api")
+
     router.push("/payment")
-    
-
-
-    
 
 
   }
@@ -110,31 +120,47 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
       <div className="container text-white mt-5 mb-5">
         <h1 className="text-center">Checkout</h1>
 
+        { Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
 
-        <form className="row g-3">
 
+
+        { Object.keys(cart).length != 0 && <form className="row g-3">
+
+        
 
 
           <div className="col-md-6">
-            <label htmlFor="inputEmail4" className="form-label">Name</label>
-            <input type="text" className="form-control" id="inputEmail4" name="name" value={name} onChange={handleChange} required />
+            <label htmlFor="name" className="form-label">Name</label>
+            <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange} required />
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="inputEmail4" className="form-label">Email</label>
-            <input type="email" className="form-control" id="inputEmail4" name="email" value={email} onChange={handleChange} required />
+            <label htmlFor="email" className="form-label">Email</label>
+            <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange} required />
+          </div>
+
+          <div className="col-md-6">
+            <label htmlFor="inputEmail4" className="form-label">Phone Number</label>
+            <input type="number" className="form-control" id="inputPhone" name="phone" value={phone} onChange={handleChange} required />
+          </div>
+
+          <div className="col-md-6">
+            <label htmlFor="inputZip" className="form-label">Zip</label>
+            <input type="text" className="form-control" id="inputZip" name="zip" value={zip} onChange={handleChange} required />
           </div>
 
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">Address</label>
-            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" value={address} onChange={handleChange} />
+            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" value={address} onChange={handleChange} required />
           </div>
+
+
 
           <div className="col-md-6">
             <label htmlFor="inputCity" className="form-label">City</label>
             <input type="text" className="form-control" id="inputCity" />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <label htmlFor="inputState" className="form-label">State</label>
             <select id="inputState" className="form-select" defaultValue="Select State" >
               <option value="Select State" disabled hidden>Select State</option>
@@ -145,30 +171,22 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal,ord
             </select>
 
           </div>
-          <div className="col-md-2">
-            <label htmlFor="inputZip" className="form-label">Zip</label>
-            <input type="text" className="form-control" id="inputZip" name="zip" value={zip} onChange={handleChange} />
-          </div>
-          <div className="col-12">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" id="gridCheck" />
-              <label className="form-check-label" htmlFor="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-          <div className="col-12">
-            {
-             <Link href="/payment" onClick={handleCheckoutClick}>
-              <button  type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>
-                <BsFillBagCheckFill className="fs-1 " />
-                Checkout
-              </button>
-            </Link>
 
-            }
+
+          <div className="col-12">
+
+
+            <button type="button" className="btn  btn-dark" style={{ width: '100px' }}
+            disabled={disabled} onClick={handleCheckoutClick}
+            >
+              <BsFillBagCheckFill className="fs-1 " />
+              Checkout
+            </button>
+
+
+
           </div>
-        </form>
+        </form>}
         <div >
         </div>
       </div>

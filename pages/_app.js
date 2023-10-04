@@ -89,7 +89,7 @@ export default function App({ Component, pageProps }) {
   // add to cart function
   const addToCart = (itemCode, quantity, price, name, variant, size, id) => {
 
-    console.log("var,size" + variant, size, id);
+    // console.log("var,size" + variant, size, id);
     // create a copy of the cart state
     let newCart = cart;
 
