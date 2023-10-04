@@ -152,7 +152,7 @@ export default function Payment({ cart, orders,clearCart }) {
         theme="dark"
       />
       <Head>
-        <title>Codes Wear - Payment Form) </title>
+        <title>Codes Wear - Payment Form </title>
       </Head>
 
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
