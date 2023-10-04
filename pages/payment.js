@@ -8,11 +8,14 @@ import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-export default function Payment({ cart, orders }) {
+export default function Payment({ cart, orders,clearCart }) {
 
 
   // console.log("cart" + Object.keys(orders).length)
+
+  const router = useRouter()
 
   var cart_products = []
   Object.keys(cart).map((key) => {
@@ -85,6 +88,8 @@ export default function Payment({ cart, orders }) {
         theme: "colored",
       });
     }
+    clearCart();
+    router.push("/")
     
 
     // console.log("data sent to posttransaction api")
