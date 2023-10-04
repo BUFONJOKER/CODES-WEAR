@@ -183,7 +183,7 @@ export default function Payment({ cart, orders,clearCart }) {
                 <input onChange={handleChange} type="text" className="form-control" id="country" name="country" placeholder="Pakistan" />
               </div>
 
-              <button disabled={disabled} onClick={payementHandle} type="button" className="btn  btn-dark" style={{ width: '100px' }}>
+              <button disabled={disabled} onClick={payementHandle} type="button" className=" mt-3 btn  btn-dark" style={{ width: '100px' }}>
                 Payment</button>
 
             </form>

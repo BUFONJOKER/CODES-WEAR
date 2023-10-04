@@ -115,10 +115,10 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
         <title>Codes Wear-Checkout</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
-        Log In for Codes Wear Account
+       Checkout
       </h1>
       <div className="container text-white mt-5 mb-5">
-        <h1 className="text-center">Checkout</h1>
+
 
         { Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
 
