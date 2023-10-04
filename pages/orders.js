@@ -1,42 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
 
-function orders() {
+export default function Orders() {
+
+  const [orders, setOrders] = useState([])
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      let res = await fetch('http://localhost:3000/api/myorders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') }),
+      });
+
+      let data = await res.json()
+      setOrders(data.orders)
+      console.log()
+    }
+
+
+    if (localStorage.getItem('token')) {
+      fetchUser()
+    }
+
+    else {
+
+    }
+
+
+
+  }, [])
+
   return (
     <div>
       <h1 className='text-white text-center mt-5'>Orders</h1>
       <div className="container mt-5">
-      <table className="table table-hover table-dark">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+        <table className="table table-hover table-dark fs-3">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {
+              Object.keys(orders).map((item) => {
+                return (
+                  <React.Fragment key={orders[item]._id}>
+                    <tr>
+                      <th scope="row">{orders[item]._id}</th>
+                      <td>{orders[item].name}</td>
+                      <td>{orders[item].amount}</td>
+                      <td><Link href={'/order?id=' + orders[item]._id}>Details</Link></td>
+                    </tr>
+                  </React.Fragment>
+                )
+              })
+            }
+          </tbody>
+        </table>
       </div>
     </div>
   )
 }
 
-export default orders
