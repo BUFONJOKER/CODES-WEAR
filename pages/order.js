@@ -1,16 +1,25 @@
 import React from 'react'
 import Order from "@/models/Order";
+import Head from 'next/head';
 
 export default function MyOrder({ orders, id }) {
-  console.log(orders.products)
+  // console.log(orders.products)
   return (
 
     <div>
-      <h1 className='text-white text-center mt-5'>Orders</h1>
+
+<Head>
+        <title>Codes Wear-Orders Details</title>
+      </Head>
+      <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
+        Order Details
+      </h1>
+
+   
       <h2 className='text-white text-center mt-5'>Order ID: #{id}</h2>
 
       <div className="container mt-5">
-        <table className="table table-hover table-dark fs-3">
+        <table className="table table-hover table-dark">
           <thead>
             <tr>
               <th scope="col">Description</th>
@@ -26,7 +35,7 @@ export default function MyOrder({ orders, id }) {
             {
               Object.keys(orders.products).map((item) => {
                 return (
-                  <React.Fragment key={orders.products[item]._id}>
+                  <React.Fragment key={orders.products[item]._id+""+orders.products[item].name}>
                     <tr>
                       <th scope="row">{orders.products[item].name}</th>
                       <th scope="row">{orders.products[item].quantity}</th>

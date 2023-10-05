@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function Orders() {
 
@@ -36,12 +37,19 @@ export default function Orders() {
 
   return (
     <div>
-      <h1 className='text-white text-center mt-5'>Orders</h1>
+
+      <Head>
+        <title>Codes Wear-Orders</title>
+      </Head>
+      <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
+        Orders
+      </h1>
+
       <div className="container mt-5">
-        <table className="table table-hover table-dark fs-3">
+        <table className="table table-hover table-dark mx-auto">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              {/* <th scope="col">#</th> */}
               <th scope="col">Name</th>
               <th scope="col">Amount</th>
               <th scope="col">Details</th>
@@ -54,7 +62,7 @@ export default function Orders() {
                 return (
                   <React.Fragment key={orders[item]._id}>
                     <tr>
-                      <th scope="row">{orders[item]._id}</th>
+                      {/* <td>{orders[item]._id}</td> */}
                       <td>{orders[item].name}</td>
                       <td>{orders[item].amount}</td>
                       <td><Link href={'/order?id=' + orders[item]._id}>Details</Link></td>

@@ -211,7 +211,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                   <div ref={ref} className="collapse" id="collapseExample">
 
                     <div className="card card-body" style={{
-                      width: "500px",
+                      width: "auto",
                       height: "auto", position: "absolute",
                       right: 6, backgroundColor: "gray"
                     }}>
@@ -283,7 +283,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                         </p>
                       <AiFillCloseCircle className="btn btn-hover"
                         onClick={closeClick}
-                        style={{
+                        style={{marginTop:"20",
                           position: "absolute", right: 0, width: '70px',
                           height: '70px'
                         }} />
