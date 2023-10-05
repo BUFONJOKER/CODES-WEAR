@@ -13,6 +13,7 @@ import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { set } from "mongoose";
 
 
 export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId }) {
@@ -23,7 +24,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   const [address, setAddress] = useState("")
   const [phone, setPhone] = useState("")
   const [city, setCity] = useState("")
-  const [state, setState] = useState("")
+  const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
   const router = useRouter()
   const [done, setDone] = useState()
@@ -32,7 +33,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   // console.log("cart" + Object.keys(cart).length)
 
 
-  
+
   // useEffect to update the disabled state when form inputs change
   useEffect(() => {
     setDisabled(areFieldsEmpty());
@@ -41,11 +42,11 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   }, [name, email, address, phone, zip]);
 
   const areFieldsEmpty = () => {
-    return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === ""  || zip.trim() === "";
+    return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === "";
   };
 
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     if (e.target.name == "name") {
       setName(e.target.value)
     }
@@ -60,21 +61,40 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
     }
     else if (e.target.name == "zip") {
       setZip(e.target.value)
-    }
-  
-      if (name != "" && phone!="" &&  email != "" && address != "" && zip != "") {
-        setDisabled(false)
+
+      let zip = e.target.value
+      const res = await fetch('/api/productzipcode');
+
+      //get the data from api
+      const data = await res.json();
+
+      if (zip.length == 5) {
+        if (Object.keys(data).includes((zip))) {
+          setCity(data[zip][0])
+          setProvince(data[zip][1])
+
+        }
+        else {
+          setCity("")
+          setProvince("")
+        }
 
       }
       else {
-        setDisabled(true)
+        setCity("")
+        setProvince("")
       }
 
-    
 
+    }
 
+    if (name != "" && phone != "" && email != "" && address != "" && zip != "") {
+      setDisabled(false)
 
-
+    }
+    else {
+      setDisabled(true)
+    }
 
 
   }
@@ -115,18 +135,18 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
         <title>Codes Wear-Checkout</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
-       Checkout
+        Checkout
       </h1>
       <div className="container text-white mt-5 mb-5">
 
 
-        { Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
+        {Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
 
 
 
-        { Object.keys(cart).length != 0 && <form className="row g-3">
+        {Object.keys(cart).length != 0 && <form className="row g-3">
 
-        
+
 
 
           <div className="col-md-6">
@@ -146,7 +166,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
           <div className="col-md-6">
             <label htmlFor="inputZip" className="form-label">Zip</label>
-            <input type="text" className="form-control" id="inputZip" name="zip" value={zip} onChange={handleChange} required />
+            <input type="number" className="form-control" id="inputZip" name="zip" value={zip} onChange={handleChange} required />
           </div>
 
           <div className="col-12">
@@ -158,26 +178,21 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
           <div className="col-md-6">
             <label htmlFor="inputCity" className="form-label">City</label>
-            <input type="text" className="form-control" id="inputCity" />
+            <input name="city" value={city} onChange={handleChange} type="text" className="form-control" id="inputCity" />
           </div>
-          <div className="col-md-6">
-            <label htmlFor="inputState" className="form-label">State</label>
-            <select id="inputState" className="form-select" defaultValue="Select State" >
-              <option value="Select State" disabled hidden>Select State</option>
-              <option value="Punjab">Punjab</option>
-              <option value="Sindh">Sindh</option>
-              <option value="Baluchistan">Baluchistan</option>
-              <option value="KPK">KPK</option>
-            </select>
 
+          <div className="col-md-6">
+            <label htmlFor="inputCity" className="form-label">Province</label>
+            <input name="province" value={province} onChange={handleChange} type="text" className="form-control" id="inputProvince" />
           </div>
+
 
 
           <div className="col-12">
 
 
             <button type="button" className="btn  btn-dark" style={{ width: '100px' }}
-            disabled={disabled} onClick={handleCheckoutClick}
+              disabled={disabled} onClick={handleCheckoutClick}
             >
               <BsFillBagCheckFill className="fs-1 " />
               Checkout
@@ -202,28 +217,6 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
           {Object.keys(cart).length > 0 &&
             Object.keys(cart).map((item) => (
               <React.Fragment key={item}>
-
-                {/* <li className="text-white" key={item}>
-                Item Name: {cart[item].name}
-              </li>
-              <li>
-                Color: {cart[item].variant}
-              </li>
-              <li>
-                Size: {cart[item].size}
-              </li>
-              <li>
-                Quantity: {cart[item].quantity}
-              </li>
-              <li>
-                SubTotal: {cart[item].quantity * cart[item].price}
-              </li>
-              <li>
-                Product_id: {cart[item].product_id}
-              </li>
-       
- */}
-
 
                 <li className="fs-2 text-white">{cart[item].name}
 

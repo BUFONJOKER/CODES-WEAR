@@ -102,10 +102,15 @@ export default function Slug({ addToCart, products }) {
 
     //get the data from api
     const data = await res.json();
+    // console.log(data)
 
     //check the zipcode is available or not
     //from the data in api
-    if (data.includes(parseInt(zipCode))) {
+
+    // check if data includes zipcode
+
+
+    if (Object.keys(data).includes((zipCode))) {
    
       toast.success('🦄 Delivery Service Available', {
         position: "top-center",
