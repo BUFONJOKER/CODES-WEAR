@@ -19,7 +19,9 @@ export default function Orders() {
 
       let data = await res.json()
       setOrders(data.orders)
-      console.log()
+      // Object.keys(data.orders).map((item) => {
+      //   console.log(data.orders[item].email)
+      // })
     }
 
 
@@ -52,6 +54,7 @@ export default function Orders() {
               {/* <th scope="col">#</th> */}
               <th scope="col">Name</th>
               <th scope="col">Amount</th>
+              <th scope="col">Status</th>
               <th scope="col">Details</th>
             </tr>
           </thead>
@@ -65,6 +68,7 @@ export default function Orders() {
                       {/* <td>{orders[item]._id}</td> */}
                       <td>{orders[item].name}</td>
                       <td>{orders[item].amount}</td>
+                      <td>{orders[item].status}</td>
                       <td><Link href={'/order?id=' + orders[item]._id}>Details</Link></td>
                     </tr>
                   </React.Fragment>

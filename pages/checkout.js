@@ -15,19 +15,26 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { set } from "mongoose";
 
+import jsonwebtoken from 'jsonwebtoken'
 
-export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId }) {
+
+export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, orderId }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
-  const [phone, setPhone] = useState("")
+  const [phone, setPhone] = useState(null)
   const [city, setCity] = useState("")
   const [province, setProvince] = useState("")
-  const [zip, setZip] = useState("")
+  const [zip, setZip] = useState(null)
   const router = useRouter()
   const [done, setDone] = useState()
+
+  const fetchUser = async () => {
+   
+      
+  }
 
 
   // console.log("cart" + Object.keys(cart).length)
@@ -45,15 +52,45 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
     return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === "";
   };
 
+  const handleNameChange = async (e) => {
+   
+   
+  }
+
 
   const handleChange = async (e) => {
+    
+   
     if (e.target.name == "name") {
       setName(e.target.value)
+
+      let res = await fetch('http://localhost:3000/api/myorders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') }),
+      });
+
+      let data = await res.json()
+      
+      Object.keys(data.orders).map((item) => {
+        
+        setEmail(data.orders[item].email)
+      })
+      
+      
+     
+      // let token = localStorage.getItem('token')
+      // let data = jsonwebtoken.verify(token, process.env.JWT_SECRET_KEY)
+      // const{email} = data
+      // setEmail(data)
     }
-    else if (e.target.name == "email") {
-      setEmail(e.target.value)
-    }
-    else if (e.target.name == "address") {
+
+  if (e.target.name == "address") {
+   
+
+      
       setAddress(e.target.value)
     }
     else if (e.target.name == "phone") {
@@ -106,21 +143,38 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
       products_id.push(cart[item].product_id)
     })
     // console.log(products_id)
-    const data = { name, email, address, cart, products_id, subTotal }
+    const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
+    console.log(data)
 
-    await fetch('http://localhost:3000/api/pretransaction', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
+    try {
+      const response = await fetch('http://localhost:3000/api/pretransaction', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+    
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      else{
+        router.push("/payment")
+      }
+    
+      // Handle the response here
+      const responseData = await response.json();
+      console.log('Response Data:', responseData);
+    } catch (error) {
+      // Handle errors here
+      console.error('Error:', error);
+    }
+    
 
 
     // console.log("data sent to pretransaction api")
 
-    router.push("/payment")
+ 
 
 
   }
@@ -131,6 +185,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
   return (
     <>
+   
       <Head>
         <title>Codes Wear-Checkout</title>
       </Head>
@@ -138,6 +193,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
         Checkout
       </h1>
       <div className="container text-white mt-5 mb-5">
+     
 
 
         {Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
@@ -151,7 +207,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
           <div className="col-md-6">
             <label htmlFor="name" className="form-label">Name</label>
-            <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange} required />
+            <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange}  required />
           </div>
 
           <div className="col-md-6">
@@ -171,7 +227,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">Address</label>
-            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" value={address} onChange={handleChange} required />
+            <textarea type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" value={address} onChange={handleChange} required />
           </div>
 
 

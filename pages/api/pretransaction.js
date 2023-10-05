@@ -7,8 +7,17 @@ const handler = async (req, res) => {
             name: req.body.name,
 
             email: req.body.email,
+            
+            phone: req.body.phone,
+
 
             address: req.body.address,
+
+            zip: req.body.zip,
+
+            city: req.body.city,
+
+            province: req.body.province,
 
             products: req.body.cart,
             
