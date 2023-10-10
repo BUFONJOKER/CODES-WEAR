@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //icons
 import {
@@ -141,7 +142,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   }
 
 
-  
+
   const handleCheckoutClick = async (e) => {
 
 
@@ -166,19 +167,17 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
           && products[item].size == productSize
           && products[item].color == productVariant) {
           if (products[item].price != price) {
-            console.log("price is tempered")
-            alert("price is tempered")
             setPriceTempered(true)
-            // toast.error('❌ Product Price is tempered', {
-            //   position: "top-center",
-            //   autoClose: 500, // Adjust the duration as needed
-            //   hideProgressBar: false,
-            //   closeOnClick: true,
-            //   pauseOnHover: true,
-            //   draggable: true,
-            //   progress: undefined,
-            //   theme: "colored",
-            // });
+            toast.error('❌ Product Price is tempered', {
+              position: "top-center",
+              autoClose: 500, // Adjust the duration as needed
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
 
           }
         }
