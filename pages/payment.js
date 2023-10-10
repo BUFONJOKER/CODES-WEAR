@@ -87,7 +87,32 @@ export default function Payment({ cart, orders,clearCart }) {
         progress: undefined,
         theme: "colored",
       });
-    }
+      }
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     clearCart();
     router.push("/")
     

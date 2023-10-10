@@ -2,10 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 import { useState, useEffect } from "react";
-import { set } from "mongoose";
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar'
+import Product from "@/models/Product";
 
 
 
@@ -87,54 +87,81 @@ export default function App({ Component, pageProps }) {
 
 
   // add to cart function
-  const addToCart = (itemCode, quantity, price, name, variant, size, id) => {
+  const addToCart = async (itemCode, quantity, price, name, variant, size, id) => {
 
     // console.log("var,size" + variant, size, id);
     // create a copy of the cart state
     let newCart = cart;
 
+  //   const res = await fetch('http://localhost:3000/api/getproducts');
 
-    // check if item is already in cart and color or size is different then add it as a new item
-    // if (cart[itemCode] && (cart[itemCode].variant != variant || cart[itemCode].size != size || cart[itemCode].product_id != id)) {
-    //   // add item to cart
-    //   newCart[itemCode] = {
-    //     quantity: 1,
-    //     price: price,
-    //     name: name,
-    //     variant: variant,
-    //     size: size,
-    //     product_id:id,
-    //   }
+  // //get the data from api
+  //  const products = await res.json();
+  //  // loop through the products
+    
+  //   let availableQuantity;
 
-    //   console.log('new item added to cart');
-    // }
+  //  for(let i=0;i<products.products.length;i++){
+  //     if(products.products[i].title==itemCode && products.products[i].color==variant && products.products[i].size==size){
+
+  //       console.log(products.products[i].availableQuantity)
+  //       console.log(products.products[i]._id)
+  //       let id = products.products[i]._id
+       
+  //       if(products.products[i].availableQuantity<1){
+  //           alert("Product is out of stock")
+  //           availableQuantity = 0
+  //       }
+  //       else{
+  //         availableQuantity = products.products[i].availableQuantity - 1
+  //       }
+  //       let data = [
+  //         {
+  //           "_id": id,
+           
+         
+  //           "availableQuantity": availableQuantity
+          
+  //         }
+  //     ]
+
+  //     console.log(data)
+
+  //     try {
+  //       const response = await fetch("http://localhost:3000/api/updateproducts", {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify(data),
+  //       });
+      
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! Status: ${response.status}`);
+  //       }
+      
+  //       const responseData = await response.json();
+  //       console.log(responseData);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+      
 
 
+
+
+
+       
+       
+  //  }
+  // }
+ 
+   
+  
     if (cart[itemCode]) {
       // if item is in cart, increase quantity
       //check if only quantity changed
       if (cart[itemCode].variant == variant && cart[itemCode].size == size && cart[itemCode].product_id == id) {
-        // console.log(typeof (variant))
-
-        // let inputString = variant;
-
-        // Use a regular expression to find and replace repeated color and size combinations
-
-        // let resultString = inputString.replace(/(\w+\(\w+\))(?=.*\s\1)/g, "");
-
-        // Use a regular expression to remove double occurrences of "(Medium)", "(Small)", and "(Large)"
-
-        // console.log(resultString);
-
-        // let inputString = variant
-
-        // let indexOfSpace = inputString.indexOf(" ");
-
-        // let result = inputString;
-
-        // if (indexOfSpace !== -1) {
-        //   result = inputString.substring(0, indexOfSpace);
-        // }
         newCart[itemCode] = {
           quantity: cart[itemCode].quantity + 1,
           price: price,
@@ -178,6 +205,32 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
 
     setQuantity(cart[itemCode].quantity)
+ 
+
+   
+    //decrease the quantity of product
+   
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+    
 
   }
 

@@ -7,7 +7,7 @@ const handler = async (req, res) => {
             name: req.body.name,
 
             email: req.body.email,
-            
+
             phone: req.body.phone,
 
 
@@ -20,21 +20,22 @@ const handler = async (req, res) => {
             province: req.body.province,
 
             products: req.body.cart,
-            
+
             products_id: req.body.products_id,
-          
+
             amount: req.body.subTotal,
 
         })
 
-        
 
+        // console.log(req.body.cart)
+        
         await order.save();
 
-        res.status(200).json({order, message: "Order placed successfully" });
+        res.status(200).json({ order, message: "Order placed successfully" });
     }
 
-    else{
+    else {
         res.status(400).json({ message: "Order not placed" });
     }
 }

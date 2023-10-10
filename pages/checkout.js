@@ -1,27 +1,25 @@
 
 import React from "react";
 import { useState } from "react";
-import Link from "next/link";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //icons
 import {
-  AiOutlineShoppingCart, AiOutlinePlusCircle,
-  AiOutlineMinusCircle, AiFillCloseCircle
+  AiOutlinePlusCircle,
+  AiOutlineMinusCircle,
 } from "react-icons/ai";
-import { MdAccountCircle } from "react-icons/md";
-import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
+
+import { BsFillBagCheckFill } from "react-icons/bs";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { set } from "mongoose";
-
-import jsonwebtoken from 'jsonwebtoken'
-import Product from "@/models/Product";
 
 
-export default function Checkout({ cart,clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
+
+
+
+export default function Checkout({ cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -32,17 +30,7 @@ export default function Checkout({ cart,clearCart, removeFromCart, addToCart, su
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
   const router = useRouter()
-  const [done, setDone] = useState()
 
-
-
-  const fetchUser = async () => {
-
-
-  }
-
-
-  // console.log("cart" + Object.keys(cart).length)
 
 
 
@@ -56,11 +44,6 @@ export default function Checkout({ cart,clearCart, removeFromCart, addToCart, su
   const areFieldsEmpty = () => {
     return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === "";
   };
-
-  const handleNameChange = async (e) => {
-
-
-  }
 
 
   const handleChange = async (e) => {
@@ -189,37 +172,23 @@ export default function Checkout({ cart,clearCart, removeFromCart, addToCart, su
 
 
 
-    
+
     if (priceTempered === false) {
-      console.log(priceTempered)
-          await fetch('http://localhost:3000/api/pretransaction', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-        console.log("MANI")
+      // console.log(priceTempered)
+      await fetch('http://localhost:3000/api/pretransaction', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      // console.log("MANI")
 
-        router.push("/payment")
-      }
-      else{
+      router.push("/payment")
+    }
+    else {
       console.log('Error:');
-      }
-
-
-
-
-
-      // Handle the response here
-      // const responseData = await response.json();
-      // console.log('Response Data:', responseData);
-
-
-
-
-    // console.log("data sent to pretransaction api")
-
+    }
 
 
 
