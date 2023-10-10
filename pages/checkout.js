@@ -21,7 +21,7 @@ import jsonwebtoken from 'jsonwebtoken'
 import Product from "@/models/Product";
 
 
-export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId, products }) {
+export default function Checkout({ cart,clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -33,7 +33,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   const [zip, setZip] = useState("")
   const router = useRouter()
   const [done, setDone] = useState()
-  const [priceTempered, setPriceTempered] = useState(false)
+
 
 
   const fetchUser = async () => {
@@ -155,7 +155,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
     // console.log(products_id)
     const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
     // console.log(data)
-
+    let priceTempered = false;
     Object.keys(cart).map((item) => {
       let productName = cart[item].name
       let productSize = cart[item].size
@@ -167,7 +167,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
           && products[item].size == productSize
           && products[item].color == productVariant) {
           if (products[item].price != price) {
-            setPriceTempered(true)
+            priceTempered = true
             toast.error('❌ Product Price is tempered', {
               position: "top-center",
               autoClose: 500, // Adjust the duration as needed
@@ -178,6 +178,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
               progress: undefined,
               theme: "colored",
             });
+            clearCart()
 
           }
         }
@@ -189,7 +190,8 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
 
     
-      if (priceTempered == false) {
+    if (priceTempered === false) {
+      console.log(priceTempered)
           await fetch('http://localhost:3000/api/pretransaction', {
           method: 'POST',
           headers: {
@@ -197,12 +199,13 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
           },
           body: JSON.stringify(data),
         });
+        console.log("MANI")
 
         router.push("/payment")
       }
-    else{
+      else{
       console.log('Error:');
-    }
+      }
 
 
 
