@@ -53,6 +53,7 @@ export default function Orders() {
             <tr>
               {/* <th scope="col">#</th> */}
               <th scope="col">Name</th>
+              <th scope="col">Email</th>
               <th scope="col">Amount</th>
               <th scope="col">Status</th>
               <th scope="col">Details</th>
@@ -67,8 +68,9 @@ export default function Orders() {
                     <tr>
                       {/* <td>{orders[item]._id}</td> */}
                       <td>{orders[item].name}</td>
+                      <td>{orders[item].email}</td>
                       <td>{orders[item].amount}</td>
-                      <td>{orders[item].status}</td>
+                      <td>{orders[item].status  }</td>
                       <td><Link href={'/order?id=' + orders[item]._id}>Details</Link></td>
                     </tr>
                   </React.Fragment>
