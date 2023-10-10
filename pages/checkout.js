@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from 'react-toastify';
 
 //icons
 import {
@@ -16,24 +17,26 @@ import { useEffect } from "react";
 import { set } from "mongoose";
 
 import jsonwebtoken from 'jsonwebtoken'
+import Product from "@/models/Product";
 
 
-export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, orderId }) {
+export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId,products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
-  const [phone, setPhone] = useState(null)
+  const [phone, setPhone] = useState("")
   const [city, setCity] = useState("")
   const [province, setProvince] = useState("")
-  const [zip, setZip] = useState(null)
+  const [zip, setZip] = useState("")
   const router = useRouter()
   const [done, setDone] = useState()
+  
 
   const fetchUser = async () => {
-   
-      
+
+
   }
 
 
@@ -53,14 +56,14 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
   };
 
   const handleNameChange = async (e) => {
-   
-   
+
+
   }
 
 
   const handleChange = async (e) => {
-    
-   
+
+
     if (e.target.name == "name") {
       setName(e.target.value)
 
@@ -73,24 +76,24 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
       });
 
       let data = await res.json()
-      
+
       Object.keys(data.orders).map((item) => {
-        
+
         setEmail(data.orders[item].email)
       })
-      
-      
-     
+
+
+
       // let token = localStorage.getItem('token')
       // let data = jsonwebtoken.verify(token, process.env.JWT_SECRET_KEY)
       // const{email} = data
       // setEmail(data)
     }
 
-  if (e.target.name == "address") {
-   
+    if (e.target.name == "address") {
 
-      
+
+
       setAddress(e.target.value)
     }
     else if (e.target.name == "phone") {
@@ -136,6 +139,8 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
 
   }
   const handleCheckoutClick = async (e) => {
+
+
     e.preventDefault();
 
     let products_id = []
@@ -144,7 +149,7 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
     })
     // console.log(products_id)
     const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
-    console.log(data)
+    // console.log(data)
 
     try {
       const response = await fetch('http://localhost:3000/api/pretransaction', {
@@ -154,27 +159,59 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
         },
         body: JSON.stringify(data),
       });
-    
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      else{
-        router.push("/payment")
+      else {
+        console.log("mani")
+        console.log(cart)
+        Object.keys(cart).map((item) => {
+          let productName = cart[item].name
+          let productSize = cart[item].size
+          let productVariant = cart[item].variant
+          let price = cart[item].price
+     
+          Object.keys(products).map((item) => {
+            if(products[item].title==productName 
+              && products[item].size==productSize
+               && products[item].color==productVariant){
+              if(products[item].price!=price){
+                console.log("price is tempered")
+                alert("price is tempered")
+                // toast.error('❌ Product Price is tempered', {
+                //   position: "top-center",
+                //   autoClose: 500, // Adjust the duration as needed
+                //   hideProgressBar: false,
+                //   closeOnClick: true,
+                //   pauseOnHover: true,
+                //   draggable: true,
+                //   progress: undefined,
+                //   theme: "colored",
+                // });
+              
+              }
+            }
+          })
+          
+         
+        })
+        // router.push("/payment")
       }
-    
+
       // Handle the response here
       const responseData = await response.json();
-      console.log('Response Data:', responseData);
+      // console.log('Response Data:', responseData);
     } catch (error) {
       // Handle errors here
       console.error('Error:', error);
     }
-    
+
 
 
     // console.log("data sent to pretransaction api")
 
- 
+
 
 
   }
@@ -185,7 +222,19 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
 
   return (
     <>
-   
+{/* <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      /> */}
+
       <Head>
         <title>Codes Wear-Checkout</title>
       </Head>
@@ -193,7 +242,7 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
         Checkout
       </h1>
       <div className="container text-white mt-5 mb-5">
-     
+
 
 
         {Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
@@ -207,7 +256,7 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
 
           <div className="col-md-6">
             <label htmlFor="name" className="form-label">Name</label>
-            <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange}  required />
+            <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange} required />
           </div>
 
           <div className="col-md-6">
@@ -320,4 +369,21 @@ export default function  Checkout({ cart, removeFromCart, addToCart, subTotal, o
   )
 }
 
+
+export async function getServerSideProps(context) {
+
+  const res = await fetch('http://localhost:3000/api/getproducts');
+
+  //get the data from api
+  const data = await res.json();
+
+  // console.log(data.products)
+
+  //return the data as props
+  return {
+    props: {
+      products: data.products,
+    },
+  };
+}
 

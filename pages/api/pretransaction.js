@@ -27,6 +27,8 @@ const handler = async (req, res) => {
 
         })
 
+        
+
         await order.save();
 
         res.status(200).json({order, message: "Order placed successfully" });

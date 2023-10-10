@@ -202,6 +202,7 @@ export default function App({ Component, pageProps }) {
     }
 
     setSubTotal(subTotal);
+   
 
   }
 
