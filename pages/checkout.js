@@ -20,7 +20,7 @@ import jsonwebtoken from 'jsonwebtoken'
 import Product from "@/models/Product";
 
 
-export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId,products }) {
+export default function Checkout({ cart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -32,7 +32,8 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
   const [zip, setZip] = useState("")
   const router = useRouter()
   const [done, setDone] = useState()
-  
+  const [priceTempered, setPriceTempered] = useState(false)
+
 
   const fetchUser = async () => {
 
@@ -138,6 +139,9 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
 
   }
+
+
+  
   const handleCheckoutClick = async (e) => {
 
 
@@ -151,61 +155,64 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
     const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
     // console.log(data)
 
-    try {
-      const response = await fetch('http://localhost:3000/api/pretransaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+    Object.keys(cart).map((item) => {
+      let productName = cart[item].name
+      let productSize = cart[item].size
+      let productVariant = cart[item].variant
+      let price = cart[item].price
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      Object.keys(products).map((item) => {
+        if (products[item].title == productName
+          && products[item].size == productSize
+          && products[item].color == productVariant) {
+          if (products[item].price != price) {
+            console.log("price is tempered")
+            alert("price is tempered")
+            setPriceTempered(true)
+            // toast.error('❌ Product Price is tempered', {
+            //   position: "top-center",
+            //   autoClose: 500, // Adjust the duration as needed
+            //   hideProgressBar: false,
+            //   closeOnClick: true,
+            //   pauseOnHover: true,
+            //   draggable: true,
+            //   progress: undefined,
+            //   theme: "colored",
+            // });
+
+          }
+        }
+      })
+
+
+    })
+
+
+
+    
+      if (priceTempered == false) {
+          await fetch('http://localhost:3000/api/pretransaction', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        router.push("/payment")
       }
-      else {
-        console.log("mani")
-        console.log(cart)
-        Object.keys(cart).map((item) => {
-          let productName = cart[item].name
-          let productSize = cart[item].size
-          let productVariant = cart[item].variant
-          let price = cart[item].price
-     
-          Object.keys(products).map((item) => {
-            if(products[item].title==productName 
-              && products[item].size==productSize
-               && products[item].color==productVariant){
-              if(products[item].price!=price){
-                console.log("price is tempered")
-                alert("price is tempered")
-                // toast.error('❌ Product Price is tempered', {
-                //   position: "top-center",
-                //   autoClose: 500, // Adjust the duration as needed
-                //   hideProgressBar: false,
-                //   closeOnClick: true,
-                //   pauseOnHover: true,
-                //   draggable: true,
-                //   progress: undefined,
-                //   theme: "colored",
-                // });
-              
-              }
-            }
-          })
-          
-         
-        })
-        // router.push("/payment")
-      }
+    else{
+      console.log('Error:');
+    }
+
+
+
+
 
       // Handle the response here
-      const responseData = await response.json();
+      // const responseData = await response.json();
       // console.log('Response Data:', responseData);
-    } catch (error) {
-      // Handle errors here
-      console.error('Error:', error);
-    }
+
 
 
 
@@ -222,7 +229,7 @@ export default function Checkout({ cart, removeFromCart, addToCart, subTotal, or
 
   return (
     <>
-{/* <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={1000}
         hideProgressBar={false}
