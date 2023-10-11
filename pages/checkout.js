@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 
 
-export default function Checkout({ cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
+export default function Checkout({ user,cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -30,6 +30,7 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
   const router = useRouter()
+  
 
 
 
@@ -48,34 +49,39 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
 
   const handleChange = async (e) => {
 
-
     if (e.target.name == "name") {
       setName(e.target.value)
+    
+      if (user.value != null) {
+        let res = await fetch('http://localhost:3000/api/myorders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ token: localStorage.getItem('token') }),
+        });
+  
+        let data = await res.json()
+  
+        Object.keys(data.orders).map((item) => {
+  
+          setEmail(data.orders[item].email)
+        })
+  
+      }
+       
 
-      let res = await fetch('http://localhost:3000/api/myorders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token: localStorage.getItem('token') }),
-      });
-
-      let data = await res.json()
-
-      Object.keys(data.orders).map((item) => {
-
-        setEmail(data.orders[item].email)
-      })
-
-
-
-      // let token = localStorage.getItem('token')
-      // let data = jsonwebtoken.verify(token, process.env.JWT_SECRET_KEY)
-      // const{email} = data
-      // setEmail(data)
     }
 
-    if (e.target.name == "address") {
+ 
+    if(e.target.name=="email" && user.value==null){
+      setEmail(e.target.value)
+    }
+
+
+    
+
+    else if (e.target.name == "address") {
 
 
 
@@ -137,7 +143,7 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
     })
     // console.log(products_id)
     const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
-    console.log(data)
+    // console.log(data)
     let priceTempered = false;
     Object.keys(cart).map((item) => {
       let productName = cart[item].name
@@ -175,42 +181,42 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
 
     let stock = true;
 
-    Object.keys(cart).map( (item) => {
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].title == cart[item].name &&
-                products[i].color == cart[item].variant && products[i].size == cart[item].size) {
+    Object.keys(cart).map((item) => {
+      for (let i = 0; i < products.length; i++) {
+        if (products[i].title == cart[item].name &&
+          products[i].color == cart[item].variant && products[i].size == cart[item].size) {
 
-                if (products[i].availableQuantity < 1) {
-                  stock = false;
-                  toast.error('❌ product is out of stock', {
-                    position: "top-center",
-                    autoClose: 500, // Adjust the duration as needed
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                  });
-                }
-                else if(products[i].availableQuantity<cart[item].quantity){
-                  stock = false;
-                  toast.error('❌ Product is out of stock', {
-                    position: "top-center",
-                    autoClose: 500, // Adjust the duration as needed
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                  });
-                   
-                }
-       
+          if (products[i].availableQuantity < 1) {
+            stock = false;
+            toast.error('❌ product is out of stock', {
+              position: "top-center",
+              autoClose: 500, // Adjust the duration as needed
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          }
+          else if (products[i].availableQuantity < cart[item].quantity) {
+            stock = false;
+            toast.error('❌ Product is out of stock', {
+              position: "top-center",
+              autoClose: 500, // Adjust the duration as needed
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
 
-            }
+          }
+
+
         }
+      }
 
 
     })
@@ -218,7 +224,7 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
 
 
 
-    if (priceTempered === false  && stock === true) {
+    if (priceTempered === false && stock === true) {
       console.log(data)
       // console.log(priceTempered)
       await fetch('http://localhost:3000/api/pretransaction', {

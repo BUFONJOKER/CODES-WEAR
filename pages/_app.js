@@ -205,32 +205,6 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
 
     setQuantity(cart[itemCode].quantity)
- 
-
-   
-    //decrease the quantity of product
-   
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
-
-    
 
   }
 
@@ -328,7 +302,7 @@ export default function App({ Component, pageProps }) {
         subTotal={subTotal}
       />
 
-      <Component {...pageProps} orderId={orderId} cart={cart} addToCart={addToCart}
+      <Component {...pageProps} user={user} orderId={orderId} cart={cart} addToCart={addToCart}
         removeFromCart={removeFromCart} clearCart={clearCart}
         subTotal={subTotal}
       />
