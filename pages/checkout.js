@@ -137,7 +137,7 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
     })
     // console.log(products_id)
     const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
-    // console.log(data)
+    console.log(data)
     let priceTempered = false;
     Object.keys(cart).map((item) => {
       let productName = cart[item].name
@@ -171,9 +171,55 @@ export default function Checkout({ cart, clearCart, removeFromCart, addToCart, s
     })
 
 
+    // loop through the products
+
+    let stock = true;
+
+    Object.keys(cart).map( (item) => {
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].title == cart[item].name &&
+                products[i].color == cart[item].variant && products[i].size == cart[item].size) {
+
+                if (products[i].availableQuantity < 1) {
+                  stock = false;
+                  toast.error('❌ product is out of stock', {
+                    position: "top-center",
+                    autoClose: 500, // Adjust the duration as needed
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                  });
+                }
+                else if(products[i].availableQuantity<cart[item].quantity){
+                  stock = false;
+                  toast.error('❌ Product is out of stock', {
+                    position: "top-center",
+                    autoClose: 500, // Adjust the duration as needed
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                  });
+                   
+                }
+       
+
+            }
+        }
 
 
-    if (priceTempered === false) {
+    })
+
+
+
+
+    if (priceTempered === false  && stock === true) {
+      console.log(data)
       // console.log(priceTempered)
       await fetch('http://localhost:3000/api/pretransaction', {
         method: 'POST',

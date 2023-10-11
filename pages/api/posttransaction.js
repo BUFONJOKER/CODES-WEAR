@@ -3,6 +3,8 @@ import connectDB from "@/middleware/mongoose";
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
+       
+
         let id = req.body._id
         let orders = await Order.find();
         console.log(orders)
@@ -72,6 +74,9 @@ const handler = async (req, res) => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
+                        else{
+                            await  Order.findByIdAndUpdate(req.body._id,{status:"paid"})
+                        }
     
                         const responseData = await response.json();
                         console.log(responseData);
@@ -86,7 +91,6 @@ const handler = async (req, res) => {
     
     
         })
-
 
 
 
