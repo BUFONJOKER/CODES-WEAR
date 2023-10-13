@@ -103,6 +103,10 @@ export async function getServerSideProps() {
   let tshirts = {};
   for(let item of products){
     if(item.title in tshirts){
+            if(tshirts[item.title].availableQuantity <=0){
+             console.log(tshirts[item.title])
+            }
+
             if(!tshirts[item.title].color.includes(item.color) &&
                     item.availableQuantity > 0){
                             tshirts[item.title].color.push(item.color);
@@ -118,6 +122,11 @@ export async function getServerSideProps() {
             if(item.availableQuantity > 0){
                     tshirts[item.title].color = [item.color];
                     tshirts[item.title].size = [item.size];
+            }
+
+            else{
+              tshirts[item.title].color = [];
+              tshirts[item.title].size = [];
             }
     }}
   return{
