@@ -223,16 +223,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                       maxHeight: '650px', overflowY: 'scroll'
                     }}>
 
-
-
-
-
-
-
-
-
                       <h2 className="text-white mb-5">Shopping Cart</h2>
-
 
                       <ol>
                         {Object.keys(cart).length === 0 && <div className="fs-4 text-white">Cart is empty</div>}
