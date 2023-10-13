@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Product from "@/models/Product";
-import connectDb from "@/middleware/mongoose";
+import { BsFillCircleFill } from 'react-icons/bs';
 
 export default function Hoodies({ products }) {
   // console.log(products);
@@ -53,40 +53,39 @@ export default function Hoodies({ products }) {
                     </div>
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
-                      <p className="fs-3"><b >Price:</b>Rs.{products[item].price}</p>
+                      <p className="fs-2"><b >Price:</b>Rs.{products[item].price}</p>
                       </li>
                       
-                      
                       <li className="list-group-item">
-                        <b className="fs-3">Color:</b> {
-                        products[item].color.includes("Black") && <button className="btn btn-dark rounded-circle m-1  text-dark">
-                        B
-                      </button>
+                        <b className="fs-2">Color:</b> {
+                        products[item].color.includes("Black") && 
+                        <BsFillCircleFill className='fs-1 text-dark'></BsFillCircleFill>
                       }
                        {
-                        products[item].color.includes("Red") && <button className="btn btn-danger rounded-circle m-1  text-danger">
-                        R
-                      </button>
+                        products[item].color.includes("Red") && 
+                        <BsFillCircleFill className='fs-1 text-danger mx-2'></BsFillCircleFill>
                       }
                        {
-                        products[item].color.includes("Blue") && <button className="btn btn-primary rounded-circle m-1  text-primary">
-                        B
-                      </button>
+                        products[item].color.includes("Blue") && 
+                        <BsFillCircleFill className='fs-1 text-primary mx-2'></BsFillCircleFill>
                       }
                       </li>
                       <li className="list-group-item">
-                        <b className="fs-3">Size:</b> {
-                        products[item].size.includes("Small") && <button className="btn btn-primary  m-1 ">
+                        <b className="fs-2">Size:</b> {
+                        products[item].size.includes("Small") && 
+                        <button  className="bg-dark m-1 rounded text-white fs-4 " disabled>
                         Small
                       </button>
                       }
                       {
-                        products[item].size.includes("Medium") && <button className="btn btn-primary  m-1 ">
+                        products[item].size.includes("Medium") && 
+                        <button className="bg-dark m-1 rounded text-white fs-4 " disabled>
                         Medium
                       </button>
                       }
                       {
-                        products[item].size.includes("Large") && <button className="btn btn-primary  m-1 ">
+                        products[item].size.includes("Large") && 
+                        <button  className="bg-dark m-1 rounded text-white fs-4 " disabled>
                         Large
                       </button>
                       }

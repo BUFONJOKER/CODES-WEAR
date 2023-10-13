@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
-import { BsStarHalf } from 'react-icons/bs';
+import { BsStarHalf,BsFillCircleFill } from 'react-icons/bs';
 import { BsCartPlus } from 'react-icons/bs';
 import Head from 'next/head';
 // import mongoose from 'mongoose';
@@ -199,9 +199,7 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <h1>
 
-                        <p className="btn btn-danger rounded-circle m-1 fs-4 text-danger">
-                          R
-                        </p>
+                      <BsFillCircleFill className='fs-1 text-danger '>B</BsFillCircleFill>
 
                       </h1>
 
@@ -278,9 +276,9 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                        <button className="btn btn-primary rounded-circle m-1 fs-4 text-primary">
-                          B
-                        </button>
+                      <BsFillCircleFill className='fs-1 text-primary mt-3'></BsFillCircleFill>
+
+                      
 
                       </p>
                       {colorSize[1].size.includes("Small") && <button onClick={() => {
@@ -355,9 +353,8 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                        <button className="btn btn-success rounded-circle m-1 fs-4 text-success">
-                          Gamart
-                        </button>
+                      <BsFillCircleFill className='fs-1 text-primary '></BsFillCircleFill>
+                      
 
                       </p>
                       {colorSize[2].size.includes("Small") && <button onClick={() => {
@@ -431,7 +428,8 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                        <button className="btn btn-warning rounded-circle m-1 fs-4 text-success">
+                      <BsFillCircleFill className='fs-1 text-success'>B</BsFillCircleFill>
+                        <button className="btn btn-warning rounded-circle m-1 fs-4 text-success" disabled>
                           Y
                         </button>
 
@@ -507,10 +505,8 @@ export default function Slug({ addToCart, products }) {
                   {color.includes("Black") && (
                     <div className="d-flex align-items-center">
                       <p>
-
-                        <button className="btn btn-dark rounded-circle m-1 fs-4 text-dark">
-                          B
-                        </button>
+                      <BsFillCircleFill className='fs-1 text-dark mt-3'></BsFillCircleFill>
+                      
 
                       </p>
                       {/* <select className="form-select w-25" aria-label="Select an option"> */}
