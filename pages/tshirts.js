@@ -24,11 +24,13 @@ export default function Tshirts({ products }) {
                 <div className="col-md-6">
                   <div className="card m-3 text-center">
                  
+                  <div>
                     <Link
-                     href = {products[item].title}
-                    key={products[item]._id}
-                
+                      href={products[item].title}
+                      key={products[item]._id}
+
                     >
+              
                       <Image
                         quality={100}
                         priority
@@ -36,13 +38,15 @@ export default function Tshirts({ products }) {
                         width={100}
                         height={300}
                         className="card-img-top"
-                        alt=""
+                        alt="product image"
                         style={{
                           width: "auto",
                           height: "auto",
                         }} // Maintain aspect ratio
                       />
+        
                     </Link>
+                    </div>
 
                     <div className="card-body">
                       <h5 className="card-title">{products[item].title}</h5>

@@ -456,7 +456,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
                     <b>Size: </b>{cart[item].size}
                     &nbsp;&nbsp;&nbsp;&nbsp;
 
-
+                    <b>Quantity:</b>
                     <button className="btn fs-2 text-white bg-dark">
                       <AiOutlineMinusCircle onClick={() => {
                         removeFromCart(item, 1, cart[item].price,
