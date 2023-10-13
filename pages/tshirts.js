@@ -98,7 +98,6 @@ export default function Tshirts({ products }) {
     </>
   );
 }
-
 export async function getServerSideProps() {
   const products = await Product.find({category:"T-shirts"});
   let tshirts = {};

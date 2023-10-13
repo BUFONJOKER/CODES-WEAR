@@ -39,17 +39,17 @@ export default function Footer() {
               <h3 className="fs-6 fw-bold text-white">About</h3>
               <ul className="list-unstyled">
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/about">
                     Company
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/about">
                     Legacy
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/about">
                     Team
                   </Link>
                 </li>
@@ -59,17 +59,17 @@ export default function Footer() {
               <h3 className="fs-6 fw-bold text-white">Careers</h3>
               <ul className="list-unstyled">
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/career">
                     Employee success
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/career">
                     Benefits
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none" href="/">
+                  <Link className="text-decoration-none" href="/career">
                     Job openings
                   </Link>
                 </li>
