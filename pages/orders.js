@@ -47,8 +47,8 @@ export default function Orders() {
         Orders
       </h1>
 
-      <div className="container mt-5">
-        <table className="table table-hover table-dark mx-auto">
+      <div className="container mt-5"  style={{ width: 'auto', overflowX: 'auto', whiteSpace: 'nowrap' }}>
+        <table className="table table-hover table-dark">
           <thead>
             <tr>
               {/* <th scope="col">#</th> */}
