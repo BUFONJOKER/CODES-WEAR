@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import Order from "@/models/Order";
-import connectDb from "@/middleware/mongoose";
+// import connectDb from "@/middleware/mongoose";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -88,30 +88,6 @@ export default function Payment({ cart, orders,clearCart }) {
         theme: "colored",
       });
       }
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     clearCart();
     router.push("/")
