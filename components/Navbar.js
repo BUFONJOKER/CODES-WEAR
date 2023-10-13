@@ -20,6 +20,12 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
   //ref for cart
   const ref = useRef(null);
 
+  let total = 0;
+  Object.keys(cart).map((item) => {
+    total+=cart[item].quantity * cart[item].price
+  })
+
+
   //cart click function
   const cartClick = () => {
 
@@ -261,7 +267,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                           )
                         })}
                       </ol>
-                      <p className="fs-1 text-white">Total: Rs.{subTotal}</p>
+                      <p className="fs-1 text-white">Total: Rs.{total}</p>
                       <p className="mt-2">
                         <Link  href="/checkout" >
                           <button type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>

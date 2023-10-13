@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 
 
-export default function Checkout({ user,cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
+export default function Checkout({ user, cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
   const [name, setName] = useState("")
@@ -29,8 +29,18 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
   const [city, setCity] = useState("")
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
-  const router = useRouter()
+ 
   
+  const router = useRouter()
+
+  
+  let total = 0;
+  Object.keys(cart).map((item) => {
+    total+=cart[item].quantity * cart[item].price
+  })
+
+
+
 
 
 
@@ -47,11 +57,21 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
   };
 
 
+
+  // const validatePhone = (phone) => {
+  //   const regex = /^\d{11}$/;
+  //   if(!regex.test(phone)) {
+  //     alert("Invalid phone number");
+  //   }
+
+  // };
+
+
   const handleChange = async (e) => {
 
     if (e.target.name == "name") {
       setName(e.target.value)
-    
+
       if (user.value != null) {
         let res = await fetch('http://localhost:3000/api/myorders', {
           method: 'POST',
@@ -60,26 +80,26 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
           },
           body: JSON.stringify({ token: localStorage.getItem('token') }),
         });
-  
+
         let data = await res.json()
-  
+
         Object.keys(data.orders).map((item) => {
-  
+
           setEmail(data.orders[item].email)
         })
-  
+
       }
-       
+
 
     }
 
- 
-    if(e.target.name=="email" && user.value==null){
+
+    if (e.target.name == "email" && user.value == null) {
       setEmail(e.target.value)
     }
 
 
-    
+
 
     else if (e.target.name == "address") {
 
@@ -88,7 +108,12 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
       setAddress(e.target.value)
     }
     else if (e.target.name == "phone") {
+
+
       setPhone(e.target.value)
+
+
+
     }
     else if (e.target.name == "zip") {
       setZip(e.target.value)
@@ -119,6 +144,8 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
 
     }
 
+
+
     if (name != "" && phone != "" && email != "" && address != "" && zip != "") {
       setDisabled(false)
 
@@ -131,8 +158,9 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
   }
 
 
-
   const handleCheckoutClick = async (e) => {
+
+
 
 
     e.preventDefault();
@@ -142,7 +170,7 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
       products_id.push(cart[item].product_id)
     })
     // console.log(products_id)
-    const data = { name, email, phone, address, zip, city, province, cart, products_id, subTotal }
+    
     // console.log(data)
     let priceTempered = false;
     Object.keys(cart).map((item) => {
@@ -224,23 +252,92 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
 
 
 
-    if (priceTempered === false && stock === true) {
+    if (priceTempered === false && stock === true && phone.length==11) {
+      const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
       console.log(data)
       // console.log(priceTempered)
-      await fetch('http://localhost:3000/api/pretransaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+
+      try {
+      
+        await fetch('http://localhost:3000/api/pretransaction', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+      
+        // If the fetch request succeeds, show a success toast
+        toast.success('🦄 Checkout Completed', {
+          position: "top-center",
+          autoClose: 500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        router.push("/payment")
+
+      } catch (error) {
+        // If there's an error during the fetch request, handle it here
+        // console.error('Error during fetch:', error);
+      
+        // You can also show an error toast if needed
+        toast.error('❌ Checkout Failed', {
+          position: "top-center",
+          autoClose: 5000, // Adjust the duration as needed
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       // console.log("MANI")
 
-      router.push("/payment")
+      
     }
     else {
+      if(phone.length!=11){
+        toast.error('❌ Invalid Phone Number', {
+          position: "top-center",
+          autoClose: 500, // Adjust the duration as needed
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
       console.log('Error:');
     }
+
 
 
 
@@ -295,8 +392,19 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="inputEmail4" className="form-label">Phone Number</label>
-            <input type="number" className="form-control" id="inputPhone" name="phone" value={phone} onChange={handleChange} required />
+            <label htmlFor="phone" className="form-label">Phone Number</label>
+
+
+            <input
+              type="number"
+              className="form-control"
+              id="inputPhone"
+              name="phone"
+              value={phone}
+              onChange={handleChange}
+              required
+              label="Phone number"
+              placeholder={`Enter your 11-digit phone number without starting "0"`}/>         
           </div>
 
           <div className="col-md-6">
@@ -387,7 +495,7 @@ export default function Checkout({ user,cart, clearCart, removeFromCart, addToCa
         </ol>
 
 
-        <p className="fs-1 text-white">Total: Rs.{subTotal}</p>
+        <p className="fs-1 text-white">Total: Rs.{total}</p>
 
 
 

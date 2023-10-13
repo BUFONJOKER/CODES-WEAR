@@ -214,14 +214,8 @@ export default function App({ Component, pageProps }) {
     // localStorage is available
     localStorage.setItem('cart', JSON.stringify(newCart));
 
-
-
-
-
     let subTotal = 0;
     let keys = Object.keys(newCart);
-
-
 
     for (let i = 0; i < keys.length; i++) {
       subTotal += newCart[keys[i]].quantity * newCart[keys[i]].price;
@@ -230,7 +224,6 @@ export default function App({ Component, pageProps }) {
 
     setSubTotal(subTotal);
    
-
   }
 
   // clear cart function

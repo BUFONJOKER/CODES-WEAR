@@ -23,7 +23,7 @@ const handler = async (req, res) => {
 
             products_id: req.body.products_id,
 
-            amount: req.body.subTotal,
+            amount: req.body.total,
 
         })
 
