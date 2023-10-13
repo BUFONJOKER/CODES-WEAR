@@ -236,8 +236,10 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                               &nbsp;&nbsp;
 
                               <b>Size: </b>{cart[item].size}
-                                &nbsp;&nbsp;&nbsp;&nbsp;
 
+                              </p>
+                        
+                                <p className="fs-4"><b>Quantity:</b>
                                 <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
                                 <AiOutlineMinusCircle  onClick={() => {
                                   removeFromCart(item, 1, cart[item].price,
@@ -245,7 +247,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                                 }}>
                                 </AiOutlineMinusCircle>
                                 </button>
-                                &nbsp;{cart[item].quantity}&nbsp;
+                                  {cart[item].quantity}
 
                                 <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
                                 <AiOutlinePlusCircle  onClick={() => {
@@ -253,11 +255,12 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                                     cart[item].name, cart[item].variant, cart[item].size)
                                 }}></AiOutlinePlusCircle>
                                 </button>
-                                
                                 </p>
+                                
+                             
 
                                
-                                <div className="fs-4 text-white">Subtotal:{cart[item].quantity * cart[item].price}</div>
+                                <div className="fs-4 text-white mb-3">Subtotal:{cart[item].quantity * cart[item].price}</div>
                                 
                               </li>
 
