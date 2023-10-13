@@ -252,7 +252,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
 
-    if (priceTempered === false && stock === true && phone.length==11) {
+    if (priceTempered === false && stock === true && phone.length==11 && !isNaN(phone)) {
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
       console.log(data)
       // console.log(priceTempered)
@@ -298,32 +298,20 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       // console.log("MANI")
 
       
     }
     else {
-      if(phone.length!=11){
+
+    
+
+
+
+      if(phone.length!=11 || isNaN(phone)){
+
+       
+
         toast.error('❌ Invalid Phone Number', {
           position: "top-center",
           autoClose: 500, // Adjust the duration as needed
@@ -396,7 +384,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
             <input
-              type="number"
+              type="text"
               className="form-control"
               id="inputPhone"
               name="phone"

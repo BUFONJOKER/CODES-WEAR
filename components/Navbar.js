@@ -219,8 +219,18 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                     <div className="card card-body" style={{
                       width: "auto",
                       height: "auto", position: "absolute",
-                      right: 6, backgroundColor: "gray"
+                      right: 6, backgroundColor: "gray",
+                      maxHeight: '650px', overflowY: 'scroll'
                     }}>
+
+
+
+
+
+
+
+
+
                       <h2 className="text-white mb-5">Shopping Cart</h2>
 
 
