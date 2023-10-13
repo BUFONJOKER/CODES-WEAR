@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Product from "@/models/Product";
-import connectDb from "@/middleware/mongoose";
 
 export default function Tshirts({ products }) {
 
