@@ -303,11 +303,6 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       
     }
     else {
-
-    
-
-
-
       if(phone.length!=11 || isNaN(phone)){
 
        
@@ -323,7 +318,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           theme: "colored",
         });
       }
-      console.log('Error:');
+      console.log('Error: Invalid Phone Number');
     }
 
 
