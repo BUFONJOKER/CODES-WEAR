@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>Codes Wear-Home</title>
       </Head>
-      <div>
+      <div className="text-white">
         <header className="bg-dark text-white">
           <div className="container pt-4 pt-xl-5">
             <div className="row pt-5">
@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <section className="py-5">
+        <section className="py-5 text-white">
           <div className="container text-center py-5">
             <p className="mb-4" style={{ fontSize: "1.6rem" }}>
               Used by{" "}
@@ -67,8 +67,8 @@ export default function Home() {
            
           </div>
         </section>
-        <section>
-          <div className="container bg-dark py-5">
+        <section className="text-white">
+          <div className="container bg-dark py-5 ">
             <div className="row">
               <div className="col-md-8 col-xl-6 text-center mx-auto">
                 <p className="fw-bold text-success mb-2">Our Services</p>
@@ -105,7 +105,7 @@ export default function Home() {
                       <h5 className="fw-bold card-title">
                         Lorem ipsum dolor sit&nbsp;
                       </h5>
-                      <p className="text-muted card-text mb-4">
+                      <p className="text-white card-text mb-4">
                         Erat netus est hendrerit, nullam et quis ad cras porttitor
                         iaculis. Bibendum vulputate cras aenean.
                       </p>
@@ -144,7 +144,7 @@ export default function Home() {
                       <h5 className="fw-bold card-title">
                         Lorem ipsum dolor sit&nbsp;
                       </h5>
-                      <p className="text-muted card-text mb-4">
+                      <p className="text-white card-text mb-4">
                         Erat netus est hendrerit, nullam et quis ad cras porttitor
                         iaculis. Bibendum vulputate cras aenean.
                       </p>
@@ -179,7 +179,7 @@ export default function Home() {
                       <h5 className="fw-bold card-title">
                         Lorem ipsum dolor sit&nbsp;
                       </h5>
-                      <p className="text-muted card-text mb-4">
+                      <p className="text-white card-text mb-4">
                         Erat netus est hendrerit, nullam et quis ad cras porttitor
                         iaculis. Bibendum vulputate cras aenean.
                       </p>
@@ -215,7 +215,7 @@ export default function Home() {
                       <h5 className="fw-bold card-title">
                         Lorem ipsum dolor sit&nbsp;
                       </h5>
-                      <p className="text-muted card-text mb-4">
+                      <p className="text-white card-text mb-4">
                         Erat netus est hendrerit, nullam et quis ad cras porttitor
                         iaculis. Bibendum vulputate cras aenean.
                       </p>
@@ -229,7 +229,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
+        <section className="text-white">
           <div className="container py-5">
             <div className="mx-auto" style={{ maxWidth: "900px" }}>
               <div className="row row-cols-1 row-cols-md-2 d-flex justify-content-center">
@@ -293,7 +293,7 @@ export default function Home() {
                 <h2 className="fw-bold">
                   <strong>What People Say About us</strong>
                 </h2>
-                <p className="text-muted">
+                <p className="text-white">
                   No matter the project, our team can handle it.&nbsp;
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default function Home() {
                   <div className="d-flex">
                     <div>
                       <p className="fw-bold text-primary mb-0">John Smith</p>
-                      <p className="text-muted mb-0">Erat netus</p>
+                      <p className="text-white mb-0">Erat netus</p>
                     </div>
                   </div>
                 </div>
@@ -322,7 +322,7 @@ export default function Home() {
                   <div className="d-flex">
                     <div>
                       <p className="fw-bold text-primary mb-0">John Smith</p>
-                      <p className="text-muted mb-0">Erat netus</p>
+                      <p className="text-white mb-0">Erat netus</p>
                     </div>
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export default function Home() {
                   <div className="d-flex">
                     <div>
                       <p className="fw-bold text-primary mb-0">John Smith</p>
-                      <p className="text-muted mb-0">Erat netus</p>
+                      <p className="text-white mb-0">Erat netus</p>
                     </div>
                   </div>
                 </div>
@@ -411,7 +411,7 @@ export default function Home() {
                     </div>
                     <div className="px-2">
                       <h6 className="fw-bold mb-0">Phone</h6>
-                      <p className="text-muted mb-0">+123456789</p>
+                      <p className="text-white mb-0">+123456789</p>
                     </div>
                   </div>
                   <div className="d-flex align-items-center p-3">
@@ -429,7 +429,7 @@ export default function Home() {
                     </div>
                     <div className="px-2">
                       <h6 className="fw-bold mb-0">Email</h6>
-                      <p className="text-muted mb-0">info@example.com</p>
+                      <p className="text-white mb-0">info@example.com</p>
                     </div>
                   </div>
                   <div className="d-flex align-items-center p-3">
@@ -447,7 +447,7 @@ export default function Home() {
                     </div>
                     <div className="px-2">
                       <h6 className="fw-bold mb-0">Location</h6>
-                      <p className="text-muted mb-0">12 Example Street</p>
+                      <p className="text-white mb-0">12 Example Street</p>
                     </div>
                   </div>
                 </div>
