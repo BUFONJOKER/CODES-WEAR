@@ -29,16 +29,15 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   const [city, setCity] = useState("")
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
- 
-  
+
+
   const router = useRouter()
 
-  
+
   let total = 0;
   Object.keys(cart).map((item) => {
-    total+=cart[item].quantity * cart[item].price
+    total += cart[item].quantity * cart[item].price
   })
-
 
 
 
@@ -124,32 +123,22 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       //get the data from api
       const data = await res.json();
 
-     
-        if (Object.keys(data).includes((zip))) {
-          setCity(data[zip][0])
-          setProvince(data[zip][1])
 
-        }
-        else {
-          setCity("")
-          setProvince("")
-        }
+      if (Object.keys(data).includes((zip))) {
+        setCity(data[zip][0])
+        setProvince(data[zip][1])
 
       }
-    
+      else {
 
-
-
-
-
-
-    if (name != "" && phone != "" && email != "" && address != "" && zip != "") {
-      setDisabled(false)
+        setCity("")
+        setProvince("")
+      }
 
     }
-    else {
-      setDisabled(true)
-    }
+
+
+
 
 
   }
@@ -158,16 +147,16 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   const handleCheckoutClick = async (e) => {
 
 
-
-
     e.preventDefault();
+
+
 
     let products_id = []
     Object.keys(cart).map((item) => {
       products_id.push(cart[item].product_id)
     })
     // console.log(products_id)
-    
+
     // console.log(data)
     let priceTempered = false;
     Object.keys(cart).map((item) => {
@@ -249,42 +238,20 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
 
-    if (priceTempered === false && stock === true && phone.length==11 && !isNaN(phone)) {
+    if (priceTempered === false && stock === true && phone.length == 11 && !isNaN(phone)) {
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
       console.log(data)
       // console.log(priceTempered)
 
-      try {
-      
-        await fetch('http://localhost:3000/api/pretransaction', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-      
-        // If the fetch request succeeds, show a success toast
-        toast.success('🦄 Checkout Completed', {
-          position: "top-center",
-          autoClose: 500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        router.push("/payment")
+      const res = await fetch('/api/productzipcode');
 
-      } catch (error) {
-        // If there's an error during the fetch request, handle it here
-        // console.error('Error during fetch:', error);
-      
-        // You can also show an error toast if needed
-        toast.error('❌ Checkout Failed', {
+      //get the data from api
+      const zipCodes = await res.json();
+
+      if (!Object.keys(zipCodes).includes((zip))) {
+        toast.error('❌ Zip Code is not Serviceable!', {
           position: "top-center",
-          autoClose: 5000, // Adjust the duration as needed
+          autoClose: 500, // Adjust the duration as needed
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -292,17 +259,73 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           progress: undefined,
           theme: "colored",
         });
+      }
+
+      else {
+
+        try {
+          const response = await fetch('http://localhost:3000/api/pretransaction', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+        
+          if (response.ok) {
+            // If the fetch request is successful, show a success toast
+            toast.success('🦄 Checkout Completed', {
+              position: 'top-center',
+              autoClose: 500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'colored',
+            });
+        
+            // Navigate to the "payment" page
+            router.push('/payment');
+          } else {
+            // If the response is not successful, show an error toast
+            toast.error('❌ Checkout Failed', {
+              position: 'top-center',
+              autoClose: 5000, // Adjust the duration as needed
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'colored',
+            });
+          }
+        } catch (error) {
+          // If there's an error during the fetch request, handle it here
+          console.error('Error during fetch:', error);
+        
+          // You can also show an error toast if needed
+          toast.error('❌ Api error!', {
+            position: 'top-center',
+            autoClose: 5000, // Adjust the duration as needed
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          });
         }
+        
+
+      }
 
 
-      // console.log("MANI")
-
-      
     }
     else {
-      if(phone.length!=11 || isNaN(phone)){
+      if (phone.length != 11 || isNaN(phone)) {
 
-       
+
 
         toast.error('❌ Invalid Phone Number', {
           position: "top-center",
@@ -384,7 +407,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
               onChange={handleChange}
               required
               label="Phone number"
-              placeholder={`Enter your 11-digit phone number without starting "0"`}/>         
+              placeholder={`Enter your 11-digit phone number without starting "0"`} />
           </div>
 
           <div className="col-md-6">
