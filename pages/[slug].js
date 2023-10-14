@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
-import { BsStarHalf,BsFillCircleFill } from 'react-icons/bs';
+import { BsStarHalf, BsFillCircleFill } from 'react-icons/bs';
 import { BsCartPlus } from 'react-icons/bs';
 import Head from 'next/head';
 // import mongoose from 'mongoose';
@@ -10,6 +10,7 @@ import Product from '@/models/Product';
 import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Error from 'next/error'
 
 //            PRODUCT PAGE
 
@@ -17,9 +18,17 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Slug({ addToCart, products }) {
   //router declare to get the slug
   const router = useRouter();
+  let titleSlug;
+  Object.keys(products).map((item) => {
+    titleSlug = products[item].title;
+
+  })
 
   //get the slug from router
   const { slug } = router.query;
+
+
+
 
 
   let colorSize = [{ color: 'Red', size: [] },
@@ -34,6 +43,8 @@ export default function Slug({ addToCart, products }) {
   var color = [];
   var category = "";
   var product_id = ""
+  let outOfStock = [];
+
 
   Object.keys(products).map((item) => {
     if (products[item].title === slug) {
@@ -65,6 +76,10 @@ export default function Slug({ addToCart, products }) {
           colorSize[4].size.push(products[item].size);
         }
       }
+      else {
+        outOfStock.push(products[item]._id)
+      }
+
     }
   });
 
@@ -111,7 +126,7 @@ export default function Slug({ addToCart, products }) {
 
 
     if (Object.keys(data).includes((zipCode))) {
-   
+
       toast.success('🦄 Delivery Service Available', {
         position: "top-center",
         autoClose: 500,
@@ -123,7 +138,7 @@ export default function Slug({ addToCart, products }) {
         theme: "colored",
       });
     } else {
-   
+
       toast.error('🦄 Delivery Service Not Available', {
         position: "top-center",
         autoClose: 500,
@@ -140,6 +155,20 @@ export default function Slug({ addToCart, products }) {
 
   const [cartButtoncanBeClicked, setCartButtonCanBeClicked] = useState(true);
 
+  if (slug != titleSlug) {
+
+    return (
+      <>
+        <Head>
+          <title>Codes Wear - {category} </title>
+        </Head>
+        <Error statusCode={404} title="No products found" />
+      </>
+    )
+
+
+  }
+
   return (
     <>
       <ToastContainer
@@ -155,7 +184,7 @@ export default function Slug({ addToCart, products }) {
         theme="dark"
       />
       <Head>
-        <title>Codes Wear - {category} ({slug}) </title>
+        <title>Codes Wear - {category} </title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         {slug}
@@ -167,7 +196,7 @@ export default function Slug({ addToCart, products }) {
           <div className="col-md-6">
             <div className="card text-center m-3 " >
               <Image
-              
+
                 src={image}
                 quality={100}
                 width={200}
@@ -185,6 +214,8 @@ export default function Slug({ addToCart, products }) {
               </p>
               <div className="card-body">
                 <h5 className="card-title">Rs.{price}</h5>
+                {(Object.keys(products).length === outOfStock.length) &&
+                  <h5 className="card-title text-danger fs-2">Out Of Stock!</h5>}
                 <p>
                   <AiFillStar />
                   <AiFillStar />
@@ -192,14 +223,14 @@ export default function Slug({ addToCart, products }) {
                   <AiFillStar />
                   <BsStarHalf />
                 </p>
-                <div className="card-text"><h3>Color</h3>
+                <div className="card-text"><h3>Available Color and Sizes</h3>
 
 
                   {color.includes("Red") && (
                     <div className="d-flex align-items-center">
                       <h1>
 
-                      <BsFillCircleFill className='fs-1 text-danger '>B</BsFillCircleFill>
+                        <BsFillCircleFill className='fs-1 text-danger '>B</BsFillCircleFill>
 
                       </h1>
 
@@ -276,9 +307,9 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                      <BsFillCircleFill className='fs-1 text-primary mt-3'></BsFillCircleFill>
+                        <BsFillCircleFill className='fs-1 text-primary mt-3'></BsFillCircleFill>
 
-                      
+
 
                       </p>
                       {colorSize[1].size.includes("Small") && <button onClick={() => {
@@ -353,8 +384,8 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                      <BsFillCircleFill className='fs-1 text-primary '></BsFillCircleFill>
-                      
+                        <BsFillCircleFill className='fs-1 text-success mt-3'></BsFillCircleFill>
+
 
                       </p>
                       {colorSize[2].size.includes("Small") && <button onClick={() => {
@@ -428,7 +459,7 @@ export default function Slug({ addToCart, products }) {
                     <div className="d-flex align-items-center">
                       <p>
 
-                      <BsFillCircleFill className='fs-1 text-success'>B</BsFillCircleFill>
+                        <BsFillCircleFill className='fs-1 text-success'>B</BsFillCircleFill>
                         <button className="btn btn-warning rounded-circle m-1 fs-4 text-success" disabled>
                           Y
                         </button>
@@ -505,8 +536,8 @@ export default function Slug({ addToCart, products }) {
                   {color.includes("Black") && (
                     <div className="d-flex align-items-center">
                       <p>
-                      <BsFillCircleFill className='fs-1 text-dark mt-3'></BsFillCircleFill>
-                      
+                        <BsFillCircleFill className='fs-1 text-dark mt-3'></BsFillCircleFill>
+
 
                       </p>
                       {/* <select className="form-select w-25" aria-label="Select an option"> */}
@@ -580,9 +611,9 @@ export default function Slug({ addToCart, products }) {
 
                 </div>
 
-                <button  disabled={cartButtoncanBeClicked}
+                <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
-                    addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
+                    addToCart(slug, 1, price, slug, cartColor, cartSize, product_id);
                     router.push('/checkout')
                   }} className="btn btn-primary m-1">Buy Now</button>
 
@@ -591,7 +622,7 @@ export default function Slug({ addToCart, products }) {
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
                     // console.log(cartColor, cartSize)
-                    addToCart(slug, 1, price, slug, cartColor, cartSize,product_id);
+                    addToCart(slug, 1, price, slug, cartColor, cartSize, product_id);
                     toast.success('🦄 Adding to Cart', {
                       position: "top-center",
                       autoClose: 1000,
@@ -624,7 +655,7 @@ export default function Slug({ addToCart, products }) {
                 >
                   Check
                 </button>
-                
+
               </div>
             </div>
           </div>
@@ -639,7 +670,8 @@ export default function Slug({ addToCart, products }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await Product.find()
+  const res = await Product.find({ title: context.query.slug })
+
   const data = JSON.parse(JSON.stringify(res))
   return {
     props: {
