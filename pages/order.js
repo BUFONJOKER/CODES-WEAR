@@ -6,15 +6,17 @@ const moment = require('moment-timezone');
 export default function MyOrder({ orders, id }) {
 
   let time = orders.createdAt;
-    // Assuming you have a MongoDB document with a 'createdAt' field
-  const mongoDocument = {
-    // ... other fields
-    createdAt: new Date(time),
-  };
 
   // Create a moment instance with the date and time zone
-  const pktMoment = moment.tz(mongoDocument.createdAt, "Asia/Karachi");
-  const formattedTime = moment(pktMoment).format('LLLL')
+  let createdAt = new Date(time);
+  const pktMoment = moment.tz(createdAt, "Asia/Karachi");
+
+  
+  // Format the time in the desired format in Urdu
+  const formattedTime = pktMoment.format('LLLL');
+  
+  console.log(formattedTime);
+  
   
   
   return (
@@ -30,14 +32,14 @@ export default function MyOrder({ orders, id }) {
 
 
       <h2 className='text-white text-center mt-5'><b className='text-info'>Order ID : </b> #{id}</h2>
-      <h2 className='text-white text-center mt-5'><b className='text-info'>Order Created At</b> : {formattedTime}</h2>
+      <h2 className='text-white text-center mt-5'><b className='text-info'>Order Placed At</b> : {formattedTime}</h2>
 
       <div className="container mt-5">
         <table className="table table-hover table-dark">
           <thead>
             <tr>
 
-              <th scope="col">TIME</th>
+         
               <th scope="col">Description</th>
               <th scope="col">Quantity</th>
               <th scope="col">Color</th>
@@ -54,7 +56,6 @@ export default function MyOrder({ orders, id }) {
                   <React.Fragment key={orders.products[item]._id + "" + orders.products[item].name}>
                
                     <tr>
-                      <th scope='row'>{orders.products[item].createdAt}</th>
                       <th scope="row">{orders.products[item].name}</th>
                       <th scope="row">{orders.products[item].quantity}</th>
                       <th scope="row">{orders.products[item].variant}</th>
