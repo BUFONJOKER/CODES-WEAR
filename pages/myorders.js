@@ -41,10 +41,10 @@ export default function Orders() {
     <div>
 
       <Head>
-        <title>Codes Wear-Orders</title>
+        <title>Codes Wear-My Orders</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
-        Orders
+        My Orders
       </h1>
 
       <div className="container mt-5"  style={{ width: 'auto', overflowX: 'auto', whiteSpace: 'nowrap' }}>

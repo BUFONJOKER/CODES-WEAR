@@ -124,7 +124,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       //get the data from api
       const data = await res.json();
 
-      if (zip.length == 5) {
+     
         if (Object.keys(data).includes((zip))) {
           setCity(data[zip][0])
           setProvince(data[zip][1])
@@ -136,13 +136,10 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         }
 
       }
-      else {
-        setCity("")
-        setProvince("")
-      }
+    
 
 
-    }
+
 
 
 

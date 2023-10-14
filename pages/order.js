@@ -1,27 +1,43 @@
 import React from 'react'
 import Order from "@/models/Order";
 import Head from 'next/head';
+const moment = require('moment-timezone');
 
 export default function MyOrder({ orders, id }) {
-  // console.log(orders.products)
+
+  let time = orders.createdAt;
+    // Assuming you have a MongoDB document with a 'createdAt' field
+  const mongoDocument = {
+    // ... other fields
+    createdAt: new Date(time),
+  };
+
+  // Create a moment instance with the date and time zone
+  const pktMoment = moment.tz(mongoDocument.createdAt, "Asia/Karachi");
+  const formattedTime = moment(pktMoment).format('LLLL')
+  
+  
   return (
 
     <div>
 
-<Head>
+      <Head>
         <title>Codes Wear-Orders Details</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         Order Details
       </h1>
 
-   
-      <h2 className='text-white text-center mt-5'>Order ID: #{id}</h2>
+
+      <h2 className='text-white text-center mt-5'><b className='text-info'>Order ID : </b> #{id}</h2>
+      <h2 className='text-white text-center mt-5'><b className='text-info'>Order Created At</b> : {formattedTime}</h2>
 
       <div className="container mt-5">
         <table className="table table-hover table-dark">
           <thead>
             <tr>
+
+              <th scope="col">TIME</th>
               <th scope="col">Description</th>
               <th scope="col">Quantity</th>
               <th scope="col">Color</th>
@@ -35,8 +51,10 @@ export default function MyOrder({ orders, id }) {
             {
               Object.keys(orders.products).map((item) => {
                 return (
-                  <React.Fragment key={orders.products[item]._id+""+orders.products[item].name}>
+                  <React.Fragment key={orders.products[item]._id + "" + orders.products[item].name}>
+               
                     <tr>
+                      <th scope='row'>{orders.products[item].createdAt}</th>
                       <th scope="row">{orders.products[item].name}</th>
                       <th scope="row">{orders.products[item].quantity}</th>
                       <th scope="row">{orders.products[item].variant}</th>

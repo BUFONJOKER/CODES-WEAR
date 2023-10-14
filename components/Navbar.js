@@ -117,12 +117,12 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="  about" onClick={closeMobileMenu}>
+                  <Link className="nav-link fs-1 m-3" href="/about" onClick={closeMobileMenu}>
                     About
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="contact" onClick={closeMobileMenu}>
+                  <Link className="nav-link fs-1 m-3" href="/contact" onClick={closeMobileMenu}>
                     Contacts
                   </Link>
                 </li>
@@ -137,16 +137,16 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                     Products{" "}
                   </Link>
                   <div className="dropdown-menu bg-secondary">
-                    <Link className="dropdown-item text-black fw-bold" href="tshirts" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="/tshirts" onClick={closeMobileMenu}>
                       T-Shirts
                     </Link>
-                    <Link className="dropdown-item text-black fw-bold" href="hoodies" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="/hoodies" onClick={closeMobileMenu}>
                       Hoodies
                     </Link>
-                    <Link className="dropdown-item text-black fw-bold" href="mugs" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="/mugs" onClick={closeMobileMenu}>
                       Mugs
                     </Link>
-                    <Link className="dropdown-item text-black fw-bold" href="stickers" onClick={closeMobileMenu}>
+                    <Link className="dropdown-item text-black fw-bold" href="/stickers" onClick={closeMobileMenu}>
                       Stickers
                     </Link>
                   </div>
@@ -173,24 +173,24 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                           <Link
                             className="dropdown-item text-black fw-bold"
 
-                            href="myaccount">My Account</Link>
+                            href="/myaccount">My Account</Link>
                           <Link
                             className="dropdown-item text-black fw-bold "
 
-                            href="orders">Orders</Link>
+                            href="/myorders">My Orders</Link>
 
                           <Link
                             onClick={logout}
                             className="dropdown-item text-black fw-bold "
 
-                            href="login">Log Out</Link>
+                            href="/login">Log Out</Link>
                         </div>
                       </div> </Link>
 
                     // <button type="button" className="btn btn-black fs-3">Log Out</button>
                   }
                   {!user.value &&
-                    <Link className="nav-link text-white m-4" href="login" onClick={closeMobileMenu}>
+                    <Link className="nav-link text-white m-4" href="/login" onClick={closeMobileMenu}>
                       <button type="button" className="btn btn-primary fs-3">Log In</button>
                     </Link>
                   }
