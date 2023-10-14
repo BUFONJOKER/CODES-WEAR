@@ -162,7 +162,7 @@ export default function Slug({ addToCart, products }) {
         <Head>
           <title>Codes Wear - {category} </title>
         </Head>
-        <Error statusCode={404} title="No products found" />
+        <Error statusCode={404} />
       </>
     )
 
