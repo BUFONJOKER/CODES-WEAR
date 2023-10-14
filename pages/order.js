@@ -11,12 +11,10 @@ export default function MyOrder({ orders, id }) {
   let createdAt = new Date(time);
   const pktMoment = moment.tz(createdAt, "Asia/Karachi");
 
-  
   // Format the time in the desired format in Urdu
   const formattedTime = pktMoment.format('LLLL');
   
-  console.log(formattedTime);
-  
+  // console.log(formattedTime);
   
   
   return (

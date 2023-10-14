@@ -219,7 +219,7 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    console.error("Error fetching orders:", error);
+    // console.error("Error fetching orders:", error);
     return {
       props: {
         orders: null, // Handle the error gracefully

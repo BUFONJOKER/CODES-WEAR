@@ -240,7 +240,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
     if (priceTempered === false && stock === true && phone.length == 11 && !isNaN(phone)) {
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
-      console.log(data)
+      // console.log(data)
       // console.log(priceTempered)
 
       const res = await fetch('/api/productzipcode');
@@ -302,7 +302,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           }
         } catch (error) {
           // If there's an error during the fetch request, handle it here
-          console.error('Error during fetch:', error);
+          // console.error('Error during fetch:', error);
         
           // You can also show an error toast if needed
           toast.error('❌ Api error!', {
@@ -338,7 +338,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           theme: "colored",
         });
       }
-      console.log('Error: Invalid Phone Number');
+      // console.log('Error: Invalid Phone Number');
     }
 
 

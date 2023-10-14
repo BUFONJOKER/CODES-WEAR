@@ -107,9 +107,6 @@ export async function getServerSideProps() {
   let tshirts = {};
   for(let item of products){
     if(item.title in tshirts){
-            if(tshirts[item.title].availableQuantity <=0){
-             console.log(tshirts[item.title])
-            }
 
             if(!tshirts[item.title].color.includes(item.color) &&
                     item.availableQuantity > 0){
