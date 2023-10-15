@@ -22,11 +22,11 @@ const handler = async (req, res) => {
             }
 
             else{
-                res.status(200).json({ success: false, message: "Invalid Credentials" });
+                res.status(400).json({ success: false, message: "Invalid Credentials" });
             }
         }
         else {
-            res.status(200).json({ success: false, message: "Invalid Credentials" });
+            res.status(400).json({ success: false, message: "Invalid Credentials" });
         }
     }
 }

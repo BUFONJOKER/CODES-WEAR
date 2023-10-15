@@ -46,13 +46,23 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
   // useEffect to update the disabled state when form inputs change
   useEffect(() => {
-    setDisabled(areFieldsEmpty());
+    // setDisabled(areFieldsEmpty());
+    fetchUser();
 
-    // eslint-disable-next-line
-  }, [name, email, address, phone, zip]);
+ 
+  });
+
+  useEffect(() => {
+    setDisabled(areFieldsEmpty());
+       // eslint-disable-next-line
+  }, [name, email, address, phone, zip])
+  
 
   const areFieldsEmpty = () => {
-    return name.trim() === "" || email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === "";
+    console.log("zip  "+zip)
+    return name.trim() === "" ||
+     email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === ""
+     ;
   };
 
 
@@ -64,40 +74,57 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   //   }
 
   // };
+  const fetchUser = async () => {
+    if (user.value != null) {
 
+      let res = await fetch('http://localhost:3000/api/getuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') }),
+      });
+
+      let data = await res.json()
+      let myuser = data.user
+
+
+      if (name == "" && email == "" && address == "" && phone == "" && zip == "") {
+        setName(myuser.name)
+        setEmail(myuser.email)
+        setAddress(myuser.address)
+        setPhone(myuser.phone)
+        setZip(String(myuser.zipCode))
+        
+        let zipCode = String(myuser.zipCode)
+        
+        const res = await fetch('/api/productzipcode');
+
+        //get the data from api
+        const data = await res.json();
+        console.log(data)
+        
+
+        if (Object.keys(data).includes((zipCode))) {
+          console.log("mani")
+          setCity(data[zipCode][0])
+          setProvince(data[zipCode][1])
+
+        }
+
+      }
+      // console.log(name)
+      // console.log(zip)
+      // console.log(city)
+    }
+  }
 
   const handleChange = async (e) => {
 
     if (e.target.name == "name") {
       setName(e.target.value)
 
-      if (user.value != null) {
-        let res = await fetch('http://localhost:3000/api/myorders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ token: localStorage.getItem('token') }),
-        });
-
-        let data = await res.json()
-
-        Object.keys(data.orders).map((item) => {
-
-          setEmail(data.orders[item].email)
-        })
-
-      }
-
-
     }
-
-
-    if (e.target.name == "email" && user.value == null) {
-      setEmail(e.target.value)
-    }
-
-
 
 
     else if (e.target.name == "address") {
@@ -271,7 +298,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
             },
             body: JSON.stringify(data),
           });
-        
+
           if (response.ok) {
             // If the fetch request is successful, show a success toast
             toast.success('🦄 Checkout Completed', {
@@ -284,7 +311,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
               progress: undefined,
               theme: 'colored',
             });
-        
+
             // Navigate to the "payment" page
             router.push('/payment');
           } else {
@@ -303,7 +330,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         } catch (error) {
           // If there's an error during the fetch request, handle it here
           // console.error('Error during fetch:', error);
-        
+
           // You can also show an error toast if needed
           toast.error('❌ Api error!', {
             position: 'top-center',
@@ -316,7 +343,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
             theme: 'colored',
           });
         }
-        
+
 
       }
 

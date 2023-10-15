@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useState,r } from "react";
 
 
 //icons
@@ -12,17 +12,20 @@ import {
 } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
+import { ro } from "date-fns/locale";
+import { useRouter } from "next/router";
 
 //navbar component
 export default function Navbar({ logout, user, cart, addToCart, subTotal,
   removeFromCart, clearCart, quantity }) {
+  const router = useRouter()
 
   //ref for cart
   const ref = useRef(null);
 
   let total = 0;
   Object.keys(cart).map((item) => {
-    total+=cart[item].quantity * cart[item].price
+    total += cart[item].quantity * cart[item].price
   })
 
 
@@ -74,6 +77,10 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
     // For example, you can navigate to a different page
   };
 
+
+  const handleLogOutClick = () => {
+    router.push('/login')
+  }
 
 
 
@@ -170,20 +177,30 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
 
                         <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''} bg-secondary `} aria-labelledby="dropdownMenuButton">
-                          <Link
+                          <button
+                             onClick={()=>{
+                              router.push('/myaccount')
+                            }}
                             className="dropdown-item text-black fw-bold"
 
-                            href="/myaccount">My Account</Link>
-                          <Link
+                            >My Account</button>
+                          <button
+                            onClick={()=>{
+                              router.push('/myorders')
+                            }}
                             className="dropdown-item text-black fw-bold "
 
-                            href="/myorders">My Orders</Link>
+                            >My Orders</button>
 
-                          <Link
-                            onClick={logout}
+                          <button
+                            onClick={() => {
+                              logout();
+                              handleLogOutClick();
+                            }}
+
                             className="dropdown-item text-black fw-bold "
 
-                            href="/login">Log Out</Link>
+                          >Log Out</button>
                         </div>
                       </div> </Link>
 
@@ -231,69 +248,70 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                         {Object.keys(cart).map((item) => {
                           return (
                             <React.Fragment key={item}>
-                              <li className="fs-4 text-white">{cart[item].name} 
-                              <p className="fs-4 text-white"><b>Color: </b> {cart[item].variant}
-                              &nbsp;&nbsp;
+                              <li className="fs-4 text-white">{cart[item].name}
+                                <p className="fs-4 text-white"><b>Color: </b> {cart[item].variant}
+                                  &nbsp;&nbsp;
 
-                              <b>Size: </b>{cart[item].size}
+                                  <b>Size: </b>{cart[item].size}
 
-                              </p>
-                        
+                                </p>
+
                                 <p className="fs-4"><b>Quantity:</b>
-                                <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
-                                <AiOutlineMinusCircle  onClick={() => {
-                                  removeFromCart(item, 1, cart[item].price,
-                                    cart[item].name, cart[item].variant, cart[item].size)
-                                }}>
-                                </AiOutlineMinusCircle>
-                                </button>
+                                  <button className="btn text-white  fs-4" style={{ backgroundColor: "gray" }}>
+                                    <AiOutlineMinusCircle onClick={() => {
+                                      removeFromCart(item, 1, cart[item].price,
+                                        cart[item].name, cart[item].variant, cart[item].size)
+                                    }}>
+                                    </AiOutlineMinusCircle>
+                                  </button>
                                   {cart[item].quantity}
 
-                                <button className="btn text-white  fs-4" style={{backgroundColor:"gray"}}>
-                                <AiOutlinePlusCircle  onClick={() => {
-                                  addToCart(item, 1, cart[item].price,
-                                    cart[item].name, cart[item].variant, cart[item].size)
-                                }}></AiOutlinePlusCircle>
-                                </button>
+                                  <button className="btn text-white  fs-4" style={{ backgroundColor: "gray" }}>
+                                    <AiOutlinePlusCircle onClick={() => {
+                                      addToCart(item, 1, cart[item].price,
+                                        cart[item].name, cart[item].variant, cart[item].size)
+                                    }}></AiOutlinePlusCircle>
+                                  </button>
                                 </p>
-                                
-                             
 
-                               
+
+
+
                                 <div className="fs-4 text-white mb-3">Subtotal:{cart[item].quantity * cart[item].price}</div>
-                                
+
                               </li>
 
-                              
+
                             </React.Fragment>
 
-                       
+
                           )
                         })}
                       </ol>
                       <p className="fs-1 text-white">Total: Rs.{total}</p>
                       <p className="mt-2">
-                        <Link  href="/checkout" >
+                        <Link href="/checkout" >
                           <button type="button" className="btn  btn-outline-dark" style={{ width: '100px' }}>
                             <BsFillBagCheckFill className="fs-1 " />
                             Checkout
                           </button>
                         </Link>
-                      
-                        <button 
-                          onClick={clearCart} 
-                          type="button" 
-                          className="btn  btn-outline-dark  m-3" 
+
+                        <button
+                          onClick={clearCart}
+                          type="button"
+                          className="btn  btn-outline-dark  m-3"
                           style={{ width: '150px' }}
-                          >
+                        >
                           <BsCartXFill className="fs-1" />
                           Clear Cart
                         </button>
-                
-                        </p>
+
+                      </p>
                       <AiFillCloseCircle className="btn btn-hover"
                         onClick={closeClick}
-                        style={{marginTop:"20",
+                        style={{
+                          marginTop: "20",
                           position: "absolute", right: 0, width: '70px',
                           height: '70px'
                         }} />

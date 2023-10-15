@@ -295,7 +295,7 @@ export default function App({ Component, pageProps }) {
         subTotal={subTotal}
       />
 
-      <Component {...pageProps} user={user} orderId={orderId} cart={cart} addToCart={addToCart}
+      <Component {...pageProps} logout={logout} user={user} orderId={orderId} cart={cart} addToCart={addToCart}
         removeFromCart={removeFromCart} clearCart={clearCart}
         subTotal={subTotal}
       />
