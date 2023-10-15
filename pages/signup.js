@@ -119,7 +119,8 @@ export default function Signup() {
                             <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label" htmlFor="password">Password</label>
-                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control" />
+                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control"
+                              autoComplete='password' />
 
                             </div>
                           </div>
@@ -134,9 +135,14 @@ export default function Signup() {
 
                       </div>
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                        <Image width={400} height={400} src="/logo.jpg"
-                          className="img-fluid m-5" alt="Sample image" priority={false}  />
+                      <Image width={400} height={400} src="/logo.jpg"
+                          className="img-fluid m-5" alt="Sample image"
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                          }} quality={100}
+                          priority  />
+                 
 
                       </div>
                     </div>

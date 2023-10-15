@@ -27,7 +27,7 @@ export default function Login() {
     if (e.target.name === 'email') {
       setEmail(e.target.value)
     }
-    else if (e.target.name === 'password') {
+    else if (e.target.name === 'current-password') {
       setPassword(e.target.value)
     }
   }
@@ -134,7 +134,8 @@ export default function Login() {
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label" htmlFor="email">Email</label>
-                              <input onChange={handleFormChange} value={email} type="email" id="email" name='email' className="form-control" />
+                              <input onChange={handleFormChange} value={email} type="email" id="email"
+                               name='email' className="form-control" autoComplete='username'/>
 
                             </div>
                           </div>
@@ -143,7 +144,8 @@ export default function Login() {
                             <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label" htmlFor="password">Password</label>
-                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control" />
+                              <input onChange={handleFormChange} value={password} type="password" id="current-password"
+                               name='current-password' className="form-control" autoComplete='current-password' />
 
                             </div>
                           </div>
@@ -165,7 +167,12 @@ export default function Login() {
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                         <Image width={400} height={400} src="/logo.jpg"
-                          className="img-fluid m-5" alt="Sample image" priority={false}  />
+                          className="img-fluid m-5" alt="Sample image"
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                          }} quality={100}
+                          priority  as="image"/>
 
                       </div>
                     </div>

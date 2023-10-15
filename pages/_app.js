@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }) {
       setProgress(100)
     });
 
-    console.log('useEffect in _app.js');
+    // console.log('useEffect in _app.js');
 
     const token = localStorage.getItem('token')
 

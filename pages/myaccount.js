@@ -38,7 +38,7 @@ export default function MyAccount({ user, logout }) {
   useEffect(() => {
     fetchUser()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reload])
+  })
 
 
 
@@ -254,7 +254,7 @@ export default function MyAccount({ user, logout }) {
 
           <div className="col-md-6">
             <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" className="form-control" id="email" name="email" value={email} required />
+            <input type="email" className="form-control" id="email" name="email" value={email} required readOnly  autoComplete="email" />
           </div>
 
           <div className="col-md-6">
@@ -293,17 +293,17 @@ export default function MyAccount({ user, logout }) {
           <div className="col-md-4">
             <label htmlFor="password" className="form-label">Passwod</label>
             <input type="password" className="form-control" id="password" name="password"
-              value={password} onChange={handleChange} required />
+              value={password} onChange={handleChange} required  autoComplete="current-password" />
           </div>
           <div className="col-md-4">
             <label htmlFor="newpassword" className="form-label">New Password</label>
             <input type="password" className="form-control" id="newpassword" name="newpassword"
-              value={newPassword} onChange={handleChange} required />
+              value={newPassword} onChange={handleChange} required  autoComplete="new-password" />
           </div>
           <div className="col-md-4">
             <label htmlFor="confirmnewpassword" className="form-label">Confirm New Password</label>
             <input type="password" className="form-control" id="confirmnewpassword" name="confirmnewpassword"
-              value={confirmNewPassword} onChange={handleChange} required />
+              value={confirmNewPassword} onChange={handleChange} required  autoComplete="confirm-newpassword"/>
           </div>
 
           <button type="button" className="btn  btn-dark mt-5" style={{ width: '200px' }}

@@ -196,13 +196,18 @@ export default function Slug({ addToCart, products }) {
           <div className="col-md-6">
             <div className="card text-center m-3 " >
               <Image
-
-                src={image}
                 quality={100}
+                priority
+                src={image}
+             
                 width={200}
                 height={500}
                 className="card-img-top "
                 alt="image"
+                style={{
+                  width: "auto",
+                  height: "auto",
+                }}
               />
             </div>
           </div>
