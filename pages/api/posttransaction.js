@@ -76,9 +76,12 @@ const handler = async (req, res) => {
                         }
                         else{
                             await  Order.findByIdAndUpdate(req.body._id,{status:"paid"})
+                            res.status(200).json({ message: "Order paid Successfully" });
                         }
     
                         const responseData = await response.json();
+
+
                         // console.log(responseData);
                     } catch (error) {
                         console.error(error);
@@ -93,13 +96,7 @@ const handler = async (req, res) => {
         })
 
 
-
-
-        
-
-
-
-        res.status(200).json({ message: "Order paid Successfully" });
+       
     }
 
     else{

@@ -10,6 +10,10 @@ const UserSchema = new mongoose.Schema({
 
     password:{type:String,required:true},
 
+    address:{type:String,default:""},
+
+    zipCode:{type:String,default:""},
+
 }, { timestamps: true });
 
 mongoose.models = {};

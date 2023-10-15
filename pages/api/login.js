@@ -20,6 +20,10 @@ const handler = async (req, res) => {
                 
                 res.status(200).json({success: true, token: token});
             }
+
+            else{
+                res.status(200).json({ success: false, message: "Invalid Credentials" });
+            }
         }
         else {
             res.status(200).json({ success: false, message: "Invalid Credentials" });
