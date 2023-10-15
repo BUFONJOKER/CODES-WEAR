@@ -10,9 +10,11 @@ const UserSchema = new mongoose.Schema({
 
     password:{type:String,required:true},
 
+    phone:{type:String,default:""},
+
     address:{type:String,default:""},
 
-    zipCode:{type:String,default:""},
+    zipCode:{type:Number,default:0},
 
 }, { timestamps: true });
 

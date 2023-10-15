@@ -11,21 +11,20 @@ const handler = async (req, res) => {
         let user = await User.findOne({ email: data.email });
         console.log(user._id)
         let updatedUser;
-        if (req.body.name) {
-           
-            updatedUser = await User.findByIdAndUpdate(user._id, {name:req.body.name})
-        }
-        else if(req.body.address){
-            updatedUser = await User.findByIdAndUpdate(user._id,{address: req.body.address})
-        }
-        else if(req.body.zipCode){
-            updatedUser = await User.findByIdAndUpdate(user._id, {zipCode:req.body.zipCode})
-        }
-   
-        else if(req.body.password){
-            let password = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SECRET_KEY).toString()
+        let updateData = {};
 
-            updatedUser = await User.findByIdAndUpdate(user._id,{password:password})
+        if (req.body.name) updateData.name = req.body.name;
+        if (req.body.address) updateData.address = req.body.address;
+        if (req.body.phone) updateData.phone = req.body.phone;
+        if (req.body.zipCode) updateData.zipCode = req.body.zipCode;
+
+        if (req.body.password) {
+            let password = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SECRET_KEY).toString();
+            updateData.password = password;
+        }
+
+        if (Object.keys(updateData).length > 0) {
+            updatedUser = await User.findByIdAndUpdate(user._id, updateData);
         }
 
 
