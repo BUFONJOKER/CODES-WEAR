@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 
-export default function MyAccount({ user,logout }) {
+export default function MyAccount({ user, logout }) {
 
 
 
@@ -32,7 +32,7 @@ export default function MyAccount({ user,logout }) {
   const [confirmNewPassword, setConfirmNewPassword] = useState("")
   const router = useRouter()
 
-  console.log(typeof(logout))
+  // console.log(typeof (logout))
 
 
   useEffect(() => {
@@ -77,8 +77,6 @@ export default function MyAccount({ user,logout }) {
       setName(e.target.value)
 
     }
-
-  
 
     else if (e.target.name == "address") {
       setAddress(e.target.value)
@@ -152,7 +150,7 @@ export default function MyAccount({ user,logout }) {
 
   const handleChangePasswordClick = async () => {
     const data = { email, password }
-    
+
     let res = await fetch('http://localhost:3000/api/login', {
       method: 'POST',
       headers: {
@@ -161,15 +159,15 @@ export default function MyAccount({ user,logout }) {
       body: JSON.stringify(data),
     })
 
-    if(res.ok){
-      if(newPassword === confirmNewPassword){
-        console.log("password same")
+    if (res.ok) {
+      if (newPassword === confirmNewPassword) {
+        // console.log("password same")
         let data = {
           password: newPassword,
           token: localStorage.getItem('token')
         }
-    
-    
+
+
         let response = await fetch('http://localhost:3000/api/updateuser', {
           method: 'POST',
           headers: {
@@ -178,7 +176,7 @@ export default function MyAccount({ user,logout }) {
           body: JSON.stringify(data),
         });
 
-        if(response.ok){
+        if (response.ok) {
           logout()
           toast.error("Password Changed Log in again", {
             position: "top-center",
@@ -192,7 +190,7 @@ export default function MyAccount({ user,logout }) {
 
         }
 
-        else{
+        else {
           toast.error("Password cannot not be Update", {
             position: "top-center",
             autoClose: 500,
@@ -202,7 +200,7 @@ export default function MyAccount({ user,logout }) {
           });
         }
       }
-      else{
+      else {
         toast.error("Password and Confirm Password are not same", {
           position: "top-center",
           autoClose: 500,
@@ -210,12 +208,10 @@ export default function MyAccount({ user,logout }) {
           closeOnClick: true,
           progress: undefined,
         });
-        
- 
       }
     }
 
-    else{
+    else {
       toast.error("Password not Correct", {
         position: "top-center",
         autoClose: 500,
@@ -224,8 +220,6 @@ export default function MyAccount({ user,logout }) {
         progress: undefined,
       });
     }
-
-
   }
 
 
@@ -312,9 +306,6 @@ export default function MyAccount({ user,logout }) {
               value={confirmNewPassword} onChange={handleChange} required />
           </div>
 
-
-
-
           <button type="button" className="btn  btn-dark mt-5" style={{ width: '200px' }}
             onClick={handleChangePasswordClick}
           >
@@ -322,8 +313,6 @@ export default function MyAccount({ user,logout }) {
             <b>Change Password</b>
           </button>
 
-
-      
         </form>
         <div >
         </div>

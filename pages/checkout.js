@@ -15,10 +15,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-
-
-
-
 export default function Checkout({ user, cart, clearCart, removeFromCart, addToCart, subTotal, orderId, products }) {
 
   const [disabled, setDisabled] = useState(true)
@@ -29,8 +25,6 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   const [city, setCity] = useState("")
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
-
-
   const router = useRouter()
 
 
@@ -39,41 +33,27 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
     total += cart[item].quantity * cart[item].price
   })
 
-
-
-
-
-
   // useEffect to update the disabled state when form inputs change
   useEffect(() => {
     // setDisabled(areFieldsEmpty());
     fetchUser();
 
- 
+
   });
 
   useEffect(() => {
     setDisabled(areFieldsEmpty());
-       // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [name, email, address, phone, zip])
-  
+
 
   const areFieldsEmpty = () => {
-    console.log("zip  "+zip)
+    // console.log("zip  " + zip)
     return name.trim() === "" ||
-     email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === ""
-     ;
+      email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === ""
+      ;
   };
 
-
-
-  // const validatePhone = (phone) => {
-  //   const regex = /^\d{11}$/;
-  //   if(!regex.test(phone)) {
-  //     alert("Invalid phone number");
-  //   }
-
-  // };
   const fetchUser = async () => {
     if (user.value != null) {
 
@@ -95,27 +75,25 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         setAddress(myuser.address)
         setPhone(myuser.phone)
         setZip(String(myuser.zipCode))
-        
+
         let zipCode = String(myuser.zipCode)
-        
+
         const res = await fetch('/api/productzipcode');
 
         //get the data from api
         const data = await res.json();
-        console.log(data)
-        
+        // console.log(data)
+
 
         if (Object.keys(data).includes((zipCode))) {
-          console.log("mani")
+          // console.log("mani")
           setCity(data[zipCode][0])
           setProvince(data[zipCode][1])
 
         }
 
       }
-      // console.log(name)
-      // console.log(zip)
-      // console.log(city)
+
     }
   }
 
@@ -126,21 +104,15 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
     }
 
-
     else if (e.target.name == "address") {
-
-
 
       setAddress(e.target.value)
     }
+
     else if (e.target.name == "phone") {
-
-
       setPhone(e.target.value)
-
-
-
     }
+
     else if (e.target.name == "zip") {
       setZip(e.target.value)
 
@@ -161,30 +133,17 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         setCity("")
         setProvince("")
       }
-
     }
-
-
-
-
-
   }
 
 
   const handleCheckoutClick = async (e) => {
-
-
     e.preventDefault();
-
-
-
     let products_id = []
     Object.keys(cart).map((item) => {
       products_id.push(cart[item].product_id)
     })
-    // console.log(products_id)
 
-    // console.log(data)
     let priceTempered = false;
     Object.keys(cart).map((item) => {
       let productName = cart[item].name
@@ -209,12 +168,9 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
               theme: "colored",
             });
             clearCart()
-
           }
         }
       })
-
-
     })
 
 
@@ -252,18 +208,10 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
               progress: undefined,
               theme: "colored",
             });
-
           }
-
-
         }
       }
-
-
     })
-
-
-
 
     if (priceTempered === false && stock === true && phone.length == 11 && !isNaN(phone)) {
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
@@ -343,17 +291,10 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
             theme: 'colored',
           });
         }
-
-
       }
-
-
     }
     else {
       if (phone.length != 11 || isNaN(phone)) {
-
-
-
         toast.error('❌ Invalid Phone Number', {
           position: "top-center",
           autoClose: 500, // Adjust the duration as needed
@@ -364,18 +305,9 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           progress: undefined,
           theme: "colored",
         });
-      }
-      // console.log('Error: Invalid Phone Number');
+      }      
     }
-
-
-
-
   }
-
-
-
-
 
   return (
     <>
@@ -399,18 +331,9 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
         Checkout
       </h1>
       <div className="container text-white mt-5 mb-5">
-
-
-
         {Object.keys(cart).length == 0 && <h1 className=" mt-3 p-3 text-center bg-dark">First Add Items in Cart Then You Can Checkout</h1>}
 
-
-
         {Object.keys(cart).length != 0 && <form className="row g-3">
-
-
-
-
           <div className="col-md-6">
             <label htmlFor="name" className="form-label">Name</label>
             <input type="text" className="form-control" id="name" name="name" value={name} onChange={handleChange} required />
@@ -459,10 +382,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
             <input name="province" value={province} onChange={handleChange} type="text" className="form-control" id="inputProvince" />
           </div>
 
-
-
           <div className="col-12">
-
 
             <button type="button" className="btn  btn-dark" style={{ width: '100px' }}
               disabled={disabled} onClick={handleCheckoutClick}
@@ -470,8 +390,6 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
               <BsFillBagCheckFill className="fs-1 " />
               Checkout
             </button>
-
-
 
           </div>
         </form>}
@@ -523,31 +441,16 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
             ))
           }
         </ol>
-
-
         <p className="fs-1 text-white">Total: Rs.{total}</p>
-
-
-
       </div>
-
-
-
     </>
   )
 }
 
 
 export async function getServerSideProps(context) {
-
   const res = await fetch('http://localhost:3000/api/getproducts');
-
-  //get the data from api
-  const data = await res.json();
-
-  // console.log(data.products)
-
-  //return the data as props
+  const data = await res.json(); 
   return {
     props: {
       products: data.products,

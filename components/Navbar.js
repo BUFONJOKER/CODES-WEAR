@@ -16,8 +16,8 @@ import { ro } from "date-fns/locale";
 import { useRouter } from "next/router";
 
 //navbar component
-export default function Navbar({ logout, user, cart, addToCart, subTotal,
-  removeFromCart, clearCart, quantity }) {
+export default function Navbar({ logout, user, cart, addToCart,
+  removeFromCart, clearCart}) {
   const router = useRouter()
 
   //ref for cart
@@ -31,7 +31,6 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
   //cart click function
   const cartClick = () => {
-
 
   }
 
@@ -159,11 +158,6 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
                   </div>
                 </li>
 
-
-
-
-
-
                 <li className="nav-item">
                   {user.value &&
 
@@ -281,9 +275,7 @@ export default function Navbar({ logout, user, cart, addToCart, subTotal,
 
                               </li>
 
-
                             </React.Fragment>
-
 
                           )
                         })}

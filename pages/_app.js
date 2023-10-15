@@ -89,74 +89,8 @@ export default function App({ Component, pageProps }) {
   // add to cart function
   const addToCart = async (itemCode, quantity, price, name, variant, size, id) => {
 
-    // console.log("var,size" + variant, size, id);
-    // create a copy of the cart state
     let newCart = cart;
 
-  //   const res = await fetch('http://localhost:3000/api/getproducts');
-
-  // //get the data from api
-  //  const products = await res.json();
-  //  // loop through the products
-    
-  //   let availableQuantity;
-
-  //  for(let i=0;i<products.products.length;i++){
-  //     if(products.products[i].title==itemCode && products.products[i].color==variant && products.products[i].size==size){
-
-  //       console.log(products.products[i].availableQuantity)
-  //       console.log(products.products[i]._id)
-  //       let id = products.products[i]._id
-       
-  //       if(products.products[i].availableQuantity<1){
-  //           alert("Product is out of stock")
-  //           availableQuantity = 0
-  //       }
-  //       else{
-  //         availableQuantity = products.products[i].availableQuantity - 1
-  //       }
-  //       let data = [
-  //         {
-  //           "_id": id,
-           
-         
-  //           "availableQuantity": availableQuantity
-          
-  //         }
-  //     ]
-
-  //     console.log(data)
-
-  //     try {
-  //       const response = await fetch("http://localhost:3000/api/updateproducts", {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify(data),
-  //       });
-      
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! Status: ${response.status}`);
-  //       }
-      
-  //       const responseData = await response.json();
-  //       console.log(responseData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-      
-
-
-
-
-
-       
-       
-  //  }
-  // }
- 
-   
   
     if (cart[itemCode]) {
       // if item is in cart, increase quantity
@@ -262,8 +196,6 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
 
     setQuantity(cart[itemCode].quantity)
-
-
 
   }
 
