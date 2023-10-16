@@ -9,7 +9,7 @@ const handler = async (req, res) => {
         let token = req.body.token;
         let data = jsonwebtoken.verify(token, process.env.JWT_SECRET_KEY);
         let user = await User.findOne({ email: data.email });
-        console.log(user._id)
+
         let updatedUser;
         let updateData = {};
 

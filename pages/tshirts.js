@@ -7,7 +7,7 @@ import { BsFillCircleFill } from 'react-icons/bs';
 
 export default function Tshirts({ products }) {
 
-  // console.log(products);
+
   return (
     <>
       <Head>

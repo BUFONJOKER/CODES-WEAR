@@ -28,7 +28,7 @@ const handler = async (req, res) => {
         })
 
 
-        // console.log(req.body.cart)
+   
         
         await order.save();
 

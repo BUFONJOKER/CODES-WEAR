@@ -7,7 +7,6 @@ import { BsFillCircleFill } from 'react-icons/bs';
 
 export default function Mugs({ products }) {
 
-  // console.log(products);
   return (
     <>
       <Head>

@@ -117,10 +117,7 @@ export default function Slug({ addToCart, products }) {
 
     //get the data from api
     const data = await res.json();
-    // console.log(data)
 
-    //check the zipcode is available or not
-    //from the data in api
 
     // check if data includes zipcode
 
@@ -626,7 +623,7 @@ export default function Slug({ addToCart, products }) {
 
                 <button disabled={cartButtoncanBeClicked}
                   onClick={() => {
-                    // console.log(cartColor, cartSize)
+             
                     addToCart(slug, 1, price, slug, cartColor, cartSize, product_id);
                     toast.success('🦄 Adding to Cart', {
                       position: "top-center",

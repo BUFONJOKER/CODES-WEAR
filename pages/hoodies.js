@@ -6,7 +6,7 @@ import Product from "@/models/Product";
 import { BsFillCircleFill } from 'react-icons/bs';
 
 export default function Hoodies({ products }) {
-  // console.log(products);
+ 
 
   return (
     <>

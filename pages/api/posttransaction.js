@@ -7,8 +7,7 @@ const handler = async (req, res) => {
 
         let id = req.body._id
         let orders = await Order.find();
-        // console.log(orders)
-        // console.log(typeof(orders))
+   
         let cart;
         Object.keys(orders).map((item) => {
                 if(orders[item]._id == id){
@@ -35,8 +34,7 @@ const handler = async (req, res) => {
                 if (products.products[i].title == cart[item].name &&
                     products.products[i].color == cart[item].variant && products.products[i].size == cart[item].size) {
     
-                    // console.log(products.products[i].availableQuantity)
-                    // console.log(products.products[i]._id)
+                 
                     let id = products.products[i]._id
     
                     if (products.products[i].availableQuantity < 1) {
@@ -60,8 +58,7 @@ const handler = async (req, res) => {
                         }
                     ]
     
-                    // console.log(data)
-    
+                
                     try {
                         const response = await fetch("http://localhost:3000/api/updateproducts", {
                             method: 'POST',
@@ -82,9 +79,8 @@ const handler = async (req, res) => {
                         const responseData = await response.json();
 
 
-                        // console.log(responseData);
                     } catch (error) {
-                        console.error(error);
+                        res.status(400).json({ message: "Order not placed" });
                     }
     
     

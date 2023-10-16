@@ -58,7 +58,6 @@ export default function App({ Component, pageProps }) {
       setProgress(100)
     });
 
-    // console.log('useEffect in _app.js');
 
     const token = localStorage.getItem('token')
 
@@ -77,7 +76,7 @@ export default function App({ Component, pageProps }) {
     }
 
     catch (error) {
-      console.log(error);
+     res.status(400).json({ message: "Cart not found" });
     }
 
 

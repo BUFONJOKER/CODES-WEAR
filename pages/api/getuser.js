@@ -10,8 +10,7 @@ const handler = async (req, res) => {
             let token = req.body.token;
             let data = jsonwebtoken.verify(token, process.env.JWT_SECRET_KEY);
             let user = await User.findOne({ email: data.email });
-          console.log(  CryptoJS.AES.decrypt(user.password, process.env.AES_SECRET_KEY).toString());
-            // console.log(user.email);
+        
             res.status(200).json({ user });
           } catch (error) {
             // Handle the error here, for example, send an error response

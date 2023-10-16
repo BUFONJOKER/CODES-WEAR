@@ -48,7 +48,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
   const areFieldsEmpty = () => {
-    // console.log("zip  " + zip)
+   
     return name.trim() === "" ||
       email.trim() === "" || address.trim() === "" || phone.trim() === "" || zip.trim() === ""
       ;
@@ -82,11 +82,11 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
         //get the data from api
         const data = await res.json();
-        // console.log(data)
+     
 
 
         if (Object.keys(data).includes((zipCode))) {
-          // console.log("mani")
+        
           setCity(data[zipCode][0])
           setProvince(data[zipCode][1])
 
@@ -215,8 +215,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
     if (priceTempered === false && stock === true && phone.length == 11 && !isNaN(phone)) {
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
-      // console.log(data)
-      // console.log(priceTempered)
+      
 
       const res = await fetch('/api/productzipcode');
 
@@ -277,7 +276,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
           }
         } catch (error) {
           // If there's an error during the fetch request, handle it here
-          // console.error('Error during fetch:', error);
+       
 
           // You can also show an error toast if needed
           toast.error('❌ Api error!', {

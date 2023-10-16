@@ -8,7 +8,7 @@ import { BsFillCircleFill } from 'react-icons/bs';
 
 export default function Stickers({ products }) {
 
-  // console.log(products);
+
   return (
     <>
       <Head>

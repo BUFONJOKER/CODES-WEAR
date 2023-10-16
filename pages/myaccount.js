@@ -32,7 +32,7 @@ export default function MyAccount({ user, logout }) {
   const [confirmNewPassword, setConfirmNewPassword] = useState("")
   const router = useRouter()
 
-  // console.log(typeof (logout))
+ 
 
 
   useEffect(() => {
@@ -161,7 +161,7 @@ export default function MyAccount({ user, logout }) {
 
     if (res.ok) {
       if (newPassword === confirmNewPassword) {
-        // console.log("password same")
+  
         let data = {
           password: newPassword,
           token: localStorage.getItem('token')

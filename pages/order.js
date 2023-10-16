@@ -14,7 +14,7 @@ export default function MyOrder({ orders, id }) {
   // Format the time in the desired format in Urdu
   const formattedTime = pktMoment.format('LLLL');
   
-  // console.log(formattedTime);
+
   
   
   return (
@@ -79,12 +79,10 @@ export async function getServerSideProps(context) {
   const id = context.query.id;
 
   const orders = await Order.findById(context.query.id);
-  // console.log("avavga" + orders) 
-  // Query your database for orders
 
   // Convert the orders data to a object
   const data = JSON.parse(JSON.stringify(orders));
-  // console.log("daat" + data)
+ 
 
   return {
     props: {

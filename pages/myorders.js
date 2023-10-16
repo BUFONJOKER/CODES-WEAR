@@ -19,9 +19,7 @@ export default function Orders() {
 
       let data = await res.json()
       setOrders(data.orders)
-      // Object.keys(data.orders).map((item) => {
-      //   console.log(data.orders[item].email)
-      // })
+    
     }
 
 

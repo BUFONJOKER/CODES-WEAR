@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 export default function Payment({ cart, orders,clearCart }) {
 
 
-  // console.log("cart" + Object.keys(orders).length)
+ 
 
   const router = useRouter()
 
@@ -24,7 +24,7 @@ export default function Payment({ cart, orders,clearCart }) {
 
   }
   )
-  // console.log(cart_products)
+
 
   var orders_products = []
   var a = false;
@@ -42,8 +42,7 @@ export default function Payment({ cart, orders,clearCart }) {
 
   )
 
-  // console.log(a)
-  // console.log(orderId)
+
 
 
   const payementHandle = async (e) => {
@@ -73,9 +72,7 @@ export default function Payment({ cart, orders,clearCart }) {
         theme: "colored",
       });
     } catch (error) {
-      // If there's an error during the fetch request, handle it here
-      // console.error('Error during fetch:', error);
-    
+     
       // You can also show an error toast if needed
       toast.error('❌ Payment Failed', {
         position: "top-center",
@@ -93,7 +90,7 @@ export default function Payment({ cart, orders,clearCart }) {
     router.push("/")
     
 
-    // console.log("data sent to posttransaction api")
+ 
   }
 
 
@@ -206,12 +203,12 @@ export default function Payment({ cart, orders,clearCart }) {
 export async function getServerSideProps(context) {
   try {
     const orders = await Order.find({ status: "pending" });
-    // console.log("avavga" + orders) 
+  
     // Query your database for orders
 
     // Convert the orders data to a object
     const data = JSON.parse(JSON.stringify(orders));
-    // console.log("daat" + data)
+   
 
     return {
       props: {
@@ -219,7 +216,7 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    // console.error("Error fetching orders:", error);
+    
     return {
       props: {
         orders: null, // Handle the error gracefully
