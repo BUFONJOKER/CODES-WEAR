@@ -14,11 +14,6 @@ export default function ForgotPassword() {
   const [password, setPassword] = useState("")
   const router = useRouter()
 
-//   useEffect(() => {
-//     if(localStorage.getItem('token')){
-//       router.push('http://localhost:3000')
-//     }
-//   }, [router])
 
   const handleFormChange = (e) => {
 
