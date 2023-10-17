@@ -37,7 +37,7 @@ export default function Signup() {
     e.preventDefault()
 
     const data = { name, email, password }
-    const response = await fetch(`${process.env.HOST}/api/signup`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

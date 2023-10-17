@@ -113,7 +113,7 @@ export default function Slug({ addToCart, products }) {
   //handle zipcode check button
   const handleZipCodeCheck = async () => {
     //fetch the zipcode from api
-    const res = await fetch('/api/productzipcode');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/productzipcode`);
 
     //get the data from api
     const data = await res.json();

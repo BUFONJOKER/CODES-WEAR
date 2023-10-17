@@ -19,7 +19,7 @@ const handler = async (req, res) => {
         
  
 
-        const response = await fetch(`${process.env.HOST}/api/getproducts`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproducts`);
 
         //get the data from api
         const products = await response.json();
@@ -60,7 +60,7 @@ const handler = async (req, res) => {
     
                 
                     try {
-                        const response = await fetch(`${process.env.HOST}/api/updateproducts`, {
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateproducts`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

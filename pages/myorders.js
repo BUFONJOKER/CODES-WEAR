@@ -9,7 +9,7 @@ export default function Orders() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      let res = await fetch(`${process.env.HOST}/api/myorders`, {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/myorders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

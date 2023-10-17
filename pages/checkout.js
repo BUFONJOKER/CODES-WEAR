@@ -57,7 +57,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   const fetchUser = async () => {
     if (user.value != null) {
 
-      let res = await fetch(`${process.env.HOST}/api/getuser`, {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
         let zipCode = String(myuser.zipCode)
 
-        const res = await fetch('/api/productzipcode');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/productzipcode`);
 
         //get the data from api
         const data = await res.json();
@@ -117,7 +117,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       setZip(e.target.value)
 
       let zip = e.target.value
-      const res = await fetch('/api/productzipcode');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/productzipcode`);
 
       //get the data from api
       const data = await res.json();
@@ -217,7 +217,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       const data = { name, email, phone, address, zip, city, province, cart, products_id, total }
       
 
-      const res = await fetch('/api/productzipcode');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/productzipcode`);
 
       //get the data from api
       const zipCodes = await res.json();
@@ -238,7 +238,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       else {
 
         try {
-          const response = await fetch(`${process.env.HOST}/api/pretransaction`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransaction`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -448,7 +448,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`${process.env.HOST}/api/getproducts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getproducts`);
   const data = await res.json(); 
   return {
     props: {

@@ -52,7 +52,7 @@ export default function Payment({ cart, orders,clearCart }) {
 
     const data = { _id };
     try {
-      await fetch(`${process.env.HOST}/api/posttransaction`, {
+      await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posttransaction`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

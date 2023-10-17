@@ -45,7 +45,7 @@ export default function MyAccount({ user, logout }) {
   const fetchUser = async () => {
     if (user.value != null) {
 
-      let res = await fetch(`${process.env.HOST}/api/getuser`, {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export default function MyAccount({ user, logout }) {
     }
 
 
-    let response = await fetch(`${process.env.HOST}/api/updateuser`, {
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export default function MyAccount({ user, logout }) {
   const handleChangePasswordClick = async () => {
     const data = { email, password }
 
-    let res = await fetch(`${process.env.HOST}/api/login`, {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ export default function MyAccount({ user, logout }) {
         }
 
 
-        let response = await fetch(`${process.env.HOST}/api/updateuser`, {
+        let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
