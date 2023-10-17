@@ -38,7 +38,7 @@ export default function Login() {
 
     const data = { email, password }
     
-    let res = await fetch(`${process.env.HOST}/api/login`, {
+    let res = await fetch(`/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export default function Login() {
       setPassword("")
 
       setTimeout(() => {
-        router.push(`${process.env.HOST}`)
+        router.push("/")
       }, 1100);
 
 
