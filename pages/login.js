@@ -17,7 +17,7 @@ export default function Login() {
 
   useEffect(() => {
     if(localStorage.getItem('token')){
-      router.push('http://localhost:3000')
+      router.push(`${process.env.HOST}`)
     }
   }, [router])
 
@@ -38,7 +38,7 @@ export default function Login() {
 
     const data = { email, password }
     
-    let res = await fetch('http://localhost:3000/api/login', {
+    let res = await fetch(`${process.env.HOST}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export default function Login() {
       setPassword("")
 
       setTimeout(() => {
-        router.push('http://localhost:3000')
+        router.push(`${process.env.HOST}`)
       }, 1100);
 
 
