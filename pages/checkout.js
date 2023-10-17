@@ -57,7 +57,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
   const fetchUser = async () => {
     if (user.value != null) {
 
-      let res = await fetch('http://localhost:3000/api/getuser', {
+      let res = await fetch(`${process.env.HOST}/api/getuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
       else {
 
         try {
-          const response = await fetch('http://localhost:3000/api/pretransaction', {
+          const response = await fetch(`${process.env.HOST}/api/pretransaction`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -448,7 +448,7 @@ export default function Checkout({ user, cart, clearCart, removeFromCart, addToC
 
 
 export async function getServerSideProps(context) {
-  const res = await fetch('http://localhost:3000/api/getproducts');
+  const res = await fetch(`${process.env.HOST}/api/getproducts`);
   const data = await res.json(); 
   return {
     props: {

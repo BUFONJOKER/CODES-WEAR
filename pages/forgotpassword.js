@@ -8,17 +8,17 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 
 
-export default function Signup() {
+export default function ForgotPassword() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const router = useRouter()
 
-  useEffect(() => {
-    if(localStorage.getItem('token')){
-      router.push(process.env.HOST)
-    }
-  }, [router])
+//   useEffect(() => {
+//     if(localStorage.getItem('token')){
+//       router.push('http://localhost:3000')
+//     }
+//   }, [router])
 
   const handleFormChange = (e) => {
 
@@ -37,45 +37,28 @@ export default function Signup() {
     e.preventDefault()
 
     const data = { name, email, password }
-    const response = await fetch(`${process.env.HOST}/api/signup`, {
+    await fetch(`${process.env.HOST}/api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-  
 
 
-    if(response.status == 200){
-      console.log("response")
-      toast.success('🦄 Your Account has been Created', {
-        position: "top-center",
-        autoClose: 500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      })
-      setName("")
-      setEmail("")
-      setPassword("")
-    }
-
-    else{
-      toast.error('🦄 Something went wrong', {
-        position: "top-center",
-        autoClose: 500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      })
-    }
+    toast.success('🦄 Your Account has been Created', {
+      position: "top-center",
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
+    setName("")
+    setEmail("")
+    setPassword("")
   }
 
 
@@ -83,14 +66,25 @@ export default function Signup() {
     <>
 
       <Head>
-        <title>Codes Wear-Sign Up</title>
+        <title>Codes Wear-Forgot Password</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
-        Sign Up for Codes Wear Account
+        Forgot Password
       </h1>
-      
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div>
-        <section className=" mt-5 mb-5" style={{ backgroundColor: "#121F3E" }}>
+        <section className=" mt-5 mb-5" >
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-lg-12 col-xl-11">
@@ -99,18 +93,11 @@ export default function Signup() {
                     <div className="row justify-content-center">
                       <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Forgot Password</p>
 
                         <form method='POST' className="mx-1 mx-md-4">
 
-                          <div className="d-flex flex-row align-items-center mb-4">
-                            <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                            <div className="form-outline flex-fill mb-0">
-                              <label className="form-label" htmlFor="name">Name</label>
-                              <input onChange={handleFormChange} value={name} type="text" id="name" name='name' className="form-control" />
-
-                            </div>
-                          </div>
+                        
 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -120,21 +107,9 @@ export default function Signup() {
 
                             </div>
                           </div>
-
-                          <div className="d-flex flex-row align-items-center mb-4">
-                            <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                            <div className="form-outline flex-fill mb-0">
-                              <label className="form-label" htmlFor="password">Password</label>
-                              <input onChange={handleFormChange} value={password} type="password" id="password" name='password' className="form-control"
-                              autoComplete='password' />
-
-                            </div>
-                          </div>
-
-
-
+                   
                           <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                            <button onClick={handleFormSubmit} type="button" className="btn btn-primary btn-lg">Sign Up</button>
+                            <button onClick={handleFormSubmit} type="button" className="btn btn-dark btn-lg">Forgot Password</button>
                           </div>
 
                         </form>
