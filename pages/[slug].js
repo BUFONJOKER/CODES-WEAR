@@ -181,7 +181,7 @@ export default function Slug({ addToCart, products }) {
         theme="dark"
       />
       <Head>
-        <title>Codes Wear - {category} </title>
+        <title>Codes Wear-Products</title>
       </Head>
       <h1 className="text-white fw-bolder fst-italic text-center m-4 fs-1">
         {slug}
