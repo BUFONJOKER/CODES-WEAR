@@ -16,7 +16,7 @@ const handler = async (req, res) => {
             if (user.email == req.body.email && originalPassword == req.body.password) {
                 // Create token using jwt of the user
                 let token = jwt.sign({ name: user.name,
-                     email: user.email, password: originalPassword }, process.env.JWT_SECRET_KEY , { expiresIn: null });
+                     email: user.email, password: originalPassword }, process.env.JWT_SECRET_KEY );
                 
                 res.status(200).json({success: true, token: token});
             }

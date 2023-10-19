@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
-import { useState,r } from "react";
+import { useState, r } from "react";
 
 
 //icons
@@ -10,14 +10,15 @@ import {
   AiOutlineShoppingCart, AiOutlinePlusCircle,
   AiOutlineMinusCircle, AiFillCloseCircle
 } from "react-icons/ai";
-import { MdAccountCircle } from "react-icons/md";
+
+import { MdAccountCircle, MdOutlineAdminPanelSettings } from "react-icons/md";
 import { BsCartXFill, BsFillBagCheckFill } from "react-icons/bs";
 import { ro } from "date-fns/locale";
 import { useRouter } from "next/router";
 
 //navbar component
 export default function Navbar({ logout, user, cart, addToCart,
-  removeFromCart, clearCart}) {
+  removeFromCart, clearCart }) {
   const router = useRouter()
 
   //ref for cart
@@ -117,24 +118,24 @@ export default function Navbar({ logout, user, cart, addToCart,
             <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`} id="navcol-1">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link passHref className="nav-link active fs-1 m-3" href="/" onClick={closeMobileMenu}>
+                  <Link passHref className="nav-link active fs-2 mx-3" href="/" onClick={closeMobileMenu}>
                     Home
                   </Link>
                 </li>
 
-                <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="/about" onClick={closeMobileMenu}>
+                <li className="nav-item fs-2 mx-3">
+                  <Link className="nav-link fs-2 " href="/about" onClick={closeMobileMenu}>
                     About
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link fs-1 m-3" href="/contact" onClick={closeMobileMenu}>
+                <li className="nav-item mx-2">
+                  <Link className="nav-link fs-2 mx-3" href="/contact" onClick={closeMobileMenu}>
                     Contacts
                   </Link>
                 </li>
                 <li className="nav-item dropdown">
                   <Link
-                    className="dropdown-toggle nav-link fs-1 m-3"
+                    className="dropdown-toggle nav-link fs-2 mx-2"
                     aria-expanded="false"
                     data-bs-toggle="dropdown"
                     href="/"
@@ -161,7 +162,7 @@ export default function Navbar({ logout, user, cart, addToCart,
                 <li className="nav-item">
                   {user.value &&
 
-                    <Link className="nav-link text-white fs-1 mt-2" href="/"  >
+                    <Link className="nav-link text-white fs-2 " href="/"  >
 
                       <div className="dropdown" onClick={handleMenuItemClick} onMouseEnter={toggleDropdown} onMouseLeave={closeDropdown}>
 
@@ -172,19 +173,19 @@ export default function Navbar({ logout, user, cart, addToCart,
 
                         <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''} bg-secondary `} aria-labelledby="dropdownMenuButton">
                           <button
-                             onClick={()=>{
+                            onClick={() => {
                               router.push('/myaccount')
                             }}
                             className="dropdown-item text-black fw-bold"
 
-                            >My Account</button>
+                          >My Account</button>
                           <button
-                            onClick={()=>{
+                            onClick={() => {
                               router.push('/myorders')
                             }}
                             className="dropdown-item text-black fw-bold "
 
-                            >My Orders</button>
+                          >My Orders</button>
 
                           <button
                             onClick={() => {
@@ -201,19 +202,25 @@ export default function Navbar({ logout, user, cart, addToCart,
                     // <button type="button" className="btn btn-black fs-3">Log Out</button>
                   }
                   {!user.value &&
-                    <Link className="nav-link text-white m-4" href="/login" onClick={closeMobileMenu}>
-                      <button type="button" className="btn btn-primary fs-3">Log In</button>
+                    <Link className="nav-link text-white fs-2" href="/login" onClick={closeMobileMenu}>
+                      <button type="button" className="btn btn-primary fs-4">Log In</button>
                     </Link>
                   }
 
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link fs-2" href="/adminlogin" onClick={closeMobileMenu}>
+                  <MdOutlineAdminPanelSettings className="fs-1" />
+                  </Link>
+                </li>
+
 
 
                 <li className="nav-item">
 
 
                   <Link onClick={cartClick}
-                    className="nav-link text-white m-4"
+                    className="nav-link text-white mt-2"
                     data-bs-toggle="collapse"
                     href="#collapseExample"
                     aria-expanded="false"
@@ -223,6 +230,10 @@ export default function Navbar({ logout, user, cart, addToCart,
 
 
                 </li>
+
+
+
+
                 <li className="nav-item fixed-top">
 
                   <div ref={ref} className="collapse" id="collapseExample">
