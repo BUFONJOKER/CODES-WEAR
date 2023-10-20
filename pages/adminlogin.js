@@ -138,10 +138,7 @@ export default function AdminLogin() {
                             <button onClick={handleFormSubmit} type="button" className="btn btn-primary btn-lg">Log In</button>
                           </div>
 
-                          <div className="d-flex align-items-center justify-content-center pb-4">
-                            <p className="mb-0 me-2">Do not have an account?</p>
-                            <Link href="/signup" className="btn btn-outline-danger">Sign up</Link>
-                          </div>
+                     
 
                         </form>
 
