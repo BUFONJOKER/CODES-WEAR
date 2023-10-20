@@ -10,10 +10,11 @@ import Order from '@/models/Order';
 import { trusted } from 'mongoose';
 import User from '@/models/User';
 import Image from 'next/image';
+import { AiFillDashboard, AiFillCloseCircle } from 'react-icons/ai'
 
-export default function Dashboard({ products,orders,users }) {
+export default function Dashboard({ products, orders, users }) {
 
-  
+
   const [viewProduct, setViewProduct] = useState(false)
   const [addProduct, setAddProduct] = useState(false)
   const [deleteProduct, setDeleteProduct] = useState(false)
@@ -56,22 +57,22 @@ export default function Dashboard({ products,orders,users }) {
 
   }
 
-  const handleViewOrdersClick =  ()=>{
+  const handleViewOrdersClick = () => {
     setViewOrders(true)
     setDeleteProduct(false)
     setViewProduct(false)
     setAddProduct(false)
     setViewUsers(false)
-   }
+  }
 
-   const handleViewUsersClick =  ()=>{
+  const handleViewUsersClick = () => {
     setViewUsers(true)
 
     setViewOrders(false)
     setDeleteProduct(false)
     setViewProduct(false)
     setAddProduct(false)
-   }
+  }
 
   // Function to be called when a radio button is clicked
   const handleSizeRadioButtonClick = (event) => {
@@ -118,7 +119,7 @@ export default function Dashboard({ products,orders,users }) {
 
 
     let response = await res.json()
-   
+
 
 
     if (response.message === "Product deleted successfully") {
@@ -192,7 +193,7 @@ export default function Dashboard({ products,orders,users }) {
     }
   }
 
-  
+
 
 
 
@@ -207,42 +208,57 @@ export default function Dashboard({ products,orders,users }) {
 
         <div className="row">
           <div className="col-sm-3 mb-sm-0">
-            <div className="card" style={{ width: "300px", height: "1000px",backgroundColor:'#101010' }}>
-              <div className="card-body">
-                <div className="card-body" >
-                  <h5 className="card-title fs-1 m-3 text-white">Dashboard</h5>
-
-                  
-                      <button className='btn btn-dark fs-3 mt-3' 
-                       onClick={handleViewProductsClick}>View Products</button>
-                       
-                   
-                      <button className='btn btn-dark fs-4 mt-3' onClick={handleDeleteProductClick}>Delete Products</button>
-             
-
-                   
-                      <button className='btn btn-dark fs-3 mt-3' onClick={handleViewOrdersClick}>View Orders</button>
-                
-                    
-                   
-                      <button className='btn btn-dark fs-3 mt-3' onClick={handleViewUsersClick}>View Users</button>
-              
+ 
+                  <div class="offcanvas offcanvas-start text-center"
+                    style={{ width: "300px", backgroundColor: '#101010' }}
+                    data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="offcanvas-header">
 
 
-             
-                </div>
-              </div>
-            </div>
+                      <h5 className="card-title fs-1 text-white mt-5">Dashboard</h5>
+                      <button type="button" class="btn-close mb-5 " style={{ backgroundColor: 'white' }} data-bs-dismiss="offcanvas" aria-label="Close">
+
+                      </button>
+
+
+                    </div>
+                    <div class="offcanvas-body text-white">
+
+                      <ul>
+
+                        <li><button className='btn btn-dark mt-4'
+                          onClick={handleViewProductsClick}>View Products</button></li>
+                        <li><button className='btn btn-dark mt-4 ' style={{ fontSize:'100%' }} onClick={handleDeleteProductClick}>Delete Products</button></li>
+                        <li><button className='btn btn-dark mt-4' onClick={handleViewOrdersClick}>View Orders</button></li>
+
+                        <li><button className='btn btn-dark mt-4' onClick={handleViewUsersClick}>View Users</button></li>
+
+                      </ul>
+                    </div>
+                  </div>
+
+            
           </div>
 
-                {
-                  viewProduct === false && addProduct === false && deleteProduct === false && viewOrders === false && viewUsers === false ? <div className="container mt-2" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
-                  <h1 className='text-white text-center m-3'>Dashboard of CodesWear</h1>
+          {
+            viewProduct === false && addProduct === false && deleteProduct === false && viewOrders === false && viewUsers === false ? <div className="container mt-2" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
+              <p className='text-white text-center fs-1'>Dashboard of CodesWear</p>
 
-                  <Image src='/dashboard.jpg' alt='dashboard image' width={900} height={900} quality={100} />
+              <button class="btn btn-primary fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Click to see dashboard<AiFillDashboard /></button>
+              <p className='text-white mx-5 p-3 fs-1'>(Image is only for illustration purpose)</p>
+              <Image
+                className='text-center'
+                src='/dashboard.jpg'
+                alt='dashboard image'
+                style={{ width: '100%', height: 'auto' }}
+                quality={100}
+                width={600}
+                height={500}
+              />
 
-                </div>:null
-                }
+
+            </div> : null
+          }
 
           {
             viewProduct && (
@@ -811,113 +827,113 @@ export default function Dashboard({ products,orders,users }) {
 
           {
             viewOrders ?
-            
-            
-           <>
-            <div className="container mt-2 text-white" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
-            
-            <h1 className='m-5 text-center'>Orders Available in Database</h1>
-            
-            
-            
-            
-            <table className="table table-hover table-dark">
-            <thead>
-              <tr>
-                {/* <th scope="col">#</th> */}
-                <th scope="col">Sr.</th>
-                <th scope="col">_ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-              
-                <th scope="col">Address</th>
-                
-                <th scope="col">Zip</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
 
-            <tbody>
 
-              {
-                Object.keys(orders).map((key, index) => {
-                  return (
-                    <tr key={index}>
-                        <>
-                          <td>{index + 1}</td>
-                          <td>{orders[key]._id}</td>
-                          <td>{orders[key].name}</td>
-                          <td>{orders[key].email}</td>
-                        
-                          <td>{orders[key].address}</td>
-                         
-                          <td>{orders[key].zip}</td>
-                         
-                          <td>{orders[key].amount}</td>
-                          <td>{orders[key].status}</td>
+              <>
+                <div className="container mt-2 text-white" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
 
-                        </>               
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table> </div>
-          </>  :null}
+                  <h1 className='m-5 text-center'>Orders Available in Database</h1>
+
+
+
+
+                  <table className="table table-hover table-dark">
+                    <thead>
+                      <tr>
+                        {/* <th scope="col">#</th> */}
+                        <th scope="col">Sr.</th>
+                        <th scope="col">_ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+
+                        <th scope="col">Address</th>
+
+                        <th scope="col">Zip</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                      {
+                        Object.keys(orders).map((key, index) => {
+                          return (
+                            <tr key={index}>
+                              <>
+                                <td>{index + 1}</td>
+                                <td>{orders[key]._id}</td>
+                                <td>{orders[key].name}</td>
+                                <td>{orders[key].email}</td>
+
+                                <td>{orders[key].address}</td>
+
+                                <td>{orders[key].zip}</td>
+
+                                <td>{orders[key].amount}</td>
+                                <td>{orders[key].status}</td>
+
+                              </>
+                            </tr>
+                          )
+                        })
+                      }
+                    </tbody>
+                  </table> </div>
+              </> : null}
 
 
 
 
           {
             viewUsers ?
-            
-            
-            <div className="container mt-2 text-white" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
-            
-            <h1 className='m-5 text-center'>Users Available in Database</h1>
-            
-            
-            
-            
-            <table className="table table-hover table-dark">
-            <thead>
-              <tr>
-                {/* <th scope="col">#</th> */}
-                <th scope="col">Sr.</th>
-                <th scope="col">_ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>                              
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>                
-                <th scope="col">Zip</th>
-                
-              </tr>
-            </thead>
 
-            <tbody>
 
-              {
-                Object.keys(users).map((key, index) => {
-                  return (
-                    <tr key={index}>
-                        <>
-                          <td>{index + 1}</td>
-                          <td>{users[key]._id}</td>
-                          <td>{users[key].name}</td>
-                          <td>{users[key].email}</td>                        
-                          <td>{users[key].address}</td>
-                          <td>{users[key].phone}</td>
-                          <td>{users[key].zipCode}</td>
-                          
+              <div className="container mt-2 text-white" style={{ width: '1000px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
 
-                        </>               
+                <h1 className='m-5 text-center'>Users Available in Database</h1>
+
+
+
+
+                <table className="table table-hover table-dark">
+                  <thead>
+                    <tr>
+                      {/* <th scope="col">#</th> */}
+                      <th scope="col">Sr.</th>
+                      <th scope="col">_ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Zip</th>
+
                     </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table> </div>  :null}
+                  </thead>
+
+                  <tbody>
+
+                    {
+                      Object.keys(users).map((key, index) => {
+                        return (
+                          <tr key={index}>
+                            <>
+                              <td>{index + 1}</td>
+                              <td>{users[key]._id}</td>
+                              <td>{users[key].name}</td>
+                              <td>{users[key].email}</td>
+                              <td>{users[key].address}</td>
+                              <td>{users[key].phone}</td>
+                              <td>{users[key].zipCode}</td>
+
+
+                            </>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
+                </table> </div> : null}
         </div>
 
 
@@ -939,8 +955,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       products: data_products,
-      orders:data_orders,
-      users:data_users,
+      orders: data_orders,
+      users: data_users,
     },
   };
 }
